@@ -23,7 +23,9 @@ def _claims(token: str) -> Any:
     claims = verify_token(token, secret, "contextweave-mcp")
     import duckdb
 
-    conn = duckdb.connect(str(_database()), read_only=True, config={"enable_external_access": "false"})
+    conn = duckdb.connect(
+        str(_database()), read_only=True, config={"enable_external_access": "false"}
+    )
     try:
         rows = conn.execute(
             "SELECT account_id,scope,revoked FROM permission_scope "

@@ -1,0 +1,13 @@
+{
+  "timestamp_utc": "2026-09-20T17:45:01Z",
+  "evidence_class": "Q",
+  "status": "PASS",
+  "source_state": "Local source tree before final release freeze; not an E26 completion receipt",
+  "build_backend": "hatchling 1.32.3 in isolated build environment",
+  "wheel_path": "/home/bjw-0/.cache/contextweave-mcp/dist/contextweave_mcp-0.1.0-py3-none-any.whl",
+  "wheel_bytes": 40994,
+  "wheel_sha256": "b98518c6e4748beb3dadffbf5373b62118f02536b7aec28426c9b95074027c47",
+  "clean_import_path": "/home/bjw-0/.cache/contextweave-mcp/wheel_smoke/lib/python3.12/site-packages/contextweave/__init__.py",
+  "clean_import_pass": true,
+  "note": "The first no-isolation build attempt failed because hatchling was not installed in the development environment; the declared isolated build succeeded. The scratch wheel is not committed."
+}
