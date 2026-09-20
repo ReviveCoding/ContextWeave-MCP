@@ -1,0 +1,37 @@
+{
+  "code_source_identity": "uncommitted-source-sha256:c5d667e427428b49401c02b018c7370308d2983361e19ff541dfc6bb573ac2e1",
+  "config": {
+    "account_count": 20,
+    "impression_sample": 100000
+  },
+  "config_hash": "5d3d43a309db38e3dd2302a496929d827aea477d6d16e36e2389d1adf49388f0",
+  "data_model_identity": {
+    "T1_parquet": "ad6df2e0458b6a3432a5fd2fe56f2e6db0aee9e856af5dc3391c38ecb79b6fe2",
+    "T3": "d50277f36f4fc1b86ac196c327f3ccb450a18895325f78aea228f5f6d8d90ddf"
+  },
+  "device_backend": "CPU",
+  "ended_at_utc": "2026-09-20T06:29:56+00:00",
+  "environment_receipt": {
+    "database_readonly": true,
+    "device_backend": "CPU",
+    "duckdb": "1.5.5"
+  },
+  "evidence_class": "D",
+  "experiment_id": "E04-warehouse-v2",
+  "output_manifest": [
+    {
+      "bytes": 1664,
+      "path": "evidence/warehouse/manifest.json",
+      "sha256": "6155a9f45c8680295136085c301bb20104c9cf256b1dfdc6a13122fc4c85395f"
+    },
+    {
+      "bytes": 9799,
+      "path": "warehouse/schema.sql",
+      "sha256": "a6c5e2425baf95dc92b1ab433d5044f7c303429d2c4d5af5d5a5e1407ae3a7d0"
+    }
+  ],
+  "reason": null,
+  "stage": "E04",
+  "started_at_utc": "2026-09-20T06:29:52+00:00",
+  "status": "PASS"
+}

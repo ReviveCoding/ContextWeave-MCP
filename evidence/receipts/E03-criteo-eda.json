@@ -1,0 +1,37 @@
+{
+  "code_source_identity": "uncommitted-source-sha256:5c5192c7737225ba349d2c3bd5579fbc2845b992d26ec3db0c47501eb621237d",
+  "config": {
+    "parquet_compression": "zstd",
+    "source": "94ac7a465564349bc7ba008602211d5990a3c53cc133abc0aadef61ea2391a98"
+  },
+  "config_hash": "eb449538c3d0a8af961bf6602cb10cfb612b72b21278dadca735419c13a6ce7e",
+  "data_model_identity": {
+    "T1": "94ac7a465564349bc7ba008602211d5990a3c53cc133abc0aadef61ea2391a98",
+    "parquet": "ad6df2e0458b6a3432a5fd2fe56f2e6db0aee9e856af5dc3391c38ecb79b6fe2"
+  },
+  "device_backend": "CPU",
+  "ended_at_utc": "2026-09-20T06:17:41+00:00",
+  "environment_receipt": {
+    "device_backend": "CPU",
+    "duckdb": "1.5.5",
+    "scratch": "/home/bjw-0/.cache/contextweave-mcp"
+  },
+  "evidence_class": "D",
+  "experiment_id": "E03-criteo-eda",
+  "output_manifest": [
+    {
+      "bytes": 6503,
+      "path": "evidence/data/criteo_eda.json",
+      "sha256": "103dcdfa45ce0f8f35b7d0cdb4995e4e39d8fa818d9830ae95b4e33cd70c7a95"
+    },
+    {
+      "bytes": 671,
+      "path": "reports/DATA_AUDIT.md",
+      "sha256": "62935727e0bf559a46a8191ba7d618b19cc2cfbbce34337bd443f4db65dc7312"
+    }
+  ],
+  "reason": null,
+  "stage": "E03",
+  "started_at_utc": "2026-09-20T06:17:36+00:00",
+  "status": "PASS"
+}

@@ -1,0 +1,44 @@
+{
+  "active_long_running_process": null,
+  "completed_stages": [
+    "E00",
+    "E01",
+    "E02",
+    "E03",
+    "E04",
+    "E05"
+  ],
+  "current_stage": "E06",
+  "dataset_identities": {
+    "T1": "94ac7a465564349bc7ba008602211d5990a3c53cc133abc0aadef61ea2391a98",
+    "T3": "d50277f36f4fc1b86ac196c327f3ccb450a18895325f78aea228f5f6d8d90ddf",
+    "T4_manifest": "a9c3e872df37749ffefcb16f66bc2e5450ceaa3de691c984d67e139f81b3fe76"
+  },
+  "evidence_class": "U",
+  "failed_or_gated_stages": [
+    {
+      "experiment_id": "E04-warehouse",
+      "reason": "v1 placeholder data; superseded by v2",
+      "stage": "E04",
+      "status": "FAIL"
+    },
+    {
+      "experiment_id": "E05-catalog-graph",
+      "reason": "v1 graph audit superseded by v2",
+      "stage": "E05",
+      "status": "FAIL"
+    }
+  ],
+  "freeze_identities": {},
+  "last_valid_checkpoint": "E05-catalog-graph-v2",
+  "model_identities": {
+    "Qwen3-4B": "1cfa9a7208912126459214e8b04321603b3df60c",
+    "BGE-M3": "5617a9f61b028005a4858fdac845db406aefb181",
+    "BGE-reranker-v2-m3": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e"
+  },
+  "next_legal_action": "Commit audited recovery checkpoint, then restart corrected-v3 E06 B2 CUDA pilot from zero on the frozen 360-task manifest. Validate B2 and run paired C1, then E07 before any design freeze.",
+  "protected_accesses": [],
+  "protocol_identity": "2026-07-28 (SDK v2.2.0; E01-MCP-transports-v3 PASS on stdio and Streamable HTTP)",
+  "schema_version": 1,
+  "updated_at_utc": "2026-09-20T16:33:24+00:00"
+}

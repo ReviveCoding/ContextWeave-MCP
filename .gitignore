@@ -1,0 +1,51 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Local runtime
+logs/
+tmp/
+runtime/
+.cache/
+
+# Large/raw project data
+data/raw/
+data/staged/
+data/curated/
+data/external/downloads/
+data/**/*.parquet
+data/**/*.arrow
+data/**/*.feather
+data/**/*.duckdb
+data/**/*.sqlite
+data/**/*.db
+
+# Local model weights
+models/
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+
+# IMPORTANT:
+# Compact canonical evidence under evidence/ is intentionally NOT globally
+# ignored. Keep versionable JSON/CSV/Parquet summaries when licensing permits.

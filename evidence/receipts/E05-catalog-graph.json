@@ -1,0 +1,39 @@
+{
+  "code_source_identity": "uncommitted-source-sha256:5c5192c7737225ba349d2c3bd5579fbc2845b992d26ec3db0c47501eb621237d",
+  "config": {
+    "catalog_version": "v1"
+  },
+  "config_hash": "de1249159d9d6fb52e5999dc24b0cd6f3d8e0e111009e9118501f3dd7737e396",
+  "data_model_identity": {
+    "T3": "377de6ca28d223c3d3c6a5ed3f3720937f5eb13fc76fc94267b503b0f0c1e599"
+  },
+  "device_backend": "CPU",
+  "ended_at_utc": "2026-09-20T06:20:05+00:00",
+  "environment_receipt": {
+    "device_backend": "CPU"
+  },
+  "evidence_class": "D",
+  "experiment_id": "E05-catalog-graph",
+  "output_manifest": [
+    {
+      "bytes": 3950,
+      "path": "warehouse/metric_catalog_v1.json",
+      "sha256": "04ada652756dec27337c5208ee0ca04970b89ad52eada0aef426496f800a297f"
+    },
+    {
+      "bytes": 6435,
+      "path": "warehouse/dependency_graph_v1.json",
+      "sha256": "83fd7063f4435290ade549d8f26bce604041ea829ba21e9c91fdb6244b38d017"
+    },
+    {
+      "bytes": 190,
+      "path": "evidence/catalog/audit_v1.json",
+      "sha256": "bd29808dc44504ea1a0d7ecf41852f3ab6882ed9ae2db06dd49f0593a93a5103"
+    }
+  ],
+  "reason": "Superseded: catalog audit referenced v1 warehouse; v2 audit required.",
+  "stage": "E05",
+  "started_at_utc": "2026-09-20T06:20:05+00:00",
+  "status": "FAIL",
+  "superseded_by": "E05-catalog-graph-v2"
+}

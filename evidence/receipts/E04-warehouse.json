@@ -1,0 +1,38 @@
+{
+  "code_source_identity": "uncommitted-source-sha256:5c5192c7737225ba349d2c3bd5579fbc2845b992d26ec3db0c47501eb621237d",
+  "config": {
+    "account_count": 20,
+    "impression_sample": 100000
+  },
+  "config_hash": "5d3d43a309db38e3dd2302a496929d827aea477d6d16e36e2389d1adf49388f0",
+  "data_model_identity": {
+    "T1_parquet": "ad6df2e0458b6a3432a5fd2fe56f2e6db0aee9e856af5dc3391c38ecb79b6fe2",
+    "T3": "377de6ca28d223c3d3c6a5ed3f3720937f5eb13fc76fc94267b503b0f0c1e599"
+  },
+  "device_backend": "CPU",
+  "ended_at_utc": "2026-09-20T06:18:19+00:00",
+  "environment_receipt": {
+    "database_readonly": true,
+    "device_backend": "CPU",
+    "duckdb": "1.5.5"
+  },
+  "evidence_class": "D",
+  "experiment_id": "E04-warehouse",
+  "output_manifest": [
+    {
+      "bytes": 1654,
+      "path": "evidence/warehouse/manifest_v1.json",
+      "sha256": "f55043b3bfe193a66f689635c38f65e3bdee178cee7a397cb6f71a41da80ed99"
+    },
+    {
+      "bytes": 9799,
+      "path": "warehouse/schema.sql",
+      "sha256": "a6c5e2425baf95dc92b1ab433d5044f7c303429d2c4d5af5d5a5e1407ae3a7d0"
+    }
+  ],
+  "reason": "Superseded: non-core table families contained synthetic placeholder rows; v2 rebuilt with populated controlled values.",
+  "stage": "E04",
+  "started_at_utc": "2026-09-20T06:17:57+00:00",
+  "status": "FAIL",
+  "superseded_by": "E04-warehouse-v2"
+}

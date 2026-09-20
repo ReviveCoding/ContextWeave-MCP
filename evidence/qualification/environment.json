@@ -1,0 +1,25 @@
+{
+  "cuda": {
+    "available": true,
+    "device": "NVIDIA GeForce RTX 4090 Laptop GPU",
+    "device_count": 1,
+    "dtype": "float32",
+    "max_memory_allocated_bytes": 8704,
+    "test_sum": 357389824.0,
+    "torch_cuda_version": "13.0"
+  },
+  "device_backend": "CUDA",
+  "nvidia_smi": "NVIDIA GeForce RTX 4090 Laptop GPU, 616.92, 16376, 0, 71",
+  "nvidia_smi_exit_code": 0,
+  "packages": {
+    "duckdb": "1.5.5",
+    "mcp": "2.2.0",
+    "sentence-transformers": "6.1.0",
+    "sqlglot": "30.18.0",
+    "torch": "2.14.0",
+    "transformers": "5.17.0"
+  },
+  "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+  "python": "3.12.14",
+  "timestamp_utc": "2026-09-20T06:19:51+00:00"
+}

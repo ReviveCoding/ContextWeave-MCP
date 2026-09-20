@@ -1,0 +1,43 @@
+{
+  "criteo": {
+    "archive_sha256": "94ac7a465564349bc7ba008602211d5990a3c53cc133abc0aadef61ea2391a98",
+    "columns": [
+      "timestamp",
+      "uid",
+      "campaign",
+      "conversion",
+      "conversion_timestamp",
+      "conversion_id",
+      "attribution",
+      "click",
+      "click_pos",
+      "click_nb",
+      "cost",
+      "cpo",
+      "time_since_last_click",
+      "cat1",
+      "cat2",
+      "cat3",
+      "cat4",
+      "cat5",
+      "cat6",
+      "cat7",
+      "cat8",
+      "cat9"
+    ],
+    "compressed_bytes": 653015824,
+    "license": "CC BY-NC-SA 4.0",
+    "mirror_revision": "904188a63cbad78bee43cd26ff5ee4ac77903986",
+    "raw_location": "/home/bjw-0/.cache/contextweave-mcp/source/criteo_attribution_dataset.tsv.gz",
+    "source": "Criteo-owned Hugging Face mirror",
+    "validated_event_count": 16468027
+  },
+  "spider2_dbt": {
+    "commit": "cafb867313aab4e674652054198f383cf4018943",
+    "evaluator_sha256": "29d989870c1878bc4de7508a68dd4edd203c9da6773a2fae91701a163af634f5",
+    "manifest_sha256": "a9c3e872df37749ffefcb16f66bc2e5450ceaa3de691c984d67e139f81b3fe76",
+    "scratch_location": "/home/bjw-0/.cache/contextweave-mcp/source/Spider2/spider2-dbt",
+    "task_count": 68
+  },
+  "timestamp_utc": "2026-09-20T06:09:02+00:00"
+}

@@ -1,0 +1,49 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "contextweave-mcp"
+version = "0.1.0"
+description = "Evidence-first context selection for governed analytical agents"
+requires-python = ">=3.12,<3.14"
+dependencies = [
+  "duckdb==1.5.5",
+  "mcp==2.2.0",
+  "numpy>=2.2,<3",
+  "polars==1.44.2",
+  "pyarrow==25.0.1",
+  "pyjwt>=2.10,<3",
+  "scipy==1.18.1",
+  "sqlglot==30.18.0",
+  "statsmodels==0.15.0",
+]
+
+[project.optional-dependencies]
+gpu = [
+  "torch==2.14.0",
+  "transformers==5.17.0",
+  "sentence-transformers==6.1.0",
+  "accelerate>=1.10,<2",
+]
+
+[dependency-groups]
+dev = ["pytest==9.1.1", "ruff==0.16.8", "mypy==2.3.1", "build>=1.3,<2"]
+
+[project.scripts]
+contextweave = "contextweave.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/contextweave"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+files = ["src/contextweave"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

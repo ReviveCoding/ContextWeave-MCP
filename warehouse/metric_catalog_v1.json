@@ -1,0 +1,153 @@
+[
+  {
+    "aliases": [
+      "click-through rate"
+    ],
+    "authorization_scope": "analytics:read",
+    "canonical_name": "CTR",
+    "formula": "SUM(clicks)/NULLIF(SUM(impressions),0)",
+    "freshness": "daily",
+    "grain": "campaign-day",
+    "metric_id": "M_CTR",
+    "provenance": "controlled synthetic metric",
+    "required_columns": [
+      "campaign_daily.clicks",
+      "campaign_daily.impressions"
+    ],
+    "required_tables": [
+      "campaign_daily"
+    ],
+    "sensitivity": "account",
+    "unit": "ratio",
+    "version": "v1"
+  },
+  {
+    "aliases": [
+      "conversion rate"
+    ],
+    "authorization_scope": "analytics:read",
+    "canonical_name": "CVR",
+    "formula": "SUM(conversions)/NULLIF(SUM(clicks),0)",
+    "freshness": "daily",
+    "grain": "campaign-day",
+    "metric_id": "M_CVR",
+    "provenance": "controlled synthetic metric",
+    "required_columns": [
+      "campaign_daily.conversions",
+      "campaign_daily.clicks"
+    ],
+    "required_tables": [
+      "campaign_daily"
+    ],
+    "sensitivity": "account",
+    "unit": "ratio",
+    "version": "v1"
+  },
+  {
+    "aliases": [
+      "cost"
+    ],
+    "authorization_scope": "analytics:read",
+    "canonical_name": "spend",
+    "formula": "SUM(transformed_cost)",
+    "freshness": "daily",
+    "grain": "campaign-day",
+    "metric_id": "M_SPEND",
+    "provenance": "derived from transformed Criteo cost",
+    "required_columns": [
+      "campaign_daily.transformed_cost"
+    ],
+    "required_tables": [
+      "campaign_daily"
+    ],
+    "sensitivity": "account",
+    "unit": "transformed cost unit",
+    "version": "v1"
+  },
+  {
+    "aliases": [
+      "cost per attributed action"
+    ],
+    "authorization_scope": "analytics:read",
+    "canonical_name": "CPA",
+    "formula": "SUM(transformed_cost)/NULLIF(SUM(attributed_conversions),0)",
+    "freshness": "daily",
+    "grain": "campaign-day",
+    "metric_id": "M_CPA",
+    "provenance": "controlled synthetic metric",
+    "required_columns": [
+      "campaign_daily.transformed_cost",
+      "campaign_daily.attributed_conversions"
+    ],
+    "required_tables": [
+      "campaign_daily"
+    ],
+    "sensitivity": "account",
+    "unit": "transformed cost unit/action",
+    "version": "v1"
+  },
+  {
+    "aliases": [
+      "credited orders"
+    ],
+    "authorization_scope": "analytics:read",
+    "canonical_name": "attributed conversions",
+    "formula": "SUM(attributed_conversions)",
+    "freshness": "daily",
+    "grain": "campaign-day",
+    "metric_id": "M_ATTR_CONV",
+    "provenance": "Criteo attribution field aggregation",
+    "required_columns": [
+      "campaign_daily.attributed_conversions"
+    ],
+    "required_tables": [
+      "campaign_daily"
+    ],
+    "sensitivity": "account",
+    "unit": "count",
+    "version": "v1"
+  },
+  {
+    "aliases": [
+      "credited value"
+    ],
+    "authorization_scope": "analytics:read",
+    "canonical_name": "attributed value",
+    "formula": "SUM(attributed_value)",
+    "freshness": "daily",
+    "grain": "campaign-day",
+    "metric_id": "M_ATTR_VALUE",
+    "provenance": "generated controlled extension",
+    "required_columns": [
+      "campaign_daily.attributed_value"
+    ],
+    "required_tables": [
+      "campaign_daily"
+    ],
+    "sensitivity": "account",
+    "unit": "synthetic value unit",
+    "version": "v1"
+  },
+  {
+    "aliases": [
+      "return on ad spend"
+    ],
+    "authorization_scope": "analytics:read",
+    "canonical_name": "ROAS",
+    "formula": "SUM(attributed_value)/NULLIF(SUM(transformed_cost),0)",
+    "freshness": "daily",
+    "grain": "campaign-day",
+    "metric_id": "M_ROAS",
+    "provenance": "controlled synthetic metric; not production ROAS",
+    "required_columns": [
+      "campaign_daily.attributed_value",
+      "campaign_daily.transformed_cost"
+    ],
+    "required_tables": [
+      "campaign_daily"
+    ],
+    "sensitivity": "account",
+    "unit": "ratio of synthetic value to transformed cost",
+    "version": "v1"
+  }
+]

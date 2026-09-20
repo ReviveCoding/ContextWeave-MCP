@@ -1,0 +1,32 @@
+{
+  "code_source_identity": "uncommitted-source-sha256:0b6c7814dd13a79e8cc0456bc41aae9d0eee34d9f77ad4e8246072255c0e9f4e",
+  "config": {
+    "async_readiness_seconds": 30,
+    "protocol": "2026-07-28",
+    "sdk": "2.2.0"
+  },
+  "config_hash": "b88b97eb967ed23769e2a7c31aa52d04b4bc0758a9ab02e9b065185c8075a880",
+  "data_model_identity": {},
+  "device_backend": "CPU",
+  "ended_at_utc": "2026-09-20T06:50:07+00:00",
+  "environment_receipt": {
+    "device_backend": "CPU",
+    "transports": [
+      "stdio",
+      "streamable_http"
+    ]
+  },
+  "evidence_class": "Q",
+  "experiment_id": "E01-MCP-transports-v3",
+  "output_manifest": [
+    {
+      "bytes": 431,
+      "path": "evidence/mcp/transport_smoke.json",
+      "sha256": "6170e9db9ab881dc1cf9b57afbbeb423101ed58c504fc35826b26219a823cbab"
+    }
+  ],
+  "reason": null,
+  "stage": "E01",
+  "started_at_utc": "2026-09-20T06:49:11+00:00",
+  "status": "PASS"
+}

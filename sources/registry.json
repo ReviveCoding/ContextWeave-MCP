@@ -1,0 +1,52 @@
+{
+  "checked_at_utc": "2026-09-20T06:01:00Z",
+  "schema_version": 1,
+  "sources": [
+    {
+      "archive_member_identity": "criteo_attribution_dataset.tsv.gz",
+      "canonical_description_url": "https://ailab.criteo.com/criteo-attribution-modeling-bidding-dataset/",
+      "compressed_bytes": 653015824,
+      "evidence_role": "T1 real public ads event structure",
+      "license": "CC BY-NC-SA 4.0 (Criteo terms)",
+      "redistribution_policy": "Do not commit raw or adapted row-level data; attribution/noncommercial/share-alike conditions apply",
+      "retrieved_at": "2026-09-20T06:09:02+00:00",
+      "schema": "timestamp,uid,campaign,conversion,conversion_timestamp,conversion_id,attribution,click,click_pos,click_nb,cost,cpo,time_since_last_click,cat1..cat9",
+      "sha256": "94ac7a465564349bc7ba008602211d5990a3c53cc133abc0aadef61ea2391a98",
+      "source_id": "T1_CRITEO_ATTRIBUTION",
+      "source_name": "Criteo Attribution Modeling for Bidding",
+      "source_url": "https://huggingface.co/datasets/criteo/criteo-attribution-dataset/resolve/main/criteo_attribution_dataset.tsv.gz",
+      "status": "validated",
+      "version_or_commit": "904188a63cbad78bee43cd26ff5ee4ac77903986"
+    },
+    {
+      "archive_member_identity": "spider2-dbt",
+      "compressed_bytes": null,
+      "evidence_role": "T4 external transfer",
+      "license": "MIT repository; inspect bundled DB licenses separately",
+      "redistribution_policy": "Do not copy bundled databases into Git without license audit",
+      "retrieved_at": "2026-09-20T06:09:02+00:00",
+      "schema": "upstream task/evaluator manifests",
+      "sha256": "a9c3e872df37749ffefcb16f66bc2e5450ceaa3de691c984d67e139f81b3fe76",
+      "source_id": "T4_SPIDER2_DBT",
+      "source_name": "Spider2-DBT",
+      "source_url": "https://github.com/xlang-ai/Spider2",
+      "status": "manifest validated; evaluator not yet executed",
+      "version_or_commit": "cafb867313aab4e674652054198f383cf4018943"
+    },
+    {
+      "archive_member_identity": "2.6.md",
+      "compressed_bytes": null,
+      "evidence_role": "T6 domain documentation",
+      "license": "check repository license for exact redistribution terms",
+      "redistribution_policy": "Link to canonical source; do not bundle until terms verified",
+      "retrieved_at": null,
+      "schema": "documentation",
+      "sha256": null,
+      "source_id": "T6_OPENRTB",
+      "source_name": "IAB Tech Lab OpenRTB",
+      "source_url": "https://github.com/InteractiveAdvertisingBureau/openrtb2.x/releases/tag/2.6-202606",
+      "status": "source verified",
+      "version_or_commit": "2.6-202606"
+    }
+  ]
+}

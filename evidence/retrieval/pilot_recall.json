@@ -1,0 +1,22 @@
+{
+  "bm25": {
+    "full_dependency_recall_at_k": 0.5,
+    "mean_required_object_recall_at_k": 0.8611111111111112
+  },
+  "dense": {
+    "full_dependency_recall_at_k": 0.6666666666666666,
+    "mean_required_object_recall_at_k": 0.8891203703703703
+  },
+  "evidence_class": "Q",
+  "hybrid": {
+    "full_dependency_recall_at_k": 0.5083333333333333,
+    "mean_required_object_recall_at_k": 0.8631944444444445
+  },
+  "k": 20,
+  "reranked": {
+    "full_dependency_recall_at_k": 0.5083333333333333,
+    "mean_required_object_recall_at_k": 0.8631944444444445
+  },
+  "scope": "retrieval only; not task success",
+  "task_count": 360
+}

@@ -1,0 +1,252 @@
+{
+  "edges": [
+    {
+      "kind": "metric_requires",
+      "source": "COLUMN:campaign_daily.attributed_conversions",
+      "target": "TABLE:campaign_daily"
+    },
+    {
+      "kind": "metric_requires",
+      "source": "COLUMN:campaign_daily.attributed_value",
+      "target": "TABLE:campaign_daily"
+    },
+    {
+      "kind": "metric_requires",
+      "source": "COLUMN:campaign_daily.clicks",
+      "target": "TABLE:campaign_daily"
+    },
+    {
+      "kind": "metric_requires",
+      "source": "COLUMN:campaign_daily.conversions",
+      "target": "TABLE:campaign_daily"
+    },
+    {
+      "kind": "metric_requires",
+      "source": "COLUMN:campaign_daily.impressions",
+      "target": "TABLE:campaign_daily"
+    },
+    {
+      "kind": "metric_requires",
+      "source": "COLUMN:campaign_daily.transformed_cost",
+      "target": "TABLE:campaign_daily"
+    },
+    {
+      "kind": "metric_requires",
+      "source": "M_CTR",
+      "target": "COLUMN:campaign_daily.clicks"
+    },
+    {
+      "kind": "metric_requires",
+      "source": "M_CTR",
+      "target": "COLUMN:campaign_daily.impressions"
+    },
+    {
+      "kind": "metric_requires",
+      "source": "M_CTR",
+      "target": "TABLE:campaign_daily"
+    },
+    {
+      "kind": "metric_requires",
+      "source": "M_CVR",
+      "target": "COLUMN:campaign_daily.clicks"
+    },
+    {
+      "kind": "metric_requires",
+      "source": "M_CVR",
+      "target": "COLUMN:campaign_daily.conversions"
+    },
+    {
+      "kind": "metric_requires",
+      "source": "M_CVR",
+      "target": "TABLE:campaign_daily"
+    },
+    {
+      "kind": "metric_requires",
+      "source": "M_SPEND",
+      "target": "COLUMN:campaign_daily.transformed_cost"
+    },
+    {
+      "kind": "metric_requires",
+      "source": "M_SPEND",
+      "target": "TABLE:campaign_daily"
+    },
+    {
+      "kind": "metric_requires",
+      "source": "M_CPA",
+      "target": "COLUMN:campaign_daily.attributed_conversions"
+    },
+    {
+      "kind": "metric_requires",
+      "source": "M_CPA",
+      "target": "COLUMN:campaign_daily.transformed_cost"
+    },
+    {
+      "kind": "metric_requires",
+      "source": "M_CPA",
+      "target": "TABLE:campaign_daily"
+    },
+    {
+      "kind": "metric_requires",
+      "source": "M_ATTR_CONV",
+      "target": "COLUMN:campaign_daily.attributed_conversions"
+    },
+    {
+      "kind": "metric_requires",
+      "source": "M_ATTR_CONV",
+      "target": "TABLE:campaign_daily"
+    },
+    {
+      "kind": "metric_requires",
+      "source": "M_ATTR_VALUE",
+      "target": "COLUMN:campaign_daily.attributed_value"
+    },
+    {
+      "kind": "metric_requires",
+      "source": "M_ATTR_VALUE",
+      "target": "TABLE:campaign_daily"
+    },
+    {
+      "kind": "metric_requires",
+      "source": "M_ROAS",
+      "target": "COLUMN:campaign_daily.attributed_value"
+    },
+    {
+      "kind": "metric_requires",
+      "source": "M_ROAS",
+      "target": "COLUMN:campaign_daily.transformed_cost"
+    },
+    {
+      "kind": "metric_requires",
+      "source": "M_ROAS",
+      "target": "TABLE:campaign_daily"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "TABLE:campaign_daily",
+      "kind": "TABLE",
+      "sensitivity": "public",
+      "tenant_id": null,
+      "text": "campaign_daily",
+      "token_cost": 8,
+      "version": "v1"
+    },
+    {
+      "id": "COLUMN:campaign_daily.attributed_conversions",
+      "kind": "COLUMN",
+      "sensitivity": "public",
+      "tenant_id": null,
+      "text": "campaign_daily.attributed_conversions",
+      "token_cost": 6,
+      "version": "v1"
+    },
+    {
+      "id": "COLUMN:campaign_daily.attributed_value",
+      "kind": "COLUMN",
+      "sensitivity": "public",
+      "tenant_id": null,
+      "text": "campaign_daily.attributed_value",
+      "token_cost": 6,
+      "version": "v1"
+    },
+    {
+      "id": "COLUMN:campaign_daily.clicks",
+      "kind": "COLUMN",
+      "sensitivity": "public",
+      "tenant_id": null,
+      "text": "campaign_daily.clicks",
+      "token_cost": 6,
+      "version": "v1"
+    },
+    {
+      "id": "COLUMN:campaign_daily.conversions",
+      "kind": "COLUMN",
+      "sensitivity": "public",
+      "tenant_id": null,
+      "text": "campaign_daily.conversions",
+      "token_cost": 6,
+      "version": "v1"
+    },
+    {
+      "id": "COLUMN:campaign_daily.impressions",
+      "kind": "COLUMN",
+      "sensitivity": "public",
+      "tenant_id": null,
+      "text": "campaign_daily.impressions",
+      "token_cost": 6,
+      "version": "v1"
+    },
+    {
+      "id": "COLUMN:campaign_daily.transformed_cost",
+      "kind": "COLUMN",
+      "sensitivity": "public",
+      "tenant_id": null,
+      "text": "campaign_daily.transformed_cost",
+      "token_cost": 6,
+      "version": "v1"
+    },
+    {
+      "id": "M_CTR",
+      "kind": "METRIC",
+      "sensitivity": "public",
+      "tenant_id": null,
+      "text": "CTR: SUM(clicks)/NULLIF(SUM(impressions),0) [ratio]",
+      "token_cost": 24,
+      "version": "v1"
+    },
+    {
+      "id": "M_CVR",
+      "kind": "METRIC",
+      "sensitivity": "public",
+      "tenant_id": null,
+      "text": "CVR: SUM(conversions)/NULLIF(SUM(clicks),0) [ratio]",
+      "token_cost": 24,
+      "version": "v1"
+    },
+    {
+      "id": "M_SPEND",
+      "kind": "METRIC",
+      "sensitivity": "public",
+      "tenant_id": null,
+      "text": "spend: SUM(transformed_cost) [transformed cost unit]",
+      "token_cost": 24,
+      "version": "v1"
+    },
+    {
+      "id": "M_CPA",
+      "kind": "METRIC",
+      "sensitivity": "public",
+      "tenant_id": null,
+      "text": "CPA: SUM(transformed_cost)/NULLIF(SUM(attributed_conversions),0) [transformed cost unit/action]",
+      "token_cost": 24,
+      "version": "v1"
+    },
+    {
+      "id": "M_ATTR_CONV",
+      "kind": "METRIC",
+      "sensitivity": "public",
+      "tenant_id": null,
+      "text": "attributed conversions: SUM(attributed_conversions) [count]",
+      "token_cost": 24,
+      "version": "v1"
+    },
+    {
+      "id": "M_ATTR_VALUE",
+      "kind": "METRIC",
+      "sensitivity": "public",
+      "tenant_id": null,
+      "text": "attributed value: SUM(attributed_value) [synthetic value unit]",
+      "token_cost": 24,
+      "version": "v1"
+    },
+    {
+      "id": "M_ROAS",
+      "kind": "METRIC",
+      "sensitivity": "public",
+      "tenant_id": null,
+      "text": "ROAS: SUM(attributed_value)/NULLIF(SUM(transformed_cost),0) [ratio of synthetic value to transformed cost]",
+      "token_cost": 24,
+      "version": "v1"
+    }
+  ]
+}

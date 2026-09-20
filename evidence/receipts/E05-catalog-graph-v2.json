@@ -1,0 +1,38 @@
+{
+  "code_source_identity": "uncommitted-source-sha256:fa8c843284e5fe6d9b9fd203d54cc852856506f27ec5f9f8c5f44a70ae11f8a9",
+  "config": {
+    "catalog_version": "v1"
+  },
+  "config_hash": "de1249159d9d6fb52e5999dc24b0cd6f3d8e0e111009e9118501f3dd7737e396",
+  "data_model_identity": {
+    "T3": "d50277f36f4fc1b86ac196c327f3ccb450a18895325f78aea228f5f6d8d90ddf"
+  },
+  "device_backend": "CPU",
+  "ended_at_utc": "2026-09-20T06:31:17+00:00",
+  "environment_receipt": {
+    "device_backend": "CPU"
+  },
+  "evidence_class": "D",
+  "experiment_id": "E05-catalog-graph-v2",
+  "output_manifest": [
+    {
+      "bytes": 3950,
+      "path": "warehouse/metric_catalog.json",
+      "sha256": "04ada652756dec27337c5208ee0ca04970b89ad52eada0aef426496f800a297f"
+    },
+    {
+      "bytes": 6435,
+      "path": "warehouse/dependency_graph.json",
+      "sha256": "83fd7063f4435290ade549d8f26bce604041ea829ba21e9c91fdb6244b38d017"
+    },
+    {
+      "bytes": 190,
+      "path": "evidence/catalog/audit.json",
+      "sha256": "58daed84ff385405396dcbf37270110b7961d46eb21cf2cc98aadf6ffb000f17"
+    }
+  ],
+  "reason": null,
+  "stage": "E05",
+  "started_at_utc": "2026-09-20T06:31:17+00:00",
+  "status": "PASS"
+}

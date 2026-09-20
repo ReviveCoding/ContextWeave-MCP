@@ -1,0 +1,36 @@
+{
+  "code_source_identity": "uncommitted-source-sha256:48b58a4b64649d36b88c7cbef42ac5c8284758725fa85ed306925f94f387dccd",
+  "config": {
+    "min_criteo_rows": 16000000,
+    "spider_tasks": 68
+  },
+  "config_hash": "3e31550c284eaa18cf24bba87994ece934bba8b193a76c5867c652346ef4a78d",
+  "data_model_identity": {
+    "T1": "94ac7a465564349bc7ba008602211d5990a3c53cc133abc0aadef61ea2391a98",
+    "T4_manifest": "a9c3e872df37749ffefcb16f66bc2e5450ceaa3de691c984d67e139f81b3fe76"
+  },
+  "device_backend": "CPU",
+  "ended_at_utc": "2026-09-20T06:09:03+00:00",
+  "environment_receipt": {
+    "device_backend": "CPU",
+    "scratch": "/home/bjw-0/.cache/contextweave-mcp"
+  },
+  "evidence_class": "D",
+  "experiment_id": "E02-source-validation",
+  "output_manifest": [
+    {
+      "bytes": 1263,
+      "path": "evidence/sources/validated.json",
+      "sha256": "9bfb85f4c1ecdee10ef97c1e9794a7d6fa8f515ff426199ba1d21590c0465316"
+    },
+    {
+      "bytes": 2625,
+      "path": "sources/registry.json",
+      "sha256": "41b1bea29331009b87072e7d90d991f3233ce5b96ea96df43483ac2402d4e742"
+    }
+  ],
+  "reason": null,
+  "stage": "E02",
+  "started_at_utc": "2026-09-20T06:08:35+00:00",
+  "status": "PASS"
+}

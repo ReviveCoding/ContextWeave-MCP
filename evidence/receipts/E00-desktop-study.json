@@ -1,0 +1,37 @@
+{
+  "code_source_identity": "uncommitted-source-sha256:48b58a4b64649d36b88c7cbef42ac5c8284758725fa85ed306925f94f387dccd",
+  "config": {
+    "source_count": 3
+  },
+  "config_hash": "81335f519d8a6c7dc1d003240b8972cb6843ace82ea74d81c08ea375bdf2a6d1",
+  "data_model_identity": {},
+  "device_backend": "CPU",
+  "ended_at_utc": "2026-09-20T06:08:34+00:00",
+  "environment_receipt": {
+    "device_backend": "CPU",
+    "source_review": "official upstream pages"
+  },
+  "evidence_class": "Q",
+  "experiment_id": "E00-desktop-study",
+  "output_manifest": [
+    {
+      "bytes": 2891,
+      "path": "reports/DESKTOP_STUDY.md",
+      "sha256": "46f22c829650b26c3959b8648e79b741d7526dc8bab1b68995fa2910ec5cd0af"
+    },
+    {
+      "bytes": 2371,
+      "path": "sources/registry.json",
+      "sha256": "329fe8285a1454755eb5c58d0964f03ebbe82b21f4ab080534064ba261b15aa8"
+    },
+    {
+      "bytes": 639,
+      "path": "NEXT_ACTION.md",
+      "sha256": "47553c5e13939b2bc1884f103669fe5c3e2e28daef1adceee5ad3cb265746856"
+    }
+  ],
+  "reason": null,
+  "stage": "E00",
+  "started_at_utc": "2026-09-20T06:08:34+00:00",
+  "status": "PASS"
+}

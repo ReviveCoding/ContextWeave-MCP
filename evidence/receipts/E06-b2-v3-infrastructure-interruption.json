@@ -1,0 +1,27 @@
+{
+  "experiment_id": "E06-b2-v3-infrastructure-interruption",
+  "stage": "E06",
+  "status": "INTERRUPTED_INFRASTRUCTURE",
+  "evidence_class": "Q",
+  "started_at_utc": "2026-09-20T06:53:00Z",
+  "observed_at_utc": "2026-09-20T16:33:24Z",
+  "reason": "Machine reboot interrupted the GPU owner while loading Qwen weights; this is not a scientific failure or task outcome.",
+  "process_observation": "No contextweave.model_pilot or Qwen process in WSL ps; nvidia-smi reported no compute applications and 0 MiB used.",
+  "checkpoint": {
+    "path": "evidence/pilot/b2_qwen3_4b.jsonl",
+    "bytes": 0,
+    "valid_rows": 0
+  },
+  "task_manifest_sha256": "6cfa67f0abd89b954210d68e88f8cdbc9c1cd3bb961c65b899759c89dc21363f",
+  "task_count": 360,
+  "model_revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+  "backend": "transformers/torch CUDA",
+  "batch_size": 4,
+  "log": {
+    "path": "/home/bjw-0/.cache/contextweave-mcp/e06_b2_v3.log",
+    "sha256": "cb391e5e8747daa29bc55620ab1d27487070c491341adffb51e7a904b2bfa35a",
+    "bytes": 7249,
+    "last_observed_event": "Loading Qwen model weights reached 398/398; no checkpoint row or experiment outcome followed."
+  },
+  "scientific_outcome": null
+}

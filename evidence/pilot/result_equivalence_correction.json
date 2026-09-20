@@ -1,0 +1,9 @@
+{
+  "evidence_class": "Q",
+  "invalid_partial_rows": 96,
+  "new_task_sha256": "6cfa67f0abd89b954210d68e88f8cdbc9c1cd3bb961c65b899759c89dc21363f",
+  "old_task_sha256": "1276404b1a4db354354ca3bc3f62cc1321887c01117da33b9756867fd58c6a5b",
+  "reason": "Previous result hash included SQL column aliases; result-set equivalence now compares normalized row values and width, independent of aliases and row order.",
+  "status": "INVALID_SCORING_PROTOCOL",
+  "timestamp_utc": "2026-09-20T06:52:26+00:00"
+}

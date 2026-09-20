@@ -1,0 +1,325 @@
+{
+  "attributed_rows": 442424,
+  "campaigns": 675,
+  "clicks": 5947563,
+  "conversion_rows": 806196,
+  "daily": [
+    {
+      "clicks": 199240,
+      "conversions": 28122,
+      "cost": 154.7010819709537,
+      "day": 0,
+      "events": 572035
+    },
+    {
+      "clicks": 191217,
+      "conversions": 26375,
+      "cost": 154.14318409445838,
+      "day": 1,
+      "events": 556092
+    },
+    {
+      "clicks": 185646,
+      "conversions": 25366,
+      "cost": 146.85204737543398,
+      "day": 2,
+      "events": 530015
+    },
+    {
+      "clicks": 178933,
+      "conversions": 23656,
+      "cost": 136.24571104271976,
+      "day": 3,
+      "events": 498596
+    },
+    {
+      "clicks": 210162,
+      "conversions": 27781,
+      "cost": 167.56820613773172,
+      "day": 4,
+      "events": 591180
+    },
+    {
+      "clicks": 216961,
+      "conversions": 30166,
+      "cost": 174.81309564273096,
+      "day": 5,
+      "events": 638165
+    },
+    {
+      "clicks": 200642,
+      "conversions": 27670,
+      "cost": 160.97037872583843,
+      "day": 6,
+      "events": 580979
+    },
+    {
+      "clicks": 190126,
+      "conversions": 26044,
+      "cost": 155.61073528665568,
+      "day": 7,
+      "events": 546166
+    },
+    {
+      "clicks": 197149,
+      "conversions": 27177,
+      "cost": 152.61227186586976,
+      "day": 8,
+      "events": 564794
+    },
+    {
+      "clicks": 179719,
+      "conversions": 25168,
+      "cost": 137.77191985265597,
+      "day": 9,
+      "events": 500383
+    },
+    {
+      "clicks": 171999,
+      "conversions": 22978,
+      "cost": 124.62394073900384,
+      "day": 10,
+      "events": 460907
+    },
+    {
+      "clicks": 210192,
+      "conversions": 26714,
+      "cost": 153.70908525046514,
+      "day": 11,
+      "events": 574411
+    },
+    {
+      "clicks": 212855,
+      "conversions": 29179,
+      "cost": 159.84416126758998,
+      "day": 12,
+      "events": 609323
+    },
+    {
+      "clicks": 197565,
+      "conversions": 27489,
+      "cost": 150.08132351679046,
+      "day": 13,
+      "events": 553089
+    },
+    {
+      "clicks": 187481,
+      "conversions": 26127,
+      "cost": 144.37729486480498,
+      "day": 14,
+      "events": 522063
+    },
+    {
+      "clicks": 184257,
+      "conversions": 26216,
+      "cost": 148.2421316359696,
+      "day": 15,
+      "events": 505808
+    },
+    {
+      "clicks": 178684,
+      "conversions": 25515,
+      "cost": 153.97427696730873,
+      "day": 16,
+      "events": 477680
+    },
+    {
+      "clicks": 172509,
+      "conversions": 23509,
+      "cost": 144.78057303464868,
+      "day": 17,
+      "events": 450258
+    },
+    {
+      "clicks": 204091,
+      "conversions": 26894,
+      "cost": 177.5702817783835,
+      "day": 18,
+      "events": 538532
+    },
+    {
+      "clicks": 212241,
+      "conversions": 29120,
+      "cost": 188.01795624790893,
+      "day": 19,
+      "events": 582350
+    },
+    {
+      "clicks": 202913,
+      "conversions": 27852,
+      "cost": 185.82575279076363,
+      "day": 20,
+      "events": 552965
+    },
+    {
+      "clicks": 205782,
+      "conversions": 28135,
+      "cost": 180.73290305548016,
+      "day": 21,
+      "events": 562085
+    },
+    {
+      "clicks": 195055,
+      "conversions": 26670,
+      "cost": 164.1523524857467,
+      "day": 22,
+      "events": 528347
+    },
+    {
+      "clicks": 186589,
+      "conversions": 24502,
+      "cost": 157.16917340743578,
+      "day": 23,
+      "events": 506792
+    },
+    {
+      "clicks": 164916,
+      "conversions": 20985,
+      "cost": 132.78375312547584,
+      "day": 24,
+      "events": 436408
+    },
+    {
+      "clicks": 188189,
+      "conversions": 22961,
+      "cost": 149.65952065426396,
+      "day": 25,
+      "events": 507128
+    },
+    {
+      "clicks": 206145,
+      "conversions": 26962,
+      "cost": 169.34223359233562,
+      "day": 26,
+      "events": 581336
+    },
+    {
+      "clicks": 185940,
+      "conversions": 24987,
+      "cost": 159.1823051302491,
+      "day": 27,
+      "events": 518487
+    },
+    {
+      "clicks": 168527,
+      "conversions": 22883,
+      "cost": 141.8120854548948,
+      "day": 28,
+      "events": 459375
+    },
+    {
+      "clicks": 185143,
+      "conversions": 25252,
+      "cost": 157.6660813823047,
+      "day": 29,
+      "events": 493827
+    },
+    {
+      "clicks": 176695,
+      "conversions": 23741,
+      "cost": 144.5047225709997,
+      "day": 30,
+      "events": 468451
+    }
+  ],
+  "domain_invalid_rows": 0,
+  "duplicate_hash_rows": 0,
+  "duplicate_note": "64-bit row-hash proxy; hash collisions are possible",
+  "malformed_rows": 0,
+  "max_cost": 0.0583448264308,
+  "max_ts": 2671199,
+  "max_user_events": 880,
+  "min_cost": 1e-05,
+  "min_ts": 0,
+  "n": 16468027,
+  "null_counts": {
+    "attribution": 0,
+    "campaign": 0,
+    "cat1": 0,
+    "cat2": 0,
+    "cat3": 0,
+    "cat4": 0,
+    "cat5": 0,
+    "cat6": 0,
+    "cat7": 0,
+    "cat8": 0,
+    "cat9": 0,
+    "click": 0,
+    "click_nb": 0,
+    "click_pos": 0,
+    "conversion": 0,
+    "conversion_id": 0,
+    "conversion_timestamp": 0,
+    "cost": 0,
+    "cpo": 0,
+    "time_since_last_click": 0,
+    "timestamp": 0,
+    "uid": 0
+  },
+  "parquet_bytes": 385994220,
+  "parquet_sha256": "ad6df2e0458b6a3432a5fd2fe56f2e6db0aee9e856af5dc3391c38ecb79b6fe2",
+  "top_campaigns": [
+    {
+      "campaign": "10341182",
+      "clicks": 194847,
+      "conversions": 45479,
+      "events": 437385
+    },
+    {
+      "campaign": "30801593",
+      "clicks": 168971,
+      "conversions": 20618,
+      "events": 431587
+    },
+    {
+      "campaign": "17686799",
+      "clicks": 112964,
+      "conversions": 6486,
+      "events": 381084
+    },
+    {
+      "campaign": "15398570",
+      "clicks": 135066,
+      "conversions": 23853,
+      "events": 378464
+    },
+    {
+      "campaign": "5061834",
+      "clicks": 85763,
+      "conversions": 9861,
+      "events": 299755
+    },
+    {
+      "campaign": "15184511",
+      "clicks": 93175,
+      "conversions": 36995,
+      "events": 256102
+    },
+    {
+      "campaign": "29427842",
+      "clicks": 79009,
+      "conversions": 13797,
+      "events": 239272
+    },
+    {
+      "campaign": "28351001",
+      "clicks": 138590,
+      "conversions": 23230,
+      "events": 222470
+    },
+    {
+      "campaign": "18975823",
+      "clicks": 100798,
+      "conversions": 10575,
+      "events": 217646
+    },
+    {
+      "campaign": "31772643",
+      "clicks": 90476,
+      "conversions": 10810,
+      "events": 195759
+    }
+  ],
+  "total_transformed_cost": 4829.340540952643,
+  "users": 6142256
+}

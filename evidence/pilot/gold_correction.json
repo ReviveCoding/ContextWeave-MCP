@@ -1,0 +1,8 @@
+{
+  "evidence_class": "Q",
+  "new_task_sha256": "1276404b1a4db354354ca3bc3f62cc1321887c01117da33b9756867fd58c6a5b",
+  "old_task_sha256": "351cd7bc19051dc4910bc393c7c9542657d580f6cafc814d67e5e6fb66292853",
+  "reason": "Lookup gold SQL included campaign ID although the question requests only name and status; four-task smoke outputs preserve failed protocol identity.",
+  "smoke_status": "INVALID_GOLD",
+  "timestamp_utc": "2026-09-20T06:44:59+00:00"
+}

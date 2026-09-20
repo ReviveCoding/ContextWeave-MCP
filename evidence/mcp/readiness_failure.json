@@ -1,0 +1,9 @@
+{
+  "experiment_id": "E01-MCP-readiness-5s-under-pilot-load",
+  "evidence_class": "Q",
+  "status": "FAIL",
+  "failure": "HTTP server readiness timeout",
+  "condition": "Local HTTP transport smoke concurrent with CUDA pilot; fixed 5 second readiness window",
+  "remediation": "A 30 second readiness window passed the same in-memory, stdio, and Streamable HTTP protocol smoke",
+  "claim_boundary": "This does not establish production service latency or availability"
+}
