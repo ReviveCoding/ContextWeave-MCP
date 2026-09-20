@@ -6,6 +6,7 @@ import hashlib
 import json
 import os
 import re
+import subprocess
 import tempfile
 import time
 from pathlib import Path
@@ -102,9 +103,26 @@ def _progress_state(method: str, count: int, total: int, task_identity: str) -> 
     os.replace(temporary, next_action)
 
 
+def _assert_exclusive_gpu_owner() -> None:
+    result = subprocess.run(
+        ["nvidia-smi", "--query-compute-apps=pid", "--format=csv,noheader"],
+        text=True,
+        capture_output=True,
+        check=True,
+    )
+    other_pids = {
+        int(line.strip())
+        for line in result.stdout.splitlines()
+        if line.strip().isdigit() and int(line.strip()) != os.getpid()
+    }
+    if other_pids:
+        raise RuntimeError(f"GPU is shared with another compute process: {sorted(other_pids)}")
+
+
 def run_pilot() -> dict[str, Any]:
     if not torch.cuda.is_available():
         raise RuntimeError("GPU-designated pilot cannot run on CPU")
+    _assert_exclusive_gpu_owner()
     if not MODEL_DIR.exists():
         raise FileNotFoundError(MODEL_DIR)
     started = utc_now()
@@ -144,16 +162,23 @@ def run_pilot() -> dict[str, Any]:
     bm25 = BM25([doc["text"] for doc in docs])
     rankings: dict[str, list[str]] = {}
     if method == "C1":
-        rankings = {
-            row["task_id"]: row["reranked"]
-            for row in (
-                json.loads(line)
-                for line in (ROOT / "evidence/retrieval/pilot_rankings.jsonl")
-                .read_text(encoding="utf-8")
-                .splitlines()
-                if line
-            )
-        }
+        ranking_path = ROOT / "evidence/retrieval/pilot_rankings.jsonl"
+        ranking_receipt = json.loads(
+            (ROOT / "evidence/retrieval/pilot_rankings_receipt.json").read_text(encoding="utf-8")
+        )
+        if (
+            hashlib.sha256(ranking_path.read_bytes()).hexdigest()
+            != ranking_receipt["rankings_sha256"]
+        ):
+            raise RuntimeError("frozen C1 rankings hash changed")
+        ranking_rows = [
+            json.loads(line)
+            for line in ranking_path.read_text(encoding="utf-8").splitlines()
+            if line
+        ]
+        rankings = {row["task_id"]: row["reranked"] for row in ranking_rows}
+        if len(rankings) != len(ranking_rows) or set(rankings) != set(task_ids):
+            raise RuntimeError("frozen C1 ranking task IDs changed")
     torch.cuda.reset_peak_memory_stats()
     load_start = time.perf_counter()
     tokenizer = AutoTokenizer.from_pretrained(str(MODEL_DIR), local_files_only=True)
@@ -178,6 +203,7 @@ def run_pilot() -> dict[str, Any]:
         remaining = remaining[:limit]
     completed_rows = [existing[task_id] for task_id in task_ids if task_id in existing]
     for offset in range(0, len(remaining), batch_size):
+        _assert_exclusive_gpu_owner()
         chunk = remaining[offset : offset + batch_size]
         prompts = []
         context_sizes = []
