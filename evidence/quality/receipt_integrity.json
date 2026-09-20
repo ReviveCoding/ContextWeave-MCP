@@ -1,0 +1,24 @@
+{
+  "evidence_class": "Q",
+  "historical_archives_verified": [
+    {
+      "archive": "evidence/mcp/transport_smoke_v3.json",
+      "experiment_id": "E01-MCP-transports-v3",
+      "original": "evidence/mcp/transport_smoke.json"
+    }
+  ],
+  "historically_mutable_outputs_without_snapshot": [
+    {
+      "experiment_id": "E00-desktop-study",
+      "path": "sources/registry.json"
+    },
+    {
+      "experiment_id": "E00-desktop-study",
+      "path": "NEXT_ACTION.md"
+    }
+  ],
+  "receipt_outputs_checked": 24,
+  "status": "PASS_WITH_HISTORICAL_CAVEATS",
+  "timestamp_utc": "2026-09-20T17:50:59+00:00",
+  "unexplained_mismatches": []
+}
