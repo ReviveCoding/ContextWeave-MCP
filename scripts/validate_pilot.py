@@ -15,7 +15,9 @@ def validate(method: str) -> dict[str, object]:
     identity = hashlib.sha256(task_path.read_bytes()).hexdigest()
     if identity != manifest["task_file_sha256"]:
         raise ValueError("frozen task file changed")
-    tasks = [json.loads(line) for line in task_path.read_text(encoding="utf-8").splitlines() if line]
+    tasks = [
+        json.loads(line) for line in task_path.read_text(encoding="utf-8").splitlines() if line
+    ]
     ids = {task["task_id"] for task in tasks}
     if len(ids) != len(tasks) or len(ids) != manifest["task_count"]:
         raise ValueError("frozen task IDs or task count invalid")

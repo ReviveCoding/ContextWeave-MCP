@@ -27,8 +27,13 @@ def main() -> None:
     try:
         for task in tasks:
             claims = Claims(
-                "gold_audit", task["tenant_id"], tuple(task["account_ids"]),
-                frozenset({"analytics:read"}), "gold_audit", 0, 2**31,
+                "gold_audit",
+                task["tenant_id"],
+                tuple(task["account_ids"]),
+                frozenset({"analytics:read"}),
+                "gold_audit",
+                0,
+                2**31,
             )
             result = conn.execute(scoped_sql(task["gold_sql"], claims))
             names = [description[0] for description in result.description]

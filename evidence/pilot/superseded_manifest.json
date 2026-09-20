@@ -1,0 +1,27 @@
+{
+  "evidence_class": "Q",
+  "status": "SUPERSEDED_PROTOCOLS_PRESERVED",
+  "rule": "These files must never be counted as corrected-v3 B2 or C1 outcomes.",
+  "files": [
+    {
+      "path": "evidence/pilot/b2_smoke_v1_invalid_gold.jsonl",
+      "bytes": 2680,
+      "sha256": "f5bea7e120e26108da5ceaf3dc01134be0e9d504f02db56a570f71ffa197acad",
+      "reason": "Invalid lookup gold SQL selected an extra campaign ID."
+    },
+    {
+      "path": "evidence/pilot/c1_smoke_v1_invalid_gold.jsonl",
+      "bytes": 2530,
+      "sha256": "ba4fc2f230a484374031a95e3db44e2a21f965fcdeec006b072d2e2c97128798",
+      "reason": "Invalid lookup gold SQL selected an extra campaign ID."
+    },
+    {
+      "path": "evidence/pilot/b2_partial_v2_alias_scoring.jsonl",
+      "bytes": 65421,
+      "sha256": "54dd85c22acb51a1192bd8ed96c377996707ebffa4ea9a6c5704752444c2d690",
+      "rows": 96,
+      "reason": "Result hash incorrectly included SQL column aliases."
+    }
+  ],
+  "corrected_v3_task_manifest_sha256": "6cfa67f0abd89b954210d68e88f8cdbc9c1cd3bb961c65b899759c89dc21363f"
+}
