@@ -38,19 +38,20 @@ def test_jwt_and_scoped_sql() -> None:
         "iat": now,
         "exp": now + 60,
     }
-    token = jwt.encode(payload, "test-only-secret", algorithm="HS256")
-    claims = verify_token(token, "test-only-secret", "contextweave-test")
+    secret = "0123456789abcdef0123456789abcdef"
+    token = jwt.encode(payload, secret, algorithm="HS256")
+    claims = verify_token(token, secret, "contextweave-test")
     assert claims.tenant_id == "tenant_00"
     scoped = scoped_sql("SELECT sum(clicks) FROM campaign_daily", claims)
     assert "tenant_00" in scoped and "account_00" in scoped
     with pytest.raises(SecurityError):
-        verify_token(token, "test-only-secret", "wrong-audience")
+        verify_token(token, secret, "wrong-audience")
     with pytest.raises(SecurityError):
-        verify_token(token, "test-only-secret", "contextweave-test", frozenset({"analyst"}))
+        verify_token(token, secret, "contextweave-test", frozenset({"analyst"}))
     with pytest.raises(SecurityError):
         verify_token(
-            jwt.encode({**payload, "exp": now - 10}, "test-only-secret", algorithm="HS256"),
-            "test-only-secret",
+            jwt.encode({**payload, "exp": now - 10}, secret, algorithm="HS256"),
+            secret,
             "contextweave-test",
         )
 
