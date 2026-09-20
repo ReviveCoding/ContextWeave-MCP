@@ -1,0 +1,27 @@
+{
+  "timestamp_utc": "2026-09-20T19:13:29Z",
+  "evidence_class": "Q",
+  "source_commit": "870f0cf308ef5e74d018bea055901c9f84189983",
+  "scope": "Recovery and pre-E07 code; not final E26 closure",
+  "ruff_format_check": {
+    "status": "PASS",
+    "command": "ruff format --check src tests scripts",
+    "files": 30
+  },
+  "ruff_check": {
+    "status": "PASS",
+    "command": "ruff check src tests scripts"
+  },
+  "strict_mypy": {
+    "status": "PASS",
+    "command": "mypy src/contextweave",
+    "source_files": 20
+  },
+  "pytest": {
+    "status": "PASS",
+    "command": "pytest -q",
+    "passed": 15
+  },
+  "package_build_and_clean_import": "PASS in evidence/quality/package_build.json",
+  "note": "GPU experiments were not rerun by these CPU-only gates."
+}
