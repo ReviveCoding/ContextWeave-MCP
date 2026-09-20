@@ -24,6 +24,7 @@ DESIGN: dict[str, Any] = {
     "latency_outer_unit": "process/server replicate",
     "secondary_multiplicity": "Holm",
     "feasible_max_locked_tasks": 600,
+    "family_cluster_sensitivity": "required N is the larger of task-paired and semantic-family-cluster estimates",
     "protected_reuse": "one shot",
 }
 
@@ -90,14 +91,16 @@ def plan_power() -> dict[str, Any]:
     delta = (candidate_only - baseline_only) / n
     discordance = (candidate_only + baseline_only) / n
     variance = max(discordance - delta * delta, 1 / n)
+    family_cluster_variance = max(family_effect_variance * n / len(family_effects), 1 / n)
     margin = DESIGN["noninferiority_margin_absolute_success"]
     if delta + margin > 0:
-        n_required = math.ceil(
-            (norm.ppf(1 - DESIGN["one_sided_alpha"]) + norm.ppf(DESIGN["target_power"])) ** 2
-            * variance
-            / (delta + margin) ** 2
-        )
+        z_sum_sq = (norm.ppf(1 - DESIGN["one_sided_alpha"]) + norm.ppf(DESIGN["target_power"])) ** 2
+        n_required_task = math.ceil(z_sum_sq * variance / (delta + margin) ** 2)
+        n_required_family = math.ceil(z_sum_sq * family_cluster_variance / (delta + margin) ** 2)
+        n_required = max(n_required_task, n_required_family)
     else:
+        n_required_task = None
+        n_required_family = None
         n_required = None
     feasible = n_required is not None and n_required <= DESIGN["feasible_max_locked_tasks"]
     result = {
@@ -113,27 +116,32 @@ def plan_power() -> dict[str, Any]:
         "variance_estimate": variance,
         "family_effects": family_effects,
         "family_effect_variance": family_effect_variance,
+        "family_cluster_variance_per_task": family_cluster_variance,
+        "required_locked_n_task_paired": n_required_task,
+        "required_locked_n_family_sensitivity": n_required_family,
         "required_locked_n": n_required,
         "feasible": feasible,
         "status": "DESIGN_READY" if feasible else "INSUFFICIENT_POWER",
         "pilot_task_manifest_sha256": expected_identity,
         "evidence_class": "Q",
-        "note": "Normal approximation is a planning calculation, not a locked hypothesis result. Semantic-family clustering must be assessed before design freeze.",
+        "note": "Normal approximation and six-family variance are conservative planning estimates, not locked hypothesis results. Assess family diversity and protected split construction before design freeze.",
     }
     rel = "evidence/power/paired_design.json"
     atomic_json(ROOT / rel, result)
-    if feasible:
-        record(
-            "E07",
-            "E07-paired-power",
-            DESIGN,
-            {"pilot_tasks": expected_identity},
-            {"device_backend": "CPU", "scipy": "1.18.1"},
-            "PASS",
-            [rel],
-            "Q",
-            started,
-        )
+    record(
+        "E07",
+        "E07-paired-power",
+        DESIGN,
+        {"pilot_tasks": expected_identity},
+        {"device_backend": "CPU", "scipy": "1.18.1"},
+        "PASS" if feasible else "GATED",
+        [rel],
+        "Q",
+        started,
+        reason=None
+        if feasible
+        else "Required paired/cluster-sensitive N exceeds feasible 600 or NI planning effect is nonpositive",
+    )
     return result
 
 
