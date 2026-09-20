@@ -79,6 +79,7 @@ def record(
     evidence_class: str,
     start: str,
     reason: str | None = None,
+    complete_stage: bool = True,
 ) -> Path:
     if stage not in STAGES or evidence_class not in EVIDENCE_CLASSES:
         raise ValueError("unknown stage or evidence class")
@@ -124,16 +125,17 @@ def record(
     atomic_json(path, receipt)
     state = load_state()
     if status == "PASS":
-        if stage not in state["completed_stages"]:
+        if complete_stage and stage not in state["completed_stages"]:
             state["completed_stages"].append(stage)
         previous = state.get("last_valid_checkpoint")
         previous_stage = previous[:3] if isinstance(previous, str) else ""
         if previous_stage not in STAGES or STAGES.index(stage) >= STAGES.index(previous_stage):
             state["last_valid_checkpoint"] = experiment_id
-        state["current_stage"] = next(
-            (candidate for candidate in STAGES if candidate not in state["completed_stages"]),
-            "E26",
-        )
+        if complete_stage:
+            state["current_stage"] = next(
+                (candidate for candidate in STAGES if candidate not in state["completed_stages"]),
+                "E26",
+            )
     elif status in {"FAIL", "GATED"}:
         state["failed_or_gated_stages"].append(
             {"stage": stage, "experiment_id": experiment_id, "status": status, "reason": reason}

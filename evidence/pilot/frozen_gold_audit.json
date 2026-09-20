@@ -1,0 +1,11 @@
+{
+  "evidence_class": "Q",
+  "gold_mismatch_count": 0,
+  "gold_mismatch_task_ids": [],
+  "status": "PASS",
+  "task_count": 360,
+  "task_manifest_sha256": "6cfa67f0abd89b954210d68e88f8cdbc9c1cd3bb961c65b899759c89dc21363f",
+  "timestamp_utc": "2026-09-20T16:42:08+00:00",
+  "unique_task_count": 360,
+  "warehouse_sha256": "d50277f36f4fc1b86ac196c327f3ccb450a18895325f78aea228f5f6d8d90ddf"
+}

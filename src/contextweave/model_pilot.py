@@ -16,7 +16,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 
 from contextweave.benchmark import normalized_hash
 from contextweave.context_planner import plan_context
-from contextweave.evidence import ROOT, atomic_json, record, utc_now
+from contextweave.evidence import ROOT, atomic_json, load_state, record, save_state, utc_now
 from contextweave.retrieval import BM25, corpus
 from contextweave.security import Claims, SecurityError, run_readonly_sql
 
@@ -77,6 +77,29 @@ def _atomic_checkpoint(path: Path, rows: list[dict[str, Any]]) -> None:
         os.fsync(f.fileno())
         temporary = Path(f.name)
     os.replace(temporary, path)
+
+
+def _progress_state(method: str, count: int, total: int, task_identity: str) -> None:
+    state = load_state()
+    active = state.get("active_long_running_process")
+    if not isinstance(active, dict) or active.get("task_manifest_sha256") != task_identity:
+        raise RuntimeError("active GPU job identity changed during pilot")
+    active["completed_rows"] = count
+    active["last_checkpoint_at_utc"] = utc_now()
+    save_state(state)
+    next_action = ROOT / "NEXT_ACTION.md"
+    with tempfile.NamedTemporaryFile("w", encoding="utf-8", dir=ROOT, delete=False) as f:
+        f.write(
+            f"# Next action\n\nE06 {method} CUDA pilot has {count}/{total} validated checkpoint rows "
+            f"on frozen task manifest `{task_identity}`. The single GPU owner is active. "
+            "If interrupted, verify it is dead and resume the same method from the atomic checkpoint. "
+            "After B2 and C1 each have 360 paired task identities, run E07. "
+            "Do not enter DESIGN_FREEZE or E08 until E07 and pre-freeze gates pass.\n"
+        )
+        f.flush()
+        os.fsync(f.fileno())
+        temporary = Path(f.name)
+    os.replace(temporary, next_action)
 
 
 def run_pilot() -> dict[str, Any]:
@@ -239,6 +262,8 @@ def run_pilot() -> dict[str, Any]:
             completed_rows.append(receipt)
         _atomic_checkpoint(out, completed_rows)
         print(f"{method} checkpoint {len(completed_rows)}/{len(tasks)}", flush=True)
+        if len(completed_rows) % 40 == 0 or len(completed_rows) == len(tasks):
+            _progress_state(method, len(completed_rows), len(tasks), task_identity)
     outcomes = [json.loads(line) for line in out.read_text(encoding="utf-8").splitlines() if line]
     if len(outcomes) != len(tasks) or {x["task_id"] for x in outcomes} != set(task_ids):
         return {"status": "RUNNING", "completed": len(outcomes), "total": len(tasks)}
@@ -285,6 +310,7 @@ def run_pilot() -> dict[str, Any]:
         ],
         "Q",
         started,
+        complete_stage=method == "C1",
     )
     return summary
 
