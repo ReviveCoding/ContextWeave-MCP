@@ -34,6 +34,7 @@ def validate(method: str) -> dict[str, object]:
             or row["device"] != "cuda"
             or row["dtype"] != "bfloat16"
             or row["backend"] != "transformers"
+            or row["batch_size"] != 4
         ):
             raise ValueError(f"{method} has a mismatched task, model, or CUDA identity")
     receipt: dict[str, object] = {
@@ -48,6 +49,7 @@ def validate(method: str) -> dict[str, object]:
         "device": "cuda",
         "dtype": "bfloat16",
         "backend": "transformers",
+        "batch_size": 4,
         "outcome_sha256": hashlib.sha256(output.read_bytes()).hexdigest(),
     }
     atomic_json(ROOT / f"evidence/pilot/{method.lower()}_validation.json", receipt)

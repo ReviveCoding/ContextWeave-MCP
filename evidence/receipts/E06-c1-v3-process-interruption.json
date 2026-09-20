@@ -1,0 +1,29 @@
+{
+  "experiment_id": "E06-c1-v3-process-interruption",
+  "stage": "E06",
+  "status": "INTERRUPTED_EXTERNAL_SIGNAL_UNDIAGNOSED",
+  "evidence_class": "Q",
+  "observed_at_utc": "2026-09-20T17:32:10Z",
+  "reason": "The WSL command returned exit code 1 with 'Terminated' after 256 checkpoints. No Python traceback or model/scoring error appears in the durable log. No OOM-kill message was found in dmesg. Exact signal source is unknown; no scientific failure is inferred.",
+  "process_observation": "No contextweave.model_pilot process or GPU compute application remained; nvidia-smi showed 0 MiB in use.",
+  "checkpoint": {
+    "path": "evidence/pilot/c1_qwen3_4b.jsonl",
+    "bytes": 169682,
+    "sha256": "29b6092813484cf5df0973f35775ecacd3d1a753933cb594c62b345d7961edd0",
+    "valid_rows": 256,
+    "unique_task_ids": 256,
+    "unknown_task_ids": 0,
+    "identity_or_device_mismatches": 0
+  },
+  "task_manifest_sha256": "6cfa67f0abd89b954210d68e88f8cdbc9c1cd3bb961c65b899759c89dc21363f",
+  "model_revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+  "batch_size": 4,
+  "log": {
+    "path": "/home/bjw-0/.cache/contextweave-mcp/e06_c1_v3.log",
+    "bytes": 4385,
+    "sha256": "be0b067365758e972205395d73e3ef15b4cea1e1489507a37bdeb86b5e9d9644",
+    "last_observed_event": "C1 checkpoint 256/360"
+  },
+  "scientific_outcome": null,
+  "next_legal_action": "Resume corrected-v3 C1 from the validated 256-row atomic checkpoint with the same frozen task set and CUDA batch size 4."
+}
