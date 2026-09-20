@@ -1,0 +1,25 @@
+{
+  "experiment_id": "E06-c1-v3-resume3-gpu-guard",
+  "stage": "E06",
+  "status": "BLOCKED_BY_GPU_EXCLUSIVITY_GUARD",
+  "evidence_class": "Q",
+  "observed_at_utc": "2026-09-20T18:05:52Z",
+  "reason": "A separate MOSAIC-Rec model pilot entered the physical GPU while Qwen was loading. The WSL-safe guard saw two compute PIDs after load and stopped before inference or any new checkpoint row. This is infrastructure contention, not a scientific outcome.",
+  "checkpoint": {
+    "path": "evidence/pilot/c1_qwen3_4b.jsonl",
+    "valid_rows_before_and_after": 260,
+    "sha256_before_and_after": "80d1f8b72f15c02088c45b3fafe98d5b75f6d82f32c1a222f520218922e66de2"
+  },
+  "log": {
+    "path": "/home/bjw-0/.cache/contextweave-mcp/e06_c1_v3_resume3.log",
+    "bytes": 6764,
+    "sha256": "7ea1685187a070e7f4454b6c5f4f0275fc42c0c430755f4175502e65b5bbf16c"
+  },
+  "competing_gpu_process": {
+    "linux_pid": 46066,
+    "command": "mosaic_rec.pilot_mmrec_freedom --epochs 1 --seed 20260920",
+    "ownership": "separate local project; not launched by ContextWeave-MCP"
+  },
+  "scientific_outcome": null,
+  "next_legal_action": "Wait for sustained exclusive GPU availability, then resume the unchanged corrected-v3 C1 checkpoint."
+}

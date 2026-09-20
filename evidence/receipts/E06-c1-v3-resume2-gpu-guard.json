@@ -1,0 +1,19 @@
+{
+  "experiment_id": "E06-c1-v3-resume2-gpu-guard",
+  "stage": "E06",
+  "status": "BLOCKED_BY_GPU_EXCLUSIVITY_GUARD",
+  "evidence_class": "Q",
+  "observed_at_utc": "2026-09-20T18:03:18Z",
+  "reason": "Resume2 exited before generating another row because the guard observed multiple GPU compute PIDs. An act_agent.training.sft process (Linux PID 44837) had started on the same GPU. WSL nvidia-smi GPU PIDs are not reliably equal to Linux os.getpid(); the guard was corrected to require zero PIDs before CUDA initialization and one stable PID afterward.",
+  "checkpoint": {
+    "path": "evidence/pilot/c1_qwen3_4b.jsonl",
+    "valid_rows_before_and_after": 260,
+    "sha256_before_and_after": "80d1f8b72f15c02088c45b3fafe98d5b75f6d82f32c1a222f520218922e66de2"
+  },
+  "log": {
+    "path": "/home/bjw-0/.cache/contextweave-mcp/e06_c1_v3_resume2.log",
+    "bytes": 767,
+    "sha256": "abc514125717b3749559cdc6623924dd74546f1c3b1083b993c08d83033422c9"
+  },
+  "scientific_outcome": null
+}

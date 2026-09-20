@@ -36,9 +36,9 @@
     "BGE-reranker-v2-m3": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
     "Qwen3-4B": "1cfa9a7208912126459214e8b04321603b3df60c"
   },
-  "next_legal_action": "Wait for exclusive GPU availability; then resume corrected-v3 E06 C1 from 260 validated rows on the same frozen 360 tasks. Validate C1 and execute E07 before any design freeze.",
+  "next_legal_action": "Wait for sustained exclusive GPU availability, then resume corrected-v3 E06 C1 from 260 validated rows on the frozen 360 tasks. Validate C1 and execute E07 before any design freeze.",
   "protected_accesses": [],
   "protocol_identity": "2026-07-28 (SDK v2.2.0; E01-MCP-transports-v3 PASS on stdio and Streamable HTTP)",
   "schema_version": 1,
-  "updated_at_utc": "2026-09-20T17:47:03+00:00"
+  "updated_at_utc": "2026-09-20T18:05:52+00:00"
 }

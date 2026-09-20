@@ -103,26 +103,28 @@ def _progress_state(method: str, count: int, total: int, task_identity: str) -> 
     os.replace(temporary, next_action)
 
 
-def _assert_exclusive_gpu_owner() -> None:
+def _gpu_compute_pids() -> set[int]:
     result = subprocess.run(
         ["nvidia-smi", "--query-compute-apps=pid", "--format=csv,noheader"],
         text=True,
         capture_output=True,
         check=True,
     )
-    other_pids = {
-        int(line.strip())
-        for line in result.stdout.splitlines()
-        if line.strip().isdigit() and int(line.strip()) != os.getpid()
-    }
-    if other_pids:
-        raise RuntimeError(f"GPU is shared with another compute process: {sorted(other_pids)}")
+    return {int(line.strip()) for line in result.stdout.splitlines() if line.strip().isdigit()}
+
+
+def _assert_exclusive_gpu_owner(expected_pids: set[int]) -> None:
+    observed = _gpu_compute_pids()
+    if observed != expected_pids:
+        raise RuntimeError(
+            f"GPU compute owners changed: expected {sorted(expected_pids)}, observed {sorted(observed)}"
+        )
 
 
 def run_pilot() -> dict[str, Any]:
+    _assert_exclusive_gpu_owner(set())
     if not torch.cuda.is_available():
         raise RuntimeError("GPU-designated pilot cannot run on CPU")
-    _assert_exclusive_gpu_owner()
     if not MODEL_DIR.exists():
         raise FileNotFoundError(MODEL_DIR)
     started = utc_now()
@@ -191,6 +193,9 @@ def run_pilot() -> dict[str, Any]:
     )
     model.eval()
     torch.cuda.synchronize()
+    owner_pids = _gpu_compute_pids()
+    if len(owner_pids) != 1:
+        raise RuntimeError(f"expected one GPU owner after Qwen load, observed {sorted(owner_pids)}")
     load_seconds = time.perf_counter() - load_start
     warehouse = json.loads((ROOT / "evidence/warehouse/manifest.json").read_text(encoding="utf-8"))
     database = Path(warehouse["database_path"])
@@ -203,7 +208,7 @@ def run_pilot() -> dict[str, Any]:
         remaining = remaining[:limit]
     completed_rows = [existing[task_id] for task_id in task_ids if task_id in existing]
     for offset in range(0, len(remaining), batch_size):
-        _assert_exclusive_gpu_owner()
+        _assert_exclusive_gpu_owner(owner_pids)
         chunk = remaining[offset : offset + batch_size]
         prompts = []
         context_sizes = []
