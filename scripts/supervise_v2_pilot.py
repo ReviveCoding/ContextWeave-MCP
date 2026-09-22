@@ -133,7 +133,18 @@ def main() -> None:
     SCRATCH.mkdir(parents=True, exist_ok=True)
     with (SCRATCH / "v2_pilot_supervisor.lock").open("w") as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)  # type: ignore[attr-defined]
-        task_validation = validate_tasks()
+        validation_path = ROOT / "evidence/pilot_v2/task_validation.json"
+        task_validation = (
+            json.loads(validation_path.read_text())
+            if validation_path.exists()
+            else validate_tasks()
+        )
+        if (
+            task_validation.get("status") != "PASS"
+            or task_validation.get("task_manifest_sha256")
+            != hashlib.sha256(TASK_PATH.read_bytes()).hexdigest()
+        ):
+            task_validation = validate_tasks()
         print(json.dumps({"task_validation": task_validation}, indent=2), flush=True)
         env = {**os.environ, "PYTHONPATH": str(ROOT / "src")}
         ranking = ROOT / "evidence/retrieval_v2/rankings.jsonl"
