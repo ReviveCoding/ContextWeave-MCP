@@ -1,0 +1,23 @@
+{
+  "evidence_class": "Q",
+  "experiment_id": "V2-E06-environment-repair",
+  "failure": {
+    "classification": "environment integrity failure before v2 computation",
+    "component": "Windows-mounted project venv torch package",
+    "observation": "torch 2.14.0 dist-info existed but torch/__init__.py was absent; imports resolved to an incomplete namespace"
+  },
+  "gpu_overlap": false,
+  "observed_at_utc": "2026-09-22T22:48:51+00:00",
+  "protocol_identity": "ContextWeave-v2-family-diverse-qualification",
+  "repair": {
+    "cpu_source_tests": "15 passed in 13.50s",
+    "cuda_available": true,
+    "environment": "/home/bjw-0/.cache/contextweave-mcp/venv",
+    "source": "uv.lock --frozen --extra gpu",
+    "torch": "2.14.0+cu130",
+    "transformers": "5.17.0"
+  },
+  "scientific_outcome": null,
+  "stage": "V2-E06",
+  "status": "INFRASTRUCTURE_REPAIRED"
+}

@@ -49,3 +49,5 @@ models/
 # IMPORTANT:
 # Compact canonical evidence under evidence/ is intentionally NOT globally
 # ignored. Keep versionable JSON/CSV/Parquet summaries when licensing permits.
+# Generated dense vectors (rebuild from compact receipts)
+evidence/**/*.npy
