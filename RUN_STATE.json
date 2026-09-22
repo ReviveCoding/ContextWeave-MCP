@@ -1,5 +1,14 @@
 {
-  "active_long_running_process": null,
+  "active_long_running_process": {
+    "kind": "V2-E06-durable-supervisor",
+    "log": "/home/bjw-0/.cache/contextweave-mcp/v2_supervisor.log",
+    "owner": "No ContextWeave GPU owner while waiting; supervisor requires 120 continuous idle seconds before launch",
+    "phase": "WAITING_FOR_EXCLUSIVE_GPU",
+    "pid_wsl": 48528,
+    "protocol_identity": "ContextWeave-v2-family-diverse-qualification",
+    "started_at_utc": "2026-09-22T22:43:00+00:00",
+    "task_manifest_sha256": "38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99"
+  },
   "completed_stages": [
     "E00",
     "E01",
@@ -43,7 +52,7 @@
     "BGE-reranker-v2-m3": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
     "Qwen3-4B": "1cfa9a7208912126459214e8b04321603b3df60c"
   },
-  "next_legal_action": "Run v2 BGE retrieval qualification, then paired B2/C1 CUDA pilots on the validated 360-task identity before clustered E07.",
+  "next_legal_action": "Durable v2 supervisor is waiting for 120 seconds of exclusive GPU availability, then will run retrieval, paired B2/C1, validation, and clustered E07.",
   "protected_accesses": [],
   "protocol_history": [
     {
@@ -91,5 +100,5 @@
   },
   "protocol_status": "PILOT_COMPILED_VALIDATED",
   "schema_version": 1,
-  "updated_at_utc": "2026-09-22T22:30:48+00:00"
+  "updated_at_utc": "2026-09-22T22:54:01+00:00"
 }
