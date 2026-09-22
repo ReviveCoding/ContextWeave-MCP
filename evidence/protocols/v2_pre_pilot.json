@@ -1,0 +1,224 @@
+{
+  "benchmark_freeze": null,
+  "created_at_utc": "2026-09-22T22:12:17+00:00",
+  "design_freeze": null,
+  "evidence_class": "Q",
+  "feasible_ceiling_tasks": 600,
+  "independent_review": "PENDING",
+  "literature_registry": "sources/v2_statistical_methods.json",
+  "noninferiority_margin_absolute_success": 0.05,
+  "one_sided_alpha": 0.025,
+  "pilot": {
+    "families": [
+      {
+        "construct": "lookup",
+        "family_id": "entity_status_lookup",
+        "split": "v2_qualification",
+        "task_count": 12
+      },
+      {
+        "construct": "lookup",
+        "family_id": "alias_entity_lookup",
+        "split": "v2_qualification",
+        "task_count": 12
+      },
+      {
+        "construct": "lookup",
+        "family_id": "filtered_topk_lookup",
+        "split": "v2_qualification",
+        "task_count": 12
+      },
+      {
+        "construct": "aggregation",
+        "family_id": "grouped_volume_aggregation",
+        "split": "v2_qualification",
+        "task_count": 12
+      },
+      {
+        "construct": "temporal",
+        "family_id": "temporal_period_aggregation",
+        "split": "v2_qualification",
+        "task_count": 12
+      },
+      {
+        "construct": "temporal",
+        "family_id": "temporal_period_comparison",
+        "split": "v2_qualification",
+        "task_count": 12
+      },
+      {
+        "construct": "temporal",
+        "family_id": "rolling_window_peak",
+        "split": "v2_qualification",
+        "task_count": 12
+      },
+      {
+        "construct": "ratio_metric",
+        "family_id": "ctr_ratio_metric",
+        "split": "v2_qualification",
+        "task_count": 12
+      },
+      {
+        "construct": "ratio_metric",
+        "family_id": "cpa_ratio_metric",
+        "split": "v2_qualification",
+        "task_count": 12
+      },
+      {
+        "construct": "nested_metric",
+        "family_id": "roas_nested_metric",
+        "split": "v2_qualification",
+        "task_count": 12
+      },
+      {
+        "construct": "multi_table_join",
+        "family_id": "campaign_advertiser_join",
+        "split": "v2_qualification",
+        "task_count": 12
+      },
+      {
+        "construct": "multi_table_join",
+        "family_id": "campaign_budget_join",
+        "split": "v2_qualification",
+        "task_count": 12
+      },
+      {
+        "construct": "multi_table_join",
+        "family_id": "adgroup_campaign_rollup",
+        "split": "v2_qualification",
+        "task_count": 12
+      },
+      {
+        "construct": "multi_hop",
+        "family_id": "keyword_campaign_multihop",
+        "split": "v2_qualification",
+        "task_count": 12
+      },
+      {
+        "construct": "multi_hop",
+        "family_id": "policy_dependency_multihop",
+        "split": "v2_qualification",
+        "task_count": 12
+      },
+      {
+        "construct": "schema_alias",
+        "family_id": "governed_schema_alias",
+        "split": "v2_qualification",
+        "task_count": 12
+      },
+      {
+        "construct": "metric_version",
+        "family_id": "metric_version_transition",
+        "split": "v2_qualification",
+        "task_count": 12
+      },
+      {
+        "construct": "policy_grounded",
+        "family_id": "budget_policy_grounding",
+        "split": "v2_qualification",
+        "task_count": 12
+      },
+      {
+        "construct": "policy_grounded",
+        "family_id": "bid_policy_grounding",
+        "split": "v2_qualification",
+        "task_count": 12
+      },
+      {
+        "construct": "distractor_stress",
+        "family_id": "distractor_table_collision",
+        "split": "v2_qualification",
+        "task_count": 12
+      },
+      {
+        "construct": "document_sql_mixed",
+        "family_id": "document_sql_dependency",
+        "split": "v2_qualification",
+        "task_count": 12
+      },
+      {
+        "construct": "cache_sensitive",
+        "family_id": "cache_version_validation",
+        "split": "v2_qualification",
+        "task_count": 12
+      },
+      {
+        "construct": "ambiguity_clarification",
+        "family_id": "ambiguous_metric_clarification",
+        "split": "v2_qualification",
+        "task_count": 12
+      },
+      {
+        "construct": "ambiguity_clarification",
+        "family_id": "ambiguous_period_clarification",
+        "split": "v2_qualification",
+        "task_count": 12
+      },
+      {
+        "construct": "authorization_refusal",
+        "family_id": "missing_scope_refusal",
+        "split": "v2_qualification",
+        "task_count": 12
+      },
+      {
+        "construct": "authorization_refusal",
+        "family_id": "cross_tenant_refusal",
+        "split": "v2_qualification",
+        "task_count": 12
+      },
+      {
+        "construct": "schema_drift",
+        "family_id": "renamed_column_refresh",
+        "split": "v2_qualification",
+        "task_count": 12
+      },
+      {
+        "construct": "freshness",
+        "family_id": "stale_watermark_refresh",
+        "split": "v2_qualification",
+        "task_count": 12
+      },
+      {
+        "construct": "retry",
+        "family_id": "transient_retry_contract",
+        "split": "v2_qualification",
+        "task_count": 12
+      },
+      {
+        "construct": "abstention",
+        "family_id": "missing_dependency_abstention",
+        "split": "v2_qualification",
+        "task_count": 12
+      }
+    ],
+    "family_count": 30,
+    "family_identity_rule": "semantic_family and normalized template signatures group-disjoint from v1 and future protected construction",
+    "task_count": 360,
+    "tasks_per_family": 12
+  },
+  "power_gate": {
+    "analytic": "equal-family-weighted paired difference with one-sample noncentral t planning and K-1 degrees of freedom",
+    "conservative_planning_difference": 0.0,
+    "power_floor": 0.9,
+    "simulation": "paired four-cell family model, whole-family generation/resampling, >=10000 replicates",
+    "type_i_error_ceiling": 0.025
+  },
+  "predecessor_closure": "V1_PRE_FREEZE_INSUFFICIENT_POWER",
+  "protected_accesses": [],
+  "protected_target_if_powered": {
+    "family_count_range": [
+      24,
+      36
+    ],
+    "status": "NOT_CONSTRUCTED",
+    "task_ceiling": 600,
+    "tasks_per_family_range": [
+      10,
+      20
+    ]
+  },
+  "protocol_identity": "ContextWeave-v2-family-diverse-qualification",
+  "status": "PRE_PILOT",
+  "target_power": 0.9,
+  "v1_evidence_mutated": false
+}

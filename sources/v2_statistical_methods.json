@@ -1,0 +1,36 @@
+{
+  "checked_at_utc": "2026-09-22T22:10:00+00:00",
+  "evidence_role": "v2 clustered matched-binary non-inferiority and small-cluster planning",
+  "sources": [
+    {
+      "doi": "10.1016/j.csda.2011.04.020",
+      "title": "Power and sample size requirements for non-inferiority in studies comparing two matched proportions where the events are correlated",
+      "role": "clustered matched-pair binary non-inferiority; cluster count dominates cluster size"
+    },
+    {
+      "doi": "10.1186/s12874-022-01699-2",
+      "title": "Cluster randomised trials with a binary outcome and a small number of clusters: comparison of individual and cluster level analysis method",
+      "role": "simulation evidence for cluster-level binary analysis and t degrees of freedom"
+    },
+    {
+      "doi": "10.1002/sim.4101",
+      "title": "Improving small-sample inference in group randomized trials with binary outcomes",
+      "role": "small-sample correction and binary clustered inference"
+    },
+    {
+      "doi": "10.1002/bimj.201200237",
+      "title": "On small-sample inference in group randomized trials with binary outcomes and cluster-level covariates",
+      "role": "simulation-based small-cluster inference"
+    },
+    {
+      "doi": "10.1093/biostatistics/kxaa007",
+      "title": "Randomization-based confidence intervals for cluster randomized trials",
+      "role": "background on few-cluster confidence intervals; not primary because method assignment is fixed"
+    },
+    {
+      "doi": "10.1080/02664763.2015.1092109",
+      "title": "Power analysis for cluster randomized trials with binary outcomes modeled by generalized linear mixed-effects models",
+      "role": "simulation and model-based power sensitivity for clustered binary outcomes"
+    }
+  ]
+}

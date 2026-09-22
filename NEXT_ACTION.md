@@ -1,3 +1,3 @@
 # Next action
 
-V1 is mechanically closed as `V1_PRE_FREEZE_INSUFFICIENT_POWER`. Preserve the 0.05 NI margin and all v1 evidence. Define a separate v2 qualification protocol with 24–36 independent semantic families, group-disjoint construction, analytic and simulation-based clustered power, and no protected access before a defensible freeze.
+Compile and validate the new v2 30-family, 360-task qualification pilot. Run paired B2 and C1 on identical v2 task identities with one CUDA owner and batch size 4, then execute analytic and simulation-based clustered E07. No protected task set or freeze exists.
