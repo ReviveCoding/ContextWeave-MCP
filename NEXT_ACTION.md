@@ -1,3 +1,3 @@
 # Next action
 
-C1 has 260/360 valid rows on frozen task manifest `6cfa67f0abd89b954210d68e88f8cdbc9c1cd3bb961c65b899759c89dc21363f`. Waiting for 120 seconds of exclusive GPU availability before resuming.
+V1 is mechanically closed as `V1_PRE_FREEZE_INSUFFICIENT_POWER`. Preserve the 0.05 NI margin and all v1 evidence. Define a separate v2 qualification protocol with 24–36 independent semantic families, group-disjoint construction, analytic and simulation-based clustered power, and no protected access before a defensible freeze.

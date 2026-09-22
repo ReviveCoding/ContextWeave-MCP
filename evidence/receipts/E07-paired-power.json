@@ -1,0 +1,41 @@
+{
+  "code_source_identity": "c040d86e7bbc221553d5f800a0c768a92b4419a5+dirty:0580eab6da14",
+  "config": {
+    "bootstrap_replicates": 10000,
+    "bootstrap_seed": 20260920,
+    "comparison": "selected ContextWeave vs strongest eligible frozen baseline",
+    "family_cluster_sensitivity": "required N is the larger of task-paired and semantic-family-cluster estimates",
+    "feasible_max_locked_tasks": 600,
+    "latency_outer_unit": "process/server replicate",
+    "material_context_reduction_fraction": 0.2,
+    "noninferiority_margin_absolute_success": 0.05,
+    "one_sided_alpha": 0.025,
+    "primary_unit": "task",
+    "protected_reuse": "one shot",
+    "secondary_multiplicity": "Holm",
+    "target_power": 0.9
+  },
+  "config_hash": "63649042f782b703ccb8a1019f9c5599391cbfc104372eebb08780321a4596a3",
+  "data_model_identity": {
+    "pilot_tasks": "6cfa67f0abd89b954210d68e88f8cdbc9c1cd3bb961c65b899759c89dc21363f"
+  },
+  "device_backend": "CPU",
+  "ended_at_utc": "2026-09-21T02:45:54+00:00",
+  "environment_receipt": {
+    "device_backend": "CPU",
+    "scipy": "1.18.1"
+  },
+  "evidence_class": "Q",
+  "experiment_id": "E07-paired-power",
+  "output_manifest": [
+    {
+      "bytes": 2090,
+      "path": "evidence/power/paired_design.json",
+      "sha256": "067ab074057fc625ecdce69f554230e4b438895478468f2a605bb8f06f153706"
+    }
+  ],
+  "reason": "Required paired/cluster-sensitive N exceeds feasible 600 or NI planning effect is nonpositive",
+  "stage": "E07",
+  "started_at_utc": "2026-09-21T02:45:53+00:00",
+  "status": "GATED"
+}

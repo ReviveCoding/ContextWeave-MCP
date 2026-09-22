@@ -1,0 +1,43 @@
+{
+  "code_source_identity": "c040d86e7bbc221553d5f800a0c768a92b4419a5+dirty:d9e8090523e6",
+  "config": {
+    "batch_size": 4,
+    "budget": 1024,
+    "do_sample": false,
+    "max_new_tokens": 160,
+    "method": "C1"
+  },
+  "config_hash": "6fc78a2c261dfdcf488d28cf60e34ccdbb8960b698afb099fc45b7bc13581cac",
+  "data_model_identity": {
+    "Qwen": "1cfa9a7208912126459214e8b04321603b3df60c",
+    "T3": "d50277f36f4fc1b86ac196c327f3ccb450a18895325f78aea228f5f6d8d90ddf",
+    "tasks": "6cfa67f0abd89b954210d68e88f8cdbc9c1cd3bb961c65b899759c89dc21363f"
+  },
+  "device_backend": "CUDA/transformers",
+  "ended_at_utc": "2026-09-21T02:45:50+00:00",
+  "environment_receipt": {
+    "batch_size": 4,
+    "device": "NVIDIA GeForce RTX 4090 Laptop GPU",
+    "device_backend": "CUDA/transformers",
+    "dtype": "bfloat16",
+    "peak_vram_bytes": 8665475072
+  },
+  "evidence_class": "Q",
+  "experiment_id": "E06-c1-qwen-pilot",
+  "output_manifest": [
+    {
+      "bytes": 250584,
+      "path": "evidence/pilot/c1_qwen3_4b.jsonl",
+      "sha256": "e0efc98064fd83d7d4aacbe952f2994b81894f2752ed0d0cba0bda8a5f937f1f"
+    },
+    {
+      "bytes": 659,
+      "path": "evidence/pilot/c1_summary.json",
+      "sha256": "1175271dcb05f1cfab21a26ad762883d5f1156bfed373703bf98d35446a6a771"
+    }
+  ],
+  "reason": null,
+  "stage": "E06",
+  "started_at_utc": "2026-09-21T02:39:53+00:00",
+  "status": "PASS"
+}

@@ -1,0 +1,15 @@
+{
+  "backend": "transformers",
+  "batch_size": 4,
+  "device": "cuda",
+  "dtype": "bfloat16",
+  "evidence_class": "Q",
+  "method": "C1",
+  "model_revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+  "outcome_sha256": "e0efc98064fd83d7d4aacbe952f2994b81894f2752ed0d0cba0bda8a5f937f1f",
+  "status": "PASS",
+  "task_count": 360,
+  "task_manifest_sha256": "6cfa67f0abd89b954210d68e88f8cdbc9c1cd3bb961c65b899759c89dc21363f",
+  "timestamp_utc": "2026-09-21T02:45:53+00:00",
+  "unique_task_count": 360
+}

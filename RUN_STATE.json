@@ -6,9 +6,10 @@
     "E02",
     "E03",
     "E04",
-    "E05"
+    "E05",
+    "E06"
   ],
-  "current_stage": "E06",
+  "current_stage": "E07",
   "dataset_identities": {
     "T1": "94ac7a465564349bc7ba008602211d5990a3c53cc133abc0aadef61ea2391a98",
     "T3": "d50277f36f4fc1b86ac196c327f3ccb450a18895325f78aea228f5f6d8d90ddf",
@@ -27,18 +28,36 @@
       "reason": "v1 graph audit superseded by v2",
       "stage": "E05",
       "status": "FAIL"
+    },
+    {
+      "experiment_id": "E07-paired-power",
+      "reason": "Required paired/cluster-sensitive N exceeds feasible 600 or NI planning effect is nonpositive",
+      "stage": "E07",
+      "status": "GATED"
     }
   ],
   "freeze_identities": {},
-  "last_valid_checkpoint": "E06-b2-qwen-pilot",
+  "last_valid_checkpoint": "E06-c1-qwen-pilot",
   "model_identities": {
     "BGE-M3": "5617a9f61b028005a4858fdac845db406aefb181",
     "BGE-reranker-v2-m3": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
     "Qwen3-4B": "1cfa9a7208912126459214e8b04321603b3df60c"
   },
-  "next_legal_action": "Wait for sustained exclusive GPU availability, then resume corrected-v3 E06 C1 from 260 validated rows on the frozen 360 tasks. Validate C1 and execute E07 before any design freeze.",
+  "next_legal_action": "Create a separate v2 qualification protocol and pilot; v1 E08 is prohibited.",
   "protected_accesses": [],
-  "protocol_identity": "2026-07-28 (SDK v2.2.0; E01-MCP-transports-v3 PASS on stdio and Streamable HTTP)",
+  "protocol_history": [
+    {
+      "benchmark_freeze": null,
+      "closure_identity": "V1_PRE_FREEZE_INSUFFICIENT_POWER",
+      "closure_receipt": "evidence/receipts/V1-pre-freeze-closure.json",
+      "design_freeze": null,
+      "protected_accesses": 0,
+      "protocol_identity": "ContextWeave-v1",
+      "status": "CLOSED_INSUFFICIENT_POWER"
+    }
+  ],
+  "protocol_identity": "ContextWeave-v1::V1_PRE_FREEZE_INSUFFICIENT_POWER",
+  "protocol_status": "CLOSED_INSUFFICIENT_POWER",
   "schema_version": 1,
-  "updated_at_utc": "2026-09-20T19:20:11+00:00"
+  "updated_at_utc": "2026-09-22T22:06:51+00:00"
 }

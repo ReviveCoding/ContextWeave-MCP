@@ -1,0 +1,40 @@
+{
+  "code_source_identity": "c040d86e7bbc221553d5f800a0c768a92b4419a5+dirty:v1-closure",
+  "config": {
+    "closure_identity": "V1_PRE_FREEZE_INSUFFICIENT_POWER",
+    "enter_E08": false,
+    "v1_gate_immutable": true
+  },
+  "config_hash": "e75e3f68eb92b9567d2991cbcb425505c0f612433aa429d8fa12d572bfb10fd1",
+  "data_model_identity": {
+    "B2_outcome": "018cf7054702491e3608bdeb3835631be72a23572967e761dfb5538915891f69",
+    "C1_outcome": "e0efc98064fd83d7d4aacbe952f2994b81894f2752ed0d0cba0bda8a5f937f1f",
+    "E07_paired_design": "067ab074057fc625ecdce69f554230e4b438895478468f2a605bb8f06f153706",
+    "task_manifest": "6cfa67f0abd89b954210d68e88f8cdbc9c1cd3bb961c65b899759c89dc21363f"
+  },
+  "device_backend": "CPU/read-only audit",
+  "ended_at_utc": "2026-09-22T22:06:51+00:00",
+  "environment_receipt": {
+    "active_e06_supervisor_processes": 0,
+    "active_gpu_compute_processes": 0
+  },
+  "evidence_class": "Q",
+  "experiment_id": "V1-pre-freeze-closure",
+  "output_manifest": [
+    {
+      "bytes": 3498,
+      "path": "evidence/protocols/v1_closure.json",
+      "sha256": "1a1b8e5a9cfac3997264f57b7877328ad65f7157da02ac37ca1214c558d6e4a7"
+    },
+    {
+      "bytes": 3592,
+      "path": "reports/V1_PRE_FREEZE_CLOSURE.md",
+      "sha256": "c8641eab34b2c129a4e7a70a721b5815a1855d4ab457762d4f01724d4336eb9a"
+    }
+  ],
+  "reason": "Required family-sensitivity planning N 3165 exceeds feasible ceiling 600; no protected access or freeze occurred.",
+  "scientific_outcome": null,
+  "stage": "E07",
+  "started_at_utc": "2026-09-22T22:06:51+00:00",
+  "status": "CLOSED_INSUFFICIENT_POWER"
+}

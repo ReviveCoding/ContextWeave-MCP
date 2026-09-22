@@ -1,0 +1,95 @@
+{
+  "benchmark_freeze": null,
+  "canonical_artifacts": [
+    {
+      "bytes": 359052,
+      "path": "benchmarks/pilot_programmatic.jsonl",
+      "sha256": "6cfa67f0abd89b954210d68e88f8cdbc9c1cd3bb961c65b899759c89dc21363f"
+    },
+    {
+      "bytes": 658,
+      "path": "evidence/pilot/b2_summary.json",
+      "sha256": "abe324d37ecf840e2f57be1279661c364c3dff3d8f09686d0eb368c6b8842280"
+    },
+    {
+      "bytes": 481,
+      "path": "evidence/pilot/b2_validation.json",
+      "sha256": "c0b0aa681823b8bf40d32b35761e09dd1af652d33e42cd711bbbc515f401d0b2"
+    },
+    {
+      "bytes": 659,
+      "path": "evidence/pilot/c1_summary.json",
+      "sha256": "1175271dcb05f1cfab21a26ad762883d5f1156bfed373703bf98d35446a6a771"
+    },
+    {
+      "bytes": 500,
+      "path": "evidence/pilot/c1_validation.json",
+      "sha256": "2e0ab04a8c7c57a01744902d28445f1485f8e2ba881a1582c46c04a422c9eca4"
+    },
+    {
+      "bytes": 2090,
+      "path": "evidence/power/paired_design.json",
+      "sha256": "067ab074057fc625ecdce69f554230e4b438895478468f2a605bb8f06f153706"
+    },
+    {
+      "bytes": 1378,
+      "path": "evidence/receipts/E06-b2-qwen-pilot.json",
+      "sha256": "afd745ab55c6b7a649c4cb8413c414e008801194a85ed8b2f188fdf5f6c5fb77"
+    },
+    {
+      "bytes": 1378,
+      "path": "evidence/receipts/E06-c1-qwen-pilot.json",
+      "sha256": "c9d4ec199a5b0ea9d573ea5f64de507249c09f09f97a434a882c77e83c6f5e6b"
+    },
+    {
+      "bytes": 1537,
+      "path": "evidence/receipts/E07-paired-power.json",
+      "sha256": "5fdca28eabf5197199a27b8849ead673dbb66c4590814ce210be55d118df3ee4"
+    },
+    {
+      "bytes": 1062,
+      "path": "evidence/pilot/superseded_manifest.json",
+      "sha256": "a6ec92ad9b4f1af6036107ef2f0990850acd78a32cc46599acc6af3f5d3f4522"
+    },
+    {
+      "bytes": 3592,
+      "path": "reports/V1_PRE_FREEZE_CLOSURE.md",
+      "sha256": "c8641eab34b2c129a4e7a70a721b5815a1855d4ab457762d4f01724d4336eb9a"
+    }
+  ],
+  "closed_at_utc": "2026-09-22T22:06:51+00:00",
+  "closure_identity": "V1_PRE_FREEZE_INSUFFICIENT_POWER",
+  "design_freeze": null,
+  "evidence_class": "Q",
+  "git_head_at_audit": "c040d86e7bbc221553d5f800a0c768a92b4419a5",
+  "pilot": {
+    "B2_success": 266,
+    "C1_success": 308,
+    "baseline_only": 17,
+    "candidate_only": 59,
+    "discordance": 0.2111111111111111,
+    "paired_difference": 0.11666666666666667,
+    "task_count": 360,
+    "task_manifest_sha256": "6cfa67f0abd89b954210d68e88f8cdbc9c1cd3bb961c65b899759c89dc21363f"
+  },
+  "power": {
+    "classification": "conservative planning diagnostic, not locked efficacy result",
+    "family_count": 6,
+    "feasible_ceiling": 600,
+    "noninferiority_margin_absolute_success": 0.05,
+    "one_sided_alpha": 0.025,
+    "required_n_family_sensitivity": 3165,
+    "required_n_task_paired": 75,
+    "target_power": 0.9
+  },
+  "process_audit": {
+    "active_long_running_process": null,
+    "audit_note": "Read-only WSL audit found only its own pgrep shell match; nvidia-smi listed no compute applications. Earlier interrupted supervisor wait log remains non-scientific infrastructure evidence.",
+    "gpu_compute_processes": 0,
+    "supervisor_or_model_process_alive": false
+  },
+  "protected_accesses": [],
+  "protocol_identity": "ContextWeave-v1",
+  "scientific_interpretation": "Benchmark-design and power limitation; neither evidence of ContextWeave success nor failure.",
+  "status": "CLOSED_INSUFFICIENT_POWER"
+}
