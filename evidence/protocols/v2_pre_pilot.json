@@ -4,7 +4,12 @@
   "design_freeze": null,
   "evidence_class": "Q",
   "feasible_ceiling_tasks": 600,
-  "independent_review": "PENDING",
+  "independent_review": {
+    "integration": "reports/V2_INDEPENDENT_INTEGRATION.md",
+    "reviewed_construct_count": 8,
+    "sha256": "9a1613390bcfd76f003731a8fef79642114c4716491b9ffc3580b59a5cdcf78c",
+    "status": "ACCEPTED_WITH_GENERATION_GATES"
+  },
   "literature_registry": "sources/v2_statistical_methods.json",
   "noninferiority_margin_absolute_success": 0.05,
   "one_sided_alpha": 0.025,
@@ -194,7 +199,9 @@
     "family_count": 30,
     "family_identity_rule": "semantic_family and normalized template signatures group-disjoint from v1 and future protected construction",
     "task_count": 360,
-    "tasks_per_family": 12
+    "task_manifest_sha256": "38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99",
+    "tasks_per_family": 12,
+    "validation": "evidence/pilot_v2/task_validation.json"
   },
   "power_gate": {
     "analytic": "equal-family-weighted paired difference with one-sample noncentral t planning and K-1 degrees of freedom",
@@ -218,7 +225,8 @@
     ]
   },
   "protocol_identity": "ContextWeave-v2-family-diverse-qualification",
-  "status": "PRE_PILOT",
+  "status": "PILOT_COMPILED_VALIDATED",
   "target_power": 0.9,
+  "updated_at_utc": "2026-09-22T22:30:48+00:00",
   "v1_evidence_mutated": false
 }

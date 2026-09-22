@@ -88,7 +88,44 @@ ALLOWED_FUNCTIONS = frozenset(
     }
 )
 ALLOWED_TABLES = frozenset(
-    {"accounts", "campaigns", "campaign_daily", "impression_events", "metric_definitions"}
+    {
+        "accounts",
+        "advertisers",
+        "campaigns",
+        "ad_groups",
+        "ads",
+        "keywords",
+        "audiences",
+        "products",
+        "marketplaces",
+        "campaign_config",
+        "budget_config",
+        "bid_config",
+        "targeting_config",
+        "conversion_config",
+        "impression_events",
+        "click_events",
+        "conversion_events",
+        "campaign_daily",
+        "adgroup_daily",
+        "keyword_daily",
+        "account_daily",
+        "auction_daily",
+        "metric_definitions",
+        "metric_dependencies",
+        "business_terms",
+        "schema_aliases",
+        "budget_policies",
+        "bid_policies",
+        "targeting_policies",
+        "account_constraints",
+        "schema_versions",
+        "metric_versions",
+        "data_freshness",
+        "permission_scope",
+        "audit_events",
+        "cache_versions",
+    }
 )
 
 

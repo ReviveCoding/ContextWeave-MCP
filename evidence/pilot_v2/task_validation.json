@@ -1,0 +1,30 @@
+{
+  "behavior_counts": {
+    "ABSTAIN": 12,
+    "ANSWER": 240,
+    "CLARIFY": 24,
+    "REFRESH": 48,
+    "REFUSE": 24,
+    "RETRY": 12
+  },
+  "cross_family_template_signature_collisions": {},
+  "errors": [],
+  "evidence_class": "Q",
+  "family_count": 30,
+  "family_size_distribution": {
+    "12": 30
+  },
+  "gold_sql_checked": 240,
+  "independent_review_sha256": "9a1613390bcfd76f003731a8fef79642114c4716491b9ffc3580b59a5cdcf78c",
+  "independent_reviewed_construct_count": 8,
+  "near_duplicate_representative_pairs": [],
+  "protected_tasks_constructed": false,
+  "protocol_identity": "ContextWeave-v2-family-diverse-qualification",
+  "status": "PASS",
+  "task_count": 360,
+  "task_manifest_sha256": "38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99",
+  "timestamp_utc": "2026-09-22T22:20:47+00:00",
+  "unique_task_count": 360,
+  "v1_exact_template_overlap": [],
+  "v1_family_overlap": []
+}

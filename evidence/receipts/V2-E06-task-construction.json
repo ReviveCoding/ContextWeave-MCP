@@ -1,0 +1,42 @@
+{
+  "ended_at_utc": "2026-09-22T22:30:48+00:00",
+  "evidence_class": "Q",
+  "experiment_id": "V2-E06-task-construction",
+  "output_manifest": [
+    {
+      "bytes": 461920,
+      "path": "benchmarks/v2_pilot_tasks.jsonl",
+      "sha256": "38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99"
+    },
+    {
+      "bytes": 1920,
+      "path": "benchmarks/v2_pilot_manifest.json",
+      "sha256": "39d4b41a8be1e5bcd639e51d275b0a60137a2caa801df73a4f0fdab1abbf3898"
+    },
+    {
+      "bytes": 906,
+      "path": "evidence/pilot_v2/task_validation.json",
+      "sha256": "02246b888eb18968b319158537ee3ab9171b2e4aa38baefa5fc26345b956dc5b"
+    },
+    {
+      "bytes": 43578,
+      "path": "benchmarks/v2_independent_adversarial_families.json",
+      "sha256": "9a1613390bcfd76f003731a8fef79642114c4716491b9ffc3580b59a5cdcf78c"
+    },
+    {
+      "bytes": 4849,
+      "path": "reports/V2_INDEPENDENT_REVIEW.md",
+      "sha256": "48c015c5ba922eb9c532c1415be36a33098d8679d0fb55f218a2c4ecbd15611f"
+    },
+    {
+      "bytes": 1744,
+      "path": "reports/V2_INDEPENDENT_INTEGRATION.md",
+      "sha256": "406e5dde7ea24d9875efbc6c3056891be9dce351508587d9abe914ecf24fecf1"
+    }
+  ],
+  "protected_tasks_constructed": false,
+  "protocol_identity": "ContextWeave-v2-family-diverse-qualification",
+  "stage": "V2-E06",
+  "status": "PASS",
+  "task_manifest_sha256": "38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99"
+}

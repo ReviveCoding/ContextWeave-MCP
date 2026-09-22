@@ -1,3 +1,3 @@
 # Next action
 
-Compile and validate the new v2 30-family, 360-task qualification pilot. Run paired B2 and C1 on identical v2 task identities with one CUDA owner and batch size 4, then execute analytic and simulation-based clustered E07. No protected task set or freeze exists.
+Run v2 retrieval qualification, then paired B2 and C1 CUDA pilots on validated manifest `38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99` with one GPU owner and batch size 4. Execute clustered analytic and simulation E07 before any freeze.

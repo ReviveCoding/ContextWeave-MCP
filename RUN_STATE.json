@@ -43,7 +43,7 @@
     "BGE-reranker-v2-m3": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
     "Qwen3-4B": "1cfa9a7208912126459214e8b04321603b3df60c"
   },
-  "next_legal_action": "Compile and validate the v2 family-diverse qualification pilot, then run paired B2/C1 on identical identities before v2 clustered E07.",
+  "next_legal_action": "Run v2 BGE retrieval qualification, then paired B2/C1 CUDA pilots on the validated 360-task identity before clustered E07.",
   "protected_accesses": [],
   "protocol_history": [
     {
@@ -78,14 +78,18 @@
     "v2": {
       "completed_stages": [],
       "current_stage": "E06",
+      "family_count": 30,
       "freeze_identities": {},
+      "independent_review_sha256": "9a1613390bcfd76f003731a8fef79642114c4716491b9ffc3580b59a5cdcf78c",
       "protected_accesses": [],
       "protocol_artifact": "evidence/protocols/v2_pre_pilot.json",
       "protocol_identity": "ContextWeave-v2-family-diverse-qualification",
-      "status": "PRE_PILOT"
+      "status": "PILOT_COMPILED_VALIDATED",
+      "task_count": 360,
+      "task_manifest_sha256": "38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99"
     }
   },
-  "protocol_status": "PRE_PILOT",
+  "protocol_status": "PILOT_COMPILED_VALIDATED",
   "schema_version": 1,
-  "updated_at_utc": "2026-09-22T22:12:17+00:00"
+  "updated_at_utc": "2026-09-22T22:30:48+00:00"
 }
