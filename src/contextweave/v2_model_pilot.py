@@ -20,7 +20,7 @@ from contextweave.context_planner import plan_context
 from contextweave.evidence import ROOT, atomic_json, load_state, save_state, utc_now
 from contextweave.model_pilot import MODEL_DIR, QWEN_REVISION, _context_for, _sql_from_text
 from contextweave.retrieval import BM25, corpus
-from contextweave.security import Claims, SecurityError, run_readonly_sql
+from contextweave.security import Claims, run_readonly_sql
 
 PROTOCOL = "ContextWeave-v2-family-diverse-qualification"
 BEHAVIORS = ("CLARIFY", "REFRESH", "REFUSE", "RETRY", "ABSTAIN")
@@ -98,7 +98,15 @@ def run() -> dict[str, Any]:
         for line in out.read_text().splitlines():
             if line:
                 row = json.loads(line)
-                if row["task_manifest_sha256"] != identity or row["method"] != method:
+                if (
+                    row["task_manifest_sha256"] != identity
+                    or row["protocol_identity"] != PROTOCOL
+                    or row["method"] != method
+                    or row["model_revision"] != QWEN_REVISION
+                    or row["device"] != "cuda"
+                    or row["dtype"] != "bfloat16"
+                    or row["batch_size"] != 4
+                ):
                     raise RuntimeError("v2 checkpoint identity changed")
                 if row["task_id"] in existing:
                     raise RuntimeError("duplicate v2 checkpoint row")
@@ -212,7 +220,7 @@ def run() -> dict[str, Any]:
                         status = (
                             "CORRECT" if result_hash == task["gold_result_hash"] else "WRONG_RESULT"
                         )
-                    except SecurityError as exc:
+                    except Exception as exc:
                         status = f"EXECUTION_ERROR:{type(exc).__name__}"
             else:
                 status = (
