@@ -1,5 +1,15 @@
 {
-  "active_long_running_process": null,
+  "active_long_running_process": {
+    "completed_rows": 72,
+    "kind": "b2_qwen",
+    "last_checkpoint_at_utc": "2026-09-23T03:16:42+00:00",
+    "log": "/home/bjw-0/.cache/contextweave-mcp/v2_b2_qwen.log",
+    "method": "B2",
+    "owner": "one local CUDA process; GPU exclusivity checked; no CPU fallback",
+    "protocol_identity": "ContextWeave-v2-family-diverse-qualification",
+    "started_at_utc": "2026-09-23T03:12:43+00:00",
+    "task_manifest_sha256": "38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99"
+  },
   "completed_stages": [
     "E00",
     "E01",
@@ -43,7 +53,7 @@
     "BGE-reranker-v2-m3": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
     "Qwen3-4B": "1cfa9a7208912126459214e8b04321603b3df60c"
   },
-  "next_legal_action": "Verify 120 continuous seconds of exclusive RTX 4090 availability, then run v2 B2 only on task manifest 38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99.",
+  "next_legal_action": "Finish v2 B2 on frozen qualification manifest 38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99; then complete paired v2 E07.",
   "protected_accesses": [],
   "protocol_history": [
     {
@@ -97,5 +107,5 @@
   },
   "protocol_status": "RETRIEVAL_VALIDATED",
   "schema_version": 1,
-  "updated_at_utc": "2026-09-23T03:08:32+00:00"
+  "updated_at_utc": "2026-09-23T03:16:42+00:00"
 }
