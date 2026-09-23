@@ -161,7 +161,7 @@ def main() -> None:
                 out.exists() and sum(1 for line in out.read_text().splitlines() if line) == 360
             )
             if not complete:
-                _wait_idle(20)
+                _wait_idle(120 if method == "B2" else 20)
                 method_env = {
                     **env,
                     "CONTEXTWEAVE_V2_METHOD": method,
