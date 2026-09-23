@@ -1,14 +1,5 @@
 {
-  "active_long_running_process": {
-    "kind": "V2-E06-durable-supervisor",
-    "log": "/home/bjw-0/.cache/contextweave-mcp/v2_supervisor.log",
-    "owner": "No ContextWeave GPU owner while waiting; supervisor requires 120 continuous idle seconds before launch",
-    "phase": "WAITING_FOR_EXCLUSIVE_GPU",
-    "pid_wsl": 48528,
-    "protocol_identity": "ContextWeave-v2-family-diverse-qualification",
-    "started_at_utc": "2026-09-22T22:43:00+00:00",
-    "task_manifest_sha256": "38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99"
-  },
+  "active_long_running_process": null,
   "completed_stages": [
     "E00",
     "E01",
@@ -46,13 +37,13 @@
     }
   ],
   "freeze_identities": {},
-  "last_valid_checkpoint": "V1-pre-freeze-closure",
+  "last_valid_checkpoint": "V2-E06-retrieval-qualification",
   "model_identities": {
     "BGE-M3": "5617a9f61b028005a4858fdac845db406aefb181",
     "BGE-reranker-v2-m3": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
     "Qwen3-4B": "1cfa9a7208912126459214e8b04321603b3df60c"
   },
-  "next_legal_action": "Durable v2 supervisor is waiting for 120 seconds of exclusive GPU availability, then will run retrieval, paired B2/C1, validation, and clustered E07.",
+  "next_legal_action": "Verify 120 continuous seconds of exclusive RTX 4090 availability, then run v2 B2 only on task manifest 38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99.",
   "protected_accesses": [],
   "protocol_history": [
     {
@@ -93,12 +84,18 @@
       "protected_accesses": [],
       "protocol_artifact": "evidence/protocols/v2_pre_pilot.json",
       "protocol_identity": "ContextWeave-v2-family-diverse-qualification",
-      "status": "PILOT_COMPILED_VALIDATED",
+      "qualification_checkpoints": [
+        "V2-E06-task-construction",
+        "V2-E06-retrieval-qualification"
+      ],
+      "rankings_sha256": "505e6a0a1c5dfa1ba4a0d588f663a20b5a10b04cd4c83becab08ee55aed63ad2",
+      "retrieval_receipt": "evidence/receipts/V2-E06-retrieval-qualification.json",
+      "status": "RETRIEVAL_VALIDATED",
       "task_count": 360,
       "task_manifest_sha256": "38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99"
     }
   },
-  "protocol_status": "PILOT_COMPILED_VALIDATED",
+  "protocol_status": "RETRIEVAL_VALIDATED",
   "schema_version": 1,
-  "updated_at_utc": "2026-09-22T22:54:01+00:00"
+  "updated_at_utc": "2026-09-23T03:08:32+00:00"
 }

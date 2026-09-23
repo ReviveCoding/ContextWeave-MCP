@@ -1,0 +1,64 @@
+{
+  "code_source_identity": "804380c1d9a21f9dc9bcecf63e670eb67914f201",
+  "config": {
+    "bge_batch_size": 64,
+    "candidate_k": 20,
+    "protocol_identity": "ContextWeave-v2-family-diverse-qualification",
+    "reranker_batch_size": 24
+  },
+  "config_hash": "275282d798516837ba1f898d92f8802383d81aab0ecdeab3fdb87fe6fa41c4c9",
+  "data_model_identity": {
+    "BGE-M3": "5617a9f61b028005a4858fdac845db406aefb181",
+    "BGE-reranker-v2-m3": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
+    "tasks": "38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99"
+  },
+  "device_backend": "CUDA/sentence-transformers+transformers",
+  "ended_at_utc": "2026-09-23T00:02:22+00:00",
+  "environment_receipt": {
+    "bge_backend": "sentence-transformers/torch",
+    "bge_batch_size": 64,
+    "bge_dtype": "float32",
+    "bge_peak_vram_bytes": 2382808064,
+    "device": "NVIDIA GeForce RTX 4090 Laptop GPU",
+    "reranker_backend": "transformers/torch",
+    "reranker_batch_size": 24,
+    "reranker_dtype": "bfloat16",
+    "reranker_peak_vram_bytes": 1201691648
+  },
+  "evidence_class": "Q",
+  "experiment_id": "V2-E06-retrieval-qualification",
+  "output_manifest": [
+    {
+      "bytes": 1474688,
+      "path": "evidence/retrieval_v2/bge_m3_queries.npy",
+      "sha256": "fb3e4ecb8c703a3255c8a20eef6d923f63df8b353d3ba5ad781951577c6b3bd9"
+    },
+    {
+      "bytes": 636,
+      "path": "evidence/retrieval_v2/bge_m3_queries_receipt.json",
+      "sha256": "0e200c9c05f3795b93060abd99f69315aa00a451d6d0e8a4c06e0c096686d779"
+    },
+    {
+      "bytes": 250278,
+      "path": "evidence/retrieval_v2/rankings.jsonl",
+      "sha256": "505e6a0a1c5dfa1ba4a0d588f663a20b5a10b04cd4c83becab08ee55aed63ad2"
+    },
+    {
+      "bytes": 673,
+      "path": "evidence/retrieval_v2/rankings_receipt.json",
+      "sha256": "53168fb4e35945f8d403f4839fd840fbbd968001f5928c09a9b90b9444a04a45"
+    },
+    {
+      "bytes": 1208,
+      "path": "evidence/retrieval_v2/validation.json",
+      "sha256": "1cc3631f8fb1da9dbd75527cce7571debc23ff3e2b2c1ece4f808a8b676928be"
+    }
+  ],
+  "protocol_identity": "ContextWeave-v2-family-diverse-qualification",
+  "recorded_at_utc": "2026-09-23T03:07:38+00:00",
+  "recovery_note": "The retrieval child completed and wrote validated artifacts, then became defunct while its stopped supervisor failed to reap it or advance state. Artifact validation establishes completion; retrieval was not rerun.",
+  "scientific_outcome": null,
+  "stage": "V2-E06",
+  "started_at_utc": "2026-09-22T23:58:42+00:00",
+  "status": "PASS"
+}

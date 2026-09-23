@@ -1,0 +1,16 @@
+{
+  "backend": "sentence-transformers/torch",
+  "batch_size": 64,
+  "device": "NVIDIA GeForce RTX 4090 Laptop GPU",
+  "dtype": "float32",
+  "elapsed_seconds": 4.624583726996207,
+  "evidence_class": "Q",
+  "model": "BAAI/bge-m3",
+  "peak_vram_bytes": 2382808064,
+  "protocol_identity": "ContextWeave-v2-family-diverse-qualification",
+  "query_count": 360,
+  "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+  "sha256": "fb3e4ecb8c703a3255c8a20eef6d923f63df8b353d3ba5ad781951577c6b3bd9",
+  "task_manifest_sha256": "38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99",
+  "timestamp_utc": "2026-09-22T23:59:43+00:00"
+}

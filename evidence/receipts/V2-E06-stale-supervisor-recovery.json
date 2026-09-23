@@ -1,0 +1,20 @@
+{
+  "action": "Sent TERM then CONT only to PID 48528; confirmed supervisor and defunct child exited before relaunch.",
+  "canonical_retrieval_receipt": "evidence/receipts/V2-E06-retrieval-qualification.json",
+  "canonical_retrieval_receipt_sha256": "10e488c8ad10a7636e3a4690bc57be60ad3072f3384d1c6b8759549e38d393dc",
+  "classification": "Supervisor state-transition interruption after successful retrieval artifacts; not a scientific failure.",
+  "evidence_class": "Q",
+  "experiment_id": "V2-E06-stale-supervisor-recovery",
+  "observed_at_utc": "2026-09-23T03:08:32+00:00",
+  "process": {
+    "child_pid": 62193,
+    "child_state": "defunct",
+    "gpu_compute_owner_at_audit": null,
+    "pid": 48528,
+    "state": "stopped"
+  },
+  "protocol_identity": "ContextWeave-v2-family-diverse-qualification",
+  "scientific_outcome": null,
+  "stage": "V2-E06",
+  "status": "INFRASTRUCTURE_INTERRUPTION"
+}
