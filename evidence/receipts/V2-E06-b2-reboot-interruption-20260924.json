@@ -1,0 +1,18 @@
+{
+  "checkpoint": {
+    "path": "evidence/pilot_v2/b2_qwen3_4b.jsonl",
+    "rows": 196,
+    "sha256": "c8817993d3d8ca5d24b989f6a9f66083c393738930ff15a7e69d96400a7eac36",
+    "validation_path": "evidence/pilot_v2/b2_reboot_validation_196.json",
+    "validation_sha256": "b7b46eb30c113a8a77e637ebeff25c5da4a2e0265879c6f4cfa1e1e4b23bb1f5"
+  },
+  "evidence_class": "Q",
+  "experiment_id": "V2-E06-b2-reboot-interruption-20260924",
+  "observed_at_utc": "2026-09-24T06:49:50+00:00",
+  "prior_interruption_receipt": "evidence/receipts/V2-b2_qwen-interruption.json",
+  "protocol_identity": "ContextWeave-v2-family-diverse-qualification",
+  "remaining_rows": 164,
+  "scientific_outcome": null,
+  "status": "INFRASTRUCTURE_INTERRUPTION",
+  "task_manifest_sha256": "38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99"
+}

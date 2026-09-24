@@ -1,15 +1,5 @@
 {
-  "active_long_running_process": {
-    "completed_rows": 72,
-    "kind": "b2_qwen",
-    "last_checkpoint_at_utc": "2026-09-23T03:16:42+00:00",
-    "log": "/home/bjw-0/.cache/contextweave-mcp/v2_b2_qwen.log",
-    "method": "B2",
-    "owner": "one local CUDA process; GPU exclusivity checked; no CPU fallback",
-    "protocol_identity": "ContextWeave-v2-family-diverse-qualification",
-    "started_at_utc": "2026-09-23T03:12:43+00:00",
-    "task_manifest_sha256": "38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99"
-  },
+  "active_long_running_process": null,
   "completed_stages": [
     "E00",
     "E01",
@@ -53,7 +43,7 @@
     "BGE-reranker-v2-m3": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
     "Qwen3-4B": "1cfa9a7208912126459214e8b04321603b3df60c"
   },
-  "next_legal_action": "Finish v2 B2 on frozen qualification manifest 38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99; then complete paired v2 E07.",
+  "next_legal_action": "Require 120 continuous seconds of exclusive RTX 4090 availability, then resume v2 B2 from 196/360 on frozen manifest 38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99; do not recompute completed IDs.",
   "protected_accesses": [],
   "protocol_history": [
     {
@@ -86,6 +76,8 @@
       "protocol_identity": "ContextWeave-v1"
     },
     "v2": {
+      "b2_recoverable_rows": 196,
+      "b2_recovery_receipt": "evidence/receipts/V2-E06-b2-reboot-interruption-20260924.json",
       "completed_stages": [],
       "current_stage": "E06",
       "family_count": 30,
@@ -100,12 +92,20 @@
       ],
       "rankings_sha256": "505e6a0a1c5dfa1ba4a0d588f663a20b5a10b04cd4c83becab08ee55aed63ad2",
       "retrieval_receipt": "evidence/receipts/V2-E06-retrieval-qualification.json",
-      "status": "RETRIEVAL_VALIDATED",
+      "status": "B2_INTERRUPTED_RESUMABLE",
       "task_count": 360,
       "task_manifest_sha256": "38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99"
     }
   },
-  "protocol_status": "RETRIEVAL_VALIDATED",
+  "protocol_status": "B2_INTERRUPTED_RESUMABLE",
+  "recoverable_checkpoint": {
+    "method": "B2",
+    "path": "evidence/pilot_v2/b2_qwen3_4b.jsonl",
+    "rows": 196,
+    "sha256": "c8817993d3d8ca5d24b989f6a9f66083c393738930ff15a7e69d96400a7eac36",
+    "task_manifest_sha256": "38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99",
+    "validation": "evidence/pilot_v2/b2_reboot_validation_196.json"
+  },
   "schema_version": 1,
-  "updated_at_utc": "2026-09-23T03:16:42+00:00"
+  "updated_at_utc": "2026-09-24T06:49:50+00:00"
 }

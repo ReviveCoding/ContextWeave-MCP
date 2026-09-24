@@ -24,6 +24,10 @@ PROTOCOL = "ContextWeave-v2-family-diverse-qualification"
 TASK_PATH = ROOT / "benchmarks/v2_pilot_tasks.jsonl"
 
 
+class RetryableGpuInterruption(RuntimeError):
+    """The scientific child failed closed because exclusive GPU ownership changed."""
+
+
 def _next(message: str) -> None:
     with tempfile.NamedTemporaryFile("w", encoding="utf-8", dir=ROOT, delete=False) as output:
         output.write("# Next action\n\n" + message + "\n")
@@ -53,6 +57,7 @@ def _run(name: str, command: list[str], env: dict[str, str], method: str | None 
     log = SCRATCH / f"v2_{name}.log"
     _set_active(name, log, method)
     with log.open("ab") as output:
+        attempt_start = output.tell()
         output.write(f"\nSTART {utc_now()} {' '.join(command)}\n".encode())
         output.flush()
         result = subprocess.run(command, cwd=ROOT, env=env, stdout=output, stderr=subprocess.STDOUT)
@@ -73,6 +78,18 @@ def _run(name: str, command: list[str], env: dict[str, str], method: str | None 
         state = load_state()
         state["active_long_running_process"] = None
         save_state(state)
+        attempt_output = log.read_bytes()[attempt_start:].decode("utf-8", errors="replace")
+        if any(
+            marker in attempt_output
+            for marker in (
+                "GPU is not exclusively idle before v2 Qwen load",
+                "expected one v2 GPU owner",
+                "v2 GPU ownership changed",
+            )
+        ):
+            raise RetryableGpuInterruption(
+                f"{name} lost exclusive GPU ownership; checkpoint preserved"
+            )
         raise RuntimeError(f"{name} failed; inspect {log}")
 
 
@@ -161,18 +178,27 @@ def main() -> None:
                 out.exists() and sum(1 for line in out.read_text().splitlines() if line) == 360
             )
             if not complete:
-                _wait_idle(120 if method == "B2" else 20)
                 method_env = {
                     **env,
                     "CONTEXTWEAVE_V2_METHOD": method,
                     "CONTEXTWEAVE_V2_BATCH_SIZE": "4",
                 }
-                _run(
-                    f"{method.lower()}_qwen",
-                    [sys.executable, "-u", "-m", "contextweave.v2_model_pilot"],
-                    method_env,
-                    method,
-                )
+                while True:
+                    _wait_idle(120)
+                    try:
+                        _run(
+                            f"{method.lower()}_qwen",
+                            [sys.executable, "-u", "-m", "contextweave.v2_model_pilot"],
+                            method_env,
+                            method,
+                        )
+                        break
+                    except RetryableGpuInterruption as exc:
+                        _next(
+                            f"{exc}. Wait for a new continuous exclusive GPU window and resume "
+                            "the same atomic checkpoint without recomputing completed task IDs."
+                        )
+                        print(str(exc), flush=True)
             validation = validate(method)
             _receipt(method, validation)
             print(json.dumps({f"{method}_validation": validation}, indent=2), flush=True)
