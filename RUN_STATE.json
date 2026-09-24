@@ -1,5 +1,16 @@
 {
-  "active_long_running_process": null,
+  "active_long_running_process": {
+    "completed_rows": 196,
+    "kind": "v2_supervisor_gpu_wait",
+    "log": "/home/bjw-0/.cache/contextweave-mcp/v2_supervisor.log",
+    "method": "B2",
+    "observed_external_gpu_pid": 87028,
+    "pid": 87469,
+    "protocol_identity": "ContextWeave-v2-family-diverse-qualification",
+    "started_at_utc": "2026-09-24T06:54:28+00:00",
+    "task_manifest_sha256": "38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99",
+    "waiting_for": "120 continuous seconds with no GPU compute owner"
+  },
   "completed_stages": [
     "E00",
     "E01",
@@ -43,7 +54,7 @@
     "BGE-reranker-v2-m3": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
     "Qwen3-4B": "1cfa9a7208912126459214e8b04321603b3df60c"
   },
-  "next_legal_action": "Require 120 continuous seconds of exclusive RTX 4090 availability, then resume v2 B2 from 196/360 on frozen manifest 38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99; do not recompute completed IDs.",
+  "next_legal_action": "Supervisor PID 87469 must wait for 120 continuous seconds after external GPU PID 87028 exits, then resume B2 from 196/360 without recomputing completed IDs.",
   "protected_accesses": [],
   "protocol_history": [
     {
@@ -107,5 +118,5 @@
     "validation": "evidence/pilot_v2/b2_reboot_validation_196.json"
   },
   "schema_version": 1,
-  "updated_at_utc": "2026-09-24T06:49:50+00:00"
+  "updated_at_utc": "2026-09-24T06:54:28+00:00"
 }
