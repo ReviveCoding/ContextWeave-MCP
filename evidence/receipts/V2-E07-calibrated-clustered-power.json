@@ -1,0 +1,36 @@
+{
+  "calibration": {
+    "heterogeneous_null_rejection_rate": 0.01874,
+    "homogeneous_null_rejection_rate": 0.02582,
+    "normal_reference_null_rejection_rate": 0.02552,
+    "replicates_per_checkpoint": 100000,
+    "status": "PASS_CONTROLLED_CONSERVATIVE_HETEROGENEITY"
+  },
+  "e07_statistical_identity": "ContextWeave-v2-E07-calibrated-family-t-v2",
+  "evidence_class": "Q",
+  "experiment_id": "V2-E07-calibrated-clustered-power",
+  "output_manifest": [
+    {
+      "path": "evidence/power_v2/calibration_audit.json",
+      "sha256": "0f1925dba92669825a97fae53fe0e044db568f790877296ce95b8caabdabbf08"
+    },
+    {
+      "path": "evidence/power_v2/clustered_design_calibrated.json",
+      "sha256": "ea5d24011cf4d6bc3caea7d536d9f252123c90c97053c44a68cd29b3854555e1"
+    }
+  ],
+  "planning_result": {
+    "analytic_required_family_count": 799,
+    "feasible_ceiling_tasks": 600,
+    "maximum_simulated_power_at_true_delta_zero": 0.1165,
+    "selected_feasible_design": null,
+    "status": "INSUFFICIENT_POWER"
+  },
+  "protected_accesses": [],
+  "protocol_identity": "ContextWeave-v2-family-diverse-qualification",
+  "stage": "V2-E07",
+  "status": "GATED",
+  "supersedes": "V2-E07-clustered-power / SUPERSEDED_INVALID_CALIBRATION",
+  "task_manifest_sha256": "38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99",
+  "timestamp_utc": "2026-09-25T22:24:08Z"
+}

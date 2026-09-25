@@ -1,6 +1,6 @@
 # ContextWeave v2 pre-protected protocol
 
-Status: **qualification design; no design or benchmark freeze**
+Status: **closed before freeze as `V2_PRE_FREEZE_INSUFFICIENT_POWER_CALIBRATED`**
 
 Protocol identity: `ContextWeave-v2-family-diverse-qualification`
 
@@ -55,3 +55,23 @@ If v2 becomes design-ready, the frozen primary quality analysis will use family 
 ## Mechanical gate
 
 V2 may create `DESIGN_FREEZE` and then `BENCHMARK_FREEZE` only if paired B2/C1 qualification outcomes are complete on identical task identities and both analytic and simulation-based clustered planning are defensible within 600 protected tasks. Otherwise close v2 as `INSUFFICIENT_POWER` and proceed to documentation/release without E08–E24 scientific claims.
+
+## E07 calibration audit and closure
+
+The first v2 E07 simulation is preserved as `SUPERSEDED_INVALID_CALIBRATION`. Its per-family clipping step did not preserve the requested null-boundary mean. A requested difference of -0.05 became +0.0652778 after clipping. The four-cell Dirichlet pseudocounts then implied +0.0580247, and an independent 100,000-replicate reproduction realized +0.0579013 with rejection probability 0.32821. This explains the anomalous reported Type I error; it was a generator error rather than evidence that the specified family t test rejects 32.8% at the true null boundary.
+
+The corrected statistical identity is `ContextWeave-v2-E07-calibrated-family-t-v2`. It uses a bounded root solve after clipping, validates every four-cell probability vector, and makes the mean family difference equal the requested planning value to numerical precision. It then resamples whole family profiles and generates paired multinomial outcomes without the mean-shifting pseudocount draw.
+
+For family differences \(D_j\), the prespecified test is
+
+\[
+H_0:\mu_D\le -0.05,\qquad H_1:\mu_D>-0.05,
+\]
+
+with statistic \(\sqrt{K}(\bar D+0.05)/s_D\), rejection above \(t_{0.975,K-1}\), equal family weights, standard error \(s_D/\sqrt K\), and \(K-1\) degrees of freedom. The sign and rejection direction are therefore correct.
+
+Independent 100,000-replicate checks gave null rejection 0.02552 for an exact normal t benchmark and 0.02582 for homogeneous paired binary families. Both lie in the prespecified Monte Carlo compatibility interval [0.0215323, 0.0284677]. The observed-profile heterogeneous stress scenario realized mean -0.0495774 and rejection 0.01874. It is conservative and outside the narrow nominal-compatibility band, but it remains below the upper safety limit. The corrected design reports this distinction instead of calling the heterogeneous result exactly nominal.
+
+The independent analytic calculation and project implementation both require 799 independent families for 0.90 power at true difference zero using the observed family standard deviation 0.4353200. Across 46 feasible designs with 24–36 families, 10–20 tasks per family, and at most 600 tasks, the largest simulated power was 0.1165; under 1.5x heterogeneity it was 0.0952. All 46 null-boundary simulations controlled Type I error under the prespecified safety limit, and no design met the power gate.
+
+V2 is therefore closed as `V2_PRE_FREEZE_INSUFFICIENT_POWER_CALIBRATED`. This is a benchmark design and power limitation. B2's 200/360 and C1's 247/360 outcomes, including the +0.1305556 paired qualification difference, remain qualification evidence only and do not establish efficacy, benefit, harm, or failure. No protected task was constructed or accessed, and no design or benchmark freeze exists.

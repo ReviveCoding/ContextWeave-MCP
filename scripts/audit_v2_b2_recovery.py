@@ -7,10 +7,9 @@ import hashlib
 import json
 import os
 import tempfile
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
-
 
 ROOT = Path(__file__).resolve().parents[1]
 PROTOCOL = "ContextWeave-v2-family-diverse-qualification"
@@ -55,7 +54,9 @@ def main() -> None:
     raw = checkpoint_path.read_bytes()
     if not raw.endswith(b"\n"):
         raise RuntimeError("B2 checkpoint has a partial/truncated final record")
-    tasks = [json.loads(line) for line in task_path.read_text(encoding="utf-8").splitlines() if line]
+    tasks = [
+        json.loads(line) for line in task_path.read_text(encoding="utf-8").splitlines() if line
+    ]
     rows = [json.loads(line) for line in raw.decode("utf-8").splitlines() if line]
     if len(tasks) != 360 or len(rows) != EXPECTED_ROWS:
         raise RuntimeError(f"unexpected task/checkpoint count: {len(tasks)}/{len(rows)}")
@@ -89,7 +90,7 @@ def main() -> None:
         if row.get("expected_behavior") != task["expected_behavior"]:
             raise RuntimeError(f"row {index} expected behavior changed")
 
-    now = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    now = datetime.now(UTC).isoformat(timespec="seconds")
     remaining = task_ids[EXPECTED_ROWS:]
     validation = {
         "artifact": str(checkpoint_path.relative_to(ROOT)).replace("\\", "/"),
@@ -174,7 +175,11 @@ def main() -> None:
         "without recomputing completed IDs. Complete paired B2/C1 and clustered E07 before any freeze.\n",
         encoding="utf-8",
     )
-    print(json.dumps({"validation": validation_path.as_posix(), "receipt": receipt_path.as_posix()}, indent=2))
+    print(
+        json.dumps(
+            {"validation": validation_path.as_posix(), "receipt": receipt_path.as_posix()}, indent=2
+        )
+    )
 
 
 if __name__ == "__main__":

@@ -1,0 +1,24 @@
+{
+  "classification": "benchmark-design/power limitation; neither efficacy success nor efficacy failure",
+  "closure_identity": "V2_PRE_FREEZE_INSUFFICIENT_POWER_CALIBRATED",
+  "e07_receipt": "evidence/receipts/V2-E07-calibrated-clustered-power.json",
+  "e07_statistical_identity": "ContextWeave-v2-E07-calibrated-family-t-v2",
+  "evidence_class": "Q",
+  "freeze_identities": {},
+  "input_outcomes": {
+    "B2_sha256": "e1dd2d277f14fa4136109c3df18e79d7241b450d6995c97f21a2d0a45a07ba3f",
+    "C1_sha256": "a45de1cd48c8a8b9d6bc7607cf1c71328067d66dca3700ef95e8c0da2abfeb33",
+    "claim_boundary": "The observed qualification difference is not an efficacy claim."
+  },
+  "output_hashes": {
+    "calibration_audit": "0f1925dba92669825a97fae53fe0e044db568f790877296ce95b8caabdabbf08",
+    "calibrated_design": "ea5d24011cf4d6bc3caea7d536d9f252123c90c97053c44a68cd29b3854555e1"
+  },
+  "protected_accesses": [],
+  "protocol_identity": "ContextWeave-v2-family-diverse-qualification",
+  "reason": "After correction and independent calibration, no design at or below 600 tasks achieved the prespecified 0.90 clustered power requirement.",
+  "stage": "V2-E07",
+  "status": "CLOSED_INSUFFICIENT_POWER",
+  "task_manifest_sha256": "38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99",
+  "timestamp_utc": "2026-09-25T22:24:08Z"
+}

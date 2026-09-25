@@ -9,7 +9,7 @@
       "sha256": "a7ba82b5a6051a103a6bed29f4055370fc3e64264ced7d67bfecb0b442e0e349"
     },
     {
-      "path": "src/contextweave/v2_power.py",
+      "path": "evidence/power_v2/superseded/v2_power_invalid_calibration.py",
       "sha256": "3e068c59ce2200230325497721db0cd1af515711e4f890cf13fd898f1c08a2de"
     }
   ],

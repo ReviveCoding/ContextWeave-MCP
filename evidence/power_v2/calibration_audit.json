@@ -1,0 +1,207 @@
+{
+  "audit_identity": "ContextWeave-v2-E07-calibration-audit-independent-v1",
+  "calibration_absolute_tolerance": 0.0025,
+  "calibration_compatibility_interval": [
+    0.02153232753475156,
+    0.028467672465248443
+  ],
+  "calibration_gate": {
+    "heterogeneous_observed_profile_nominally_compatible": false,
+    "heterogeneous_observed_profile_type_i_controlled": true,
+    "interpretation": "The normal-reference and homogeneous binary checkpoints must be compatible with nominal alpha. The observed-profile heterogeneous stress check may be conservative but must not exceed the upper safety limit.",
+    "nominal_reference_and_homogeneous_compatible": true
+  },
+  "independent_analytic_power": {
+    "grid_24_to_36": [
+      {
+        "family_count": 24,
+        "power_at_true_delta_zero": 0.07774949215991524
+      },
+      {
+        "family_count": 25,
+        "power_at_true_delta_zero": 0.07952332656807212
+      },
+      {
+        "family_count": 26,
+        "power_at_true_delta_zero": 0.08128863376734831
+      },
+      {
+        "family_count": 27,
+        "power_at_true_delta_zero": 0.08304616687496458
+      },
+      {
+        "family_count": 28,
+        "power_at_true_delta_zero": 0.08479659685503119
+      },
+      {
+        "family_count": 29,
+        "power_at_true_delta_zero": 0.08654052366257557
+      },
+      {
+        "family_count": 30,
+        "power_at_true_delta_zero": 0.0882784855486329
+      },
+      {
+        "family_count": 31,
+        "power_at_true_delta_zero": 0.0900109668811189
+      },
+      {
+        "family_count": 32,
+        "power_at_true_delta_zero": 0.09173840475856225
+      },
+      {
+        "family_count": 33,
+        "power_at_true_delta_zero": 0.09346119463497339
+      },
+      {
+        "family_count": 34,
+        "power_at_true_delta_zero": 0.09517969512923055
+      },
+      {
+        "family_count": 35,
+        "power_at_true_delta_zero": 0.09689423215774264
+      },
+      {
+        "family_count": 36,
+        "power_at_true_delta_zero": 0.09860510250223482
+      }
+    ],
+    "observed_between_family_sd": 0.4353200111789286,
+    "planning_true_difference": 0.0,
+    "required_family_count_for_0_90_power": 799
+  },
+  "independent_binary_checkpoints": {
+    "heterogeneous_equal_quality": {
+      "mc_95_interval": [
+        0.09658362657828878,
+        0.10027637342171122
+      ],
+      "mc_standard_error": 0.0009420272559751124,
+      "profile_mean_paired_difference": 2.7755575615628914e-17,
+      "realized_mean_paired_difference": -3.330555555555486e-05,
+      "rejection_rate": 0.09843,
+      "requested_mean_paired_difference": 0.0
+    },
+    "heterogeneous_null_boundary": {
+      "mc_95_interval": [
+        0.017899509299778755,
+        0.019580490700221245
+      ],
+      "mc_standard_error": 0.00042882178582716616,
+      "profile_mean_paired_difference": -0.05,
+      "realized_mean_paired_difference": -0.049577444444444445,
+      "rejection_rate": 0.01874,
+      "requested_mean_paired_difference": -0.05
+    },
+    "homogeneous_equal_quality": {
+      "mc_95_interval": [
+        0.38816524061983393,
+        0.39421475938016604
+      ],
+      "mc_standard_error": 0.0015432445817173636,
+      "profile_mean_paired_difference": 0.0,
+      "realized_mean_paired_difference": 6.661111111111109e-05,
+      "rejection_rate": 0.39119,
+      "requested_mean_paired_difference": 0.0
+    },
+    "homogeneous_inferior": {
+      "mc_95_interval": [
+        7.409521991336778e-05,
+        0.0002259047800866322
+      ],
+      "mc_standard_error": 3.872692861562868e-05,
+      "profile_mean_paired_difference": -0.10000000000000002,
+      "realized_mean_paired_difference": -0.10003291666666668,
+      "rejection_rate": 0.00015,
+      "requested_mean_paired_difference": -0.1
+    },
+    "homogeneous_null_boundary": {
+      "mc_95_interval": [
+        0.024836999372796945,
+        0.026803000627203054
+      ],
+      "mc_standard_error": 0.0005015309322464567,
+      "profile_mean_paired_difference": -0.04999999999999999,
+      "realized_mean_paired_difference": -0.05004983333333333,
+      "rejection_rate": 0.02582,
+      "requested_mean_paired_difference": -0.05
+    },
+    "homogeneous_strong_positive": {
+      "mc_95_interval": [
+        1.0,
+        1.0
+      ],
+      "mc_standard_error": 0.0,
+      "profile_mean_paired_difference": 0.14999999999999997,
+      "realized_mean_paired_difference": 0.1498826388888889,
+      "rejection_rate": 1.0,
+      "requested_mean_paired_difference": 0.15
+    }
+  },
+  "independent_normal_t_benchmarks": {
+    "equal_quality": {
+      "absolute_empirical_theoretical_difference": 0.0025734842384858014,
+      "empirical_rejection_rate": 0.25988,
+      "mc_95_interval": [
+        0.2571617238762021,
+        0.2625982761237979
+      ],
+      "mc_standard_error": 0.0013868755733662628,
+      "realized_mean_paired_difference": -0.00020796239971987987,
+      "requested_mean_paired_difference": 0.0,
+      "theoretical_rejection_rate": 0.2624534842384858
+    },
+    "null_boundary": {
+      "absolute_empirical_theoretical_difference": 0.000520000000000017,
+      "empirical_rejection_rate": 0.02552,
+      "mc_95_interval": [
+        0.02454257628619232,
+        0.026497423713807682
+      ],
+      "mc_standard_error": 0.0004986855682692252,
+      "realized_mean_paired_difference": -0.049915059094740755,
+      "requested_mean_paired_difference": -0.05,
+      "theoretical_rejection_rate": 0.024999999999999984
+    },
+    "strong_positive": {
+      "absolute_empirical_theoretical_difference": 6.399038976256932e-06,
+      "empirical_rejection_rate": 0.99957,
+      "mc_95_interval": [
+        0.9994415018409407,
+        0.9996984981590592
+      ],
+      "mc_standard_error": 6.5560285234282e-05,
+      "realized_mean_paired_difference": 0.149979023912225,
+      "requested_mean_paired_difference": 0.15,
+      "theoretical_rejection_rate": 0.9995636009610237
+    }
+  },
+  "input_hashes": {
+    "B2": "e1dd2d277f14fa4136109c3df18e79d7241b450d6995c97f21a2d0a45a07ba3f",
+    "C1": "a45de1cd48c8a8b9d6bc7607cf1c71328067d66dca3700ef95e8c0da2abfeb33"
+  },
+  "noninferiority_margin": 0.05,
+  "old_generator_reproduction": {
+    "expected_mean_after_dirichlet_pseudocounts": 0.05802469135802469,
+    "mean_after_clipping": 0.06527777777777775,
+    "realized_mean_paired_difference": 0.05790125,
+    "rejection_rate": 0.32821,
+    "requested_null_boundary": -0.05
+  },
+  "one_sided_alpha": 0.025,
+  "protected_accesses": [],
+  "replicates_per_checkpoint": 100000,
+  "seed": 2026092501,
+  "status": "PASS_CONTROLLED_CONSERVATIVE_HETEROGENEITY",
+  "test_derivation": {
+    "alternative": "mu_D > -0.05",
+    "critical_value": "t_(0.975,K-1)",
+    "degrees_of_freedom": "K-1",
+    "equal_family_weights": true,
+    "null": "mu_D <= -0.05",
+    "rejection_rule": "statistic > critical value",
+    "standard_error": "sd(D_j) / sqrt(K)",
+    "statistic": "sqrt(K) * (mean(D_j) + 0.05) / sd(D_j)"
+  },
+  "timestamp_utc": "2026-09-25T22:23:28+00:00"
+}

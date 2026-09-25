@@ -1,0 +1,1137 @@
+{
+  "B2_success": 200,
+  "C1_success": 247,
+  "analytic": {
+    "degrees_of_freedom": "K-1",
+    "estimand": "equal-family-weighted paired TaskSuccess difference",
+    "grid_24_to_36": [
+      {
+        "family_count": 24,
+        "power_at_true_delta_zero": 0.07774949215991525
+      },
+      {
+        "family_count": 25,
+        "power_at_true_delta_zero": 0.07952332656807212
+      },
+      {
+        "family_count": 26,
+        "power_at_true_delta_zero": 0.08128863376734832
+      },
+      {
+        "family_count": 27,
+        "power_at_true_delta_zero": 0.0830461668749646
+      },
+      {
+        "family_count": 28,
+        "power_at_true_delta_zero": 0.08479659685503119
+      },
+      {
+        "family_count": 29,
+        "power_at_true_delta_zero": 0.0865405236625756
+      },
+      {
+        "family_count": 30,
+        "power_at_true_delta_zero": 0.08827848554863292
+      },
+      {
+        "family_count": 31,
+        "power_at_true_delta_zero": 0.0900109668811189
+      },
+      {
+        "family_count": 32,
+        "power_at_true_delta_zero": 0.09173840475856225
+      },
+      {
+        "family_count": 33,
+        "power_at_true_delta_zero": 0.09346119463497343
+      },
+      {
+        "family_count": 34,
+        "power_at_true_delta_zero": 0.09517969512923058
+      },
+      {
+        "family_count": 35,
+        "power_at_true_delta_zero": 0.09689423215774264
+      },
+      {
+        "family_count": 36,
+        "power_at_true_delta_zero": 0.09860510250223482
+      }
+    ],
+    "planning_true_difference": 0.0,
+    "reference_distribution": "one-sample noncentral t",
+    "required_family_count": 799
+  },
+  "baseline_only": 28,
+  "between_family_sd": 0.43532001117892855,
+  "between_family_variance": 0.18950351213282246,
+  "candidate_only": 75,
+  "design": {
+    "family_count_range": [
+      24,
+      36
+    ],
+    "feasible_ceiling_tasks": 600,
+    "noninferiority_margin_absolute_success": 0.05,
+    "one_sided_alpha": 0.025,
+    "target_power": 0.9,
+    "tasks_per_family_range": [
+      10,
+      20
+    ]
+  },
+  "e07_statistical_identity": "ContextWeave-v2-E07-calibrated-family-t-v2",
+  "equal_family_weighted_difference": 0.13055555555555556,
+  "evidence_class": "Q",
+  "family_means": {
+    "adgroup_campaign_rollup": -0.5833333333333334,
+    "alias_entity_lookup": -0.16666666666666666,
+    "ambiguous_metric_clarification": 0.08333333333333333,
+    "ambiguous_period_clarification": 1,
+    "bid_policy_grounding": 0,
+    "budget_policy_grounding": -0.16666666666666666,
+    "cache_version_validation": 0,
+    "campaign_advertiser_join": 0.3333333333333333,
+    "campaign_budget_join": -0.5833333333333334,
+    "cpa_ratio_metric": 0,
+    "cross_tenant_refusal": 0,
+    "ctr_ratio_metric": 0,
+    "distractor_table_collision": 0,
+    "document_sql_dependency": 0,
+    "entity_status_lookup": 0,
+    "filtered_topk_lookup": 0.8333333333333334,
+    "governed_schema_alias": 0.25,
+    "grouped_volume_aggregation": 1,
+    "keyword_campaign_multihop": 0.08333333333333333,
+    "metric_version_transition": 1,
+    "missing_dependency_abstention": 0,
+    "missing_scope_refusal": 0,
+    "policy_dependency_multihop": -0.16666666666666666,
+    "renamed_column_refresh": 0.9166666666666666,
+    "roas_nested_metric": -0.4166666666666667,
+    "rolling_window_peak": 0,
+    "stale_watermark_refresh": 0,
+    "temporal_period_aggregation": -0.08333333333333333,
+    "temporal_period_comparison": 0,
+    "transient_retry_contract": 0.5833333333333334
+  },
+  "note": "Qualification planning only. The observed difference is not an efficacy claim.",
+  "pilot_family_count": 30,
+  "pilot_task_count": 360,
+  "primary_test": {
+    "alternative_hypothesis": "mu_D > -0.05",
+    "equal_family_weights": true,
+    "null_hypothesis": "mu_D <= -0.05",
+    "rejection_rule": "statistic > t_(0.975,K-1)",
+    "statistic": "sqrt(K) * (mean(D_j) + 0.05) / sd(D_j)"
+  },
+  "protected_accesses": [],
+  "protocol_identity": "ContextWeave-v2-family-diverse-qualification",
+  "simulation": {
+    "calibration_absolute_tolerance": 0.0025,
+    "grid": [
+      {
+        "family_count": 24,
+        "inflated_power_lower_95_mc": 0.05833440237720389,
+        "power_heterogeneity_x1_5": 0.0631,
+        "power_heterogeneity_x1_5_realized_mean": 0.0006516666666666669,
+        "power_lower_95_mc": 0.07041860218643656,
+        "power_true_delta_zero": 0.0756,
+        "power_true_delta_zero_realized_mean": -0.0003991666666666667,
+        "tasks_per_family": 10,
+        "total_tasks": 240,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.0182,
+        "type_i_lower_95_mc": 0.015579988007355692,
+        "type_i_nominally_compatible": false,
+        "type_i_realized_mean_paired_difference": -0.049814583333333336,
+        "type_i_upper_95_mc": 0.02082001199264431
+      },
+      {
+        "family_count": 24,
+        "inflated_power_lower_95_mc": 0.056309125812814845,
+        "power_heterogeneity_x1_5": 0.061,
+        "power_heterogeneity_x1_5_realized_mean": -0.0006795138888888879,
+        "power_lower_95_mc": 0.07458568887640175,
+        "power_true_delta_zero": 0.0799,
+        "power_true_delta_zero_realized_mean": 0.00013229166666666776,
+        "tasks_per_family": 12,
+        "total_tasks": 288,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.0156,
+        "type_i_lower_95_mc": 0.013171130546447585,
+        "type_i_nominally_compatible": false,
+        "type_i_realized_mean_paired_difference": -0.05061111111111111,
+        "type_i_upper_95_mc": 0.018028869453552414
+      },
+      {
+        "family_count": 24,
+        "inflated_power_lower_95_mc": 0.05264840226452293,
+        "power_heterogeneity_x1_5": 0.0572,
+        "power_heterogeneity_x1_5_realized_mean": -0.00151953125,
+        "power_lower_95_mc": 0.07633142046183536,
+        "power_true_delta_zero": 0.0817,
+        "power_true_delta_zero_realized_mean": 0.0003385416666666667,
+        "tasks_per_family": 16,
+        "total_tasks": 384,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.0162,
+        "type_i_lower_95_mc": 0.013725616632451632,
+        "type_i_nominally_compatible": false,
+        "type_i_realized_mean_paired_difference": -0.04975989583333334,
+        "type_i_upper_95_mc": 0.018674383367548366
+      },
+      {
+        "family_count": 24,
+        "inflated_power_lower_95_mc": 0.061326825075005,
+        "power_heterogeneity_x1_5": 0.0662,
+        "power_heterogeneity_x1_5_realized_mean": 0.0005670833333333305,
+        "power_lower_95_mc": 0.07992227020980407,
+        "power_true_delta_zero": 0.0854,
+        "power_true_delta_zero_realized_mean": 0.00018333333333333125,
+        "tasks_per_family": 20,
+        "total_tasks": 480,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.0163,
+        "type_i_lower_95_mc": 0.013818117543153985,
+        "type_i_nominally_compatible": false,
+        "type_i_realized_mean_paired_difference": -0.05016604166666667,
+        "type_i_upper_95_mc": 0.018781882456846012
+      },
+      {
+        "family_count": 25,
+        "inflated_power_lower_95_mc": 0.06026463630339972,
+        "power_heterogeneity_x1_5": 0.0651,
+        "power_heterogeneity_x1_5_realized_mean": 0.0007999999999999999,
+        "power_lower_95_mc": 0.07574942292772079,
+        "power_true_delta_zero": 0.0811,
+        "power_true_delta_zero_realized_mean": 0.0005423999999999994,
+        "tasks_per_family": 10,
+        "total_tasks": 250,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.0181,
+        "type_i_lower_95_mc": 0.015487062698341197,
+        "type_i_nominally_compatible": false,
+        "type_i_realized_mean_paired_difference": -0.049108000000000006,
+        "type_i_upper_95_mc": 0.020712937301658806
+      },
+      {
+        "family_count": 25,
+        "inflated_power_lower_95_mc": 0.060071553227134006,
+        "power_heterogeneity_x1_5": 0.0649,
+        "power_heterogeneity_x1_5_realized_mean": 0.00033300000000000083,
+        "power_lower_95_mc": 0.07206548945997814,
+        "power_true_delta_zero": 0.0773,
+        "power_true_delta_zero_realized_mean": -0.0005416666666666656,
+        "tasks_per_family": 12,
+        "total_tasks": 300,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.0186,
+        "type_i_lower_95_mc": 0.01595189275020818,
+        "type_i_nominally_compatible": false,
+        "type_i_realized_mean_paired_difference": -0.04958866666666666,
+        "type_i_upper_95_mc": 0.021248107249791818
+      },
+      {
+        "family_count": 25,
+        "inflated_power_lower_95_mc": 0.060071553227134006,
+        "power_heterogeneity_x1_5": 0.0649,
+        "power_heterogeneity_x1_5_realized_mean": -0.0005357499999999998,
+        "power_lower_95_mc": 0.08167029288066718,
+        "power_true_delta_zero": 0.0872,
+        "power_true_delta_zero_realized_mean": 0.0006492499999999997,
+        "tasks_per_family": 16,
+        "total_tasks": 400,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.0178,
+        "type_i_lower_95_mc": 0.015208411540078171,
+        "type_i_nominally_compatible": false,
+        "type_i_realized_mean_paired_difference": -0.05000475,
+        "type_i_upper_95_mc": 0.02039158845992183
+      },
+      {
+        "family_count": 25,
+        "inflated_power_lower_95_mc": 0.058430882182038284,
+        "power_heterogeneity_x1_5": 0.0632,
+        "power_heterogeneity_x1_5_realized_mean": -0.00019960000000000263,
+        "power_lower_95_mc": 0.07963100325119862,
+        "power_true_delta_zero": 0.0851,
+        "power_true_delta_zero_realized_mean": -0.0002472000000000021,
+        "tasks_per_family": 20,
+        "total_tasks": 500,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.0189,
+        "type_i_lower_95_mc": 0.016231030497289262,
+        "type_i_nominally_compatible": false,
+        "type_i_realized_mean_paired_difference": -0.0496,
+        "type_i_upper_95_mc": 0.021568969502710738
+      },
+      {
+        "family_count": 26,
+        "inflated_power_lower_95_mc": 0.06084396363259087,
+        "power_heterogeneity_x1_5": 0.0657,
+        "power_heterogeneity_x1_5_realized_mean": -0.0008288461538461544,
+        "power_lower_95_mc": 0.07827202743838917,
+        "power_true_delta_zero": 0.0837,
+        "power_true_delta_zero_realized_mean": -0.0003915384615384621,
+        "tasks_per_family": 10,
+        "total_tasks": 260,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.0149,
+        "type_i_lower_95_mc": 0.012525406005566425,
+        "type_i_nominally_compatible": false,
+        "type_i_realized_mean_paired_difference": -0.05083461538461539,
+        "type_i_upper_95_mc": 0.017274593994433575
+      },
+      {
+        "family_count": 26,
+        "inflated_power_lower_95_mc": 0.06045773243349771,
+        "power_heterogeneity_x1_5": 0.0653,
+        "power_heterogeneity_x1_5_realized_mean": -0.0003692307692307687,
+        "power_lower_95_mc": 0.0769135038370384,
+        "power_true_delta_zero": 0.0823,
+        "power_true_delta_zero_realized_mean": 0.0002919871794871806,
+        "tasks_per_family": 12,
+        "total_tasks": 312,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.02,
+        "type_i_lower_95_mc": 0.017256,
+        "type_i_nominally_compatible": true,
+        "type_i_realized_mean_paired_difference": -0.04979038461538462,
+        "type_i_upper_95_mc": 0.022744
+      },
+      {
+        "family_count": 26,
+        "inflated_power_lower_95_mc": 0.05910633563477792,
+        "power_heterogeneity_x1_5": 0.0639,
+        "power_heterogeneity_x1_5_realized_mean": 0.00013004807692307697,
+        "power_lower_95_mc": 0.07856319882283709,
+        "power_true_delta_zero": 0.084,
+        "power_true_delta_zero_realized_mean": -0.0002158653846153843,
+        "tasks_per_family": 16,
+        "total_tasks": 416,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.0179,
+        "type_i_lower_95_mc": 0.015301274294120289,
+        "type_i_nominally_compatible": false,
+        "type_i_realized_mean_paired_difference": -0.04918870192307692,
+        "type_i_upper_95_mc": 0.02049872570587971
+      },
+      {
+        "family_count": 26,
+        "inflated_power_lower_95_mc": 0.06277588431151339,
+        "power_heterogeneity_x1_5": 0.0677,
+        "power_heterogeneity_x1_5_realized_mean": 0.0003405769230769204,
+        "power_lower_95_mc": 0.08225312520191776,
+        "power_true_delta_zero": 0.0878,
+        "power_true_delta_zero_realized_mean": -0.0002984615384615406,
+        "tasks_per_family": 20,
+        "total_tasks": 520,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.0196,
+        "type_i_lower_95_mc": 0.01688302427423431,
+        "type_i_nominally_compatible": true,
+        "type_i_realized_mean_paired_difference": -0.0500973076923077,
+        "type_i_upper_95_mc": 0.02231697572576569
+      },
+      {
+        "family_count": 27,
+        "inflated_power_lower_95_mc": 0.06393563339323133,
+        "power_heterogeneity_x1_5": 0.0689,
+        "power_heterogeneity_x1_5_realized_mean": -0.0007288888888888897,
+        "power_lower_95_mc": 0.07866026054756296,
+        "power_true_delta_zero": 0.0841,
+        "power_true_delta_zero_realized_mean": -0.0012577777777777787,
+        "tasks_per_family": 10,
+        "total_tasks": 270,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.0187,
+        "type_i_lower_95_mc": 0.01604491900507725,
+        "type_i_nominally_compatible": false,
+        "type_i_realized_mean_paired_difference": -0.05065481481481482,
+        "type_i_upper_95_mc": 0.021355080994922754
+      },
+      {
+        "family_count": 27,
+        "inflated_power_lower_95_mc": 0.06693363694944786,
+        "power_heterogeneity_x1_5": 0.072,
+        "power_heterogeneity_x1_5_realized_mean": -0.00016234567901234528,
+        "power_lower_95_mc": 0.08186456162906677,
+        "power_true_delta_zero": 0.0874,
+        "power_true_delta_zero_realized_mean": -0.0005308641975308633,
+        "tasks_per_family": 12,
+        "total_tasks": 324,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.0188,
+        "type_i_lower_95_mc": 0.016137964972131283,
+        "type_i_nominally_compatible": false,
+        "type_i_realized_mean_paired_difference": -0.04971728395061728,
+        "type_i_upper_95_mc": 0.02146203502786872
+      },
+      {
+        "family_count": 27,
+        "inflated_power_lower_95_mc": 0.06857887180695503,
+        "power_heterogeneity_x1_5": 0.0737,
+        "power_heterogeneity_x1_5_realized_mean": 0.00015763888888888894,
+        "power_lower_95_mc": 0.08244741997266135,
+        "power_true_delta_zero": 0.088,
+        "power_true_delta_zero_realized_mean": -0.0007127314814814814,
+        "tasks_per_family": 16,
+        "total_tasks": 432,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.0194,
+        "type_i_lower_95_mc": 0.016696646241721222,
+        "type_i_nominally_compatible": false,
+        "type_i_realized_mean_paired_difference": -0.049863194444444446,
+        "type_i_upper_95_mc": 0.02210335375827878
+      },
+      {
+        "family_count": 27,
+        "inflated_power_lower_95_mc": 0.06703039303156547,
+        "power_heterogeneity_x1_5": 0.0721,
+        "power_heterogeneity_x1_5_realized_mean": 0.0016968518518518493,
+        "power_lower_95_mc": 0.08759929324928917,
+        "power_true_delta_zero": 0.0933,
+        "power_true_delta_zero_realized_mean": 0.00016555555555555364,
+        "tasks_per_family": 20,
+        "total_tasks": 540,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.018,
+        "type_i_lower_95_mc": 0.015394158070795543,
+        "type_i_nominally_compatible": false,
+        "type_i_realized_mean_paired_difference": -0.050950370370370375,
+        "type_i_upper_95_mc": 0.020605841929204456
+      },
+      {
+        "family_count": 28,
+        "inflated_power_lower_95_mc": 0.06325905963994706,
+        "power_heterogeneity_x1_5": 0.0682,
+        "power_heterogeneity_x1_5_realized_mean": 0.0008564285714285703,
+        "power_lower_95_mc": 0.0844880305347944,
+        "power_true_delta_zero": 0.0901,
+        "power_true_delta_zero_realized_mean": 5.857142857142743e-05,
+        "tasks_per_family": 10,
+        "total_tasks": 280,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.018,
+        "type_i_lower_95_mc": 0.015394158070795543,
+        "type_i_nominally_compatible": false,
+        "type_i_realized_mean_paired_difference": -0.05023428571428572,
+        "type_i_upper_95_mc": 0.020605841929204456
+      },
+      {
+        "family_count": 28,
+        "inflated_power_lower_95_mc": 0.06780454317510197,
+        "power_heterogeneity_x1_5": 0.0729,
+        "power_heterogeneity_x1_5_realized_mean": 0.00048601190476190554,
+        "power_lower_95_mc": 0.08507123249710916,
+        "power_true_delta_zero": 0.0907,
+        "power_true_delta_zero_realized_mean": 0.00024702380952381037,
+        "tasks_per_family": 12,
+        "total_tasks": 336,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.016,
+        "type_i_lower_95_mc": 0.013540688096235046,
+        "type_i_nominally_compatible": false,
+        "type_i_realized_mean_paired_difference": -0.05095029761904762,
+        "type_i_upper_95_mc": 0.018459311903764954
+      },
+      {
+        "family_count": 28,
+        "inflated_power_lower_95_mc": 0.06857887180695503,
+        "power_heterogeneity_x1_5": 0.0737,
+        "power_heterogeneity_x1_5_realized_mean": 0.0008151785714285712,
+        "power_lower_95_mc": 0.08303035590307603,
+        "power_true_delta_zero": 0.0886,
+        "power_true_delta_zero_realized_mean": -0.0008901785714285714,
+        "tasks_per_family": 16,
+        "total_tasks": 448,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.0183,
+        "type_i_lower_95_mc": 0.0156729338307534,
+        "type_i_nominally_compatible": false,
+        "type_i_realized_mean_paired_difference": -0.05041875,
+        "type_i_upper_95_mc": 0.0209270661692466
+      },
+      {
+        "family_count": 28,
+        "inflated_power_lower_95_mc": 0.07225929021982709,
+        "power_heterogeneity_x1_5": 0.0775,
+        "power_heterogeneity_x1_5_realized_mean": 0.0010451785714285693,
+        "power_lower_95_mc": 0.08925298721073287,
+        "power_true_delta_zero": 0.095,
+        "power_true_delta_zero_realized_mean": -0.00027107142857143025,
+        "tasks_per_family": 20,
+        "total_tasks": 560,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.0176,
+        "type_i_lower_95_mc": 0.015022749799029983,
+        "type_i_nominally_compatible": false,
+        "type_i_realized_mean_paired_difference": -0.04986339285714286,
+        "type_i_upper_95_mc": 0.02017725020097002
+      },
+      {
+        "family_count": 29,
+        "inflated_power_lower_95_mc": 0.06499911847770816,
+        "power_heterogeneity_x1_5": 0.07,
+        "power_heterogeneity_x1_5_realized_mean": 0.00018586206896551615,
+        "power_lower_95_mc": 0.09090724296231924,
+        "power_true_delta_zero": 0.0967,
+        "power_true_delta_zero_realized_mean": 5.517241379309024e-06,
+        "tasks_per_family": 10,
+        "total_tasks": 290,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.0186,
+        "type_i_lower_95_mc": 0.01595189275020818,
+        "type_i_nominally_compatible": false,
+        "type_i_realized_mean_paired_difference": -0.04996344827586207,
+        "type_i_upper_95_mc": 0.021248107249791818
+      },
+      {
+        "family_count": 29,
+        "inflated_power_lower_95_mc": 0.07119351390605909,
+        "power_heterogeneity_x1_5": 0.0764,
+        "power_heterogeneity_x1_5_realized_mean": 0.0004695402298850578,
+        "power_lower_95_mc": 0.08380772327379983,
+        "power_true_delta_zero": 0.0894,
+        "power_true_delta_zero_realized_mean": -0.000839655172413792,
+        "tasks_per_family": 12,
+        "total_tasks": 348,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.018,
+        "type_i_lower_95_mc": 0.015394158070795543,
+        "type_i_nominally_compatible": false,
+        "type_i_realized_mean_paired_difference": -0.04977270114942529,
+        "type_i_upper_95_mc": 0.020605841929204456
+      },
+      {
+        "family_count": 29,
+        "inflated_power_lower_95_mc": 0.07303459542887727,
+        "power_heterogeneity_x1_5": 0.0783,
+        "power_heterogeneity_x1_5_realized_mean": -0.0001454741379310347,
+        "power_lower_95_mc": 0.09188059166292654,
+        "power_true_delta_zero": 0.0977,
+        "power_true_delta_zero_realized_mean": -0.0006245689655172413,
+        "tasks_per_family": 16,
+        "total_tasks": 464,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.0179,
+        "type_i_lower_95_mc": 0.015301274294120289,
+        "type_i_nominally_compatible": false,
+        "type_i_realized_mean_paired_difference": -0.04945258620689655,
+        "type_i_upper_95_mc": 0.02049872570587971
+      },
+      {
+        "family_count": 29,
+        "inflated_power_lower_95_mc": 0.07381006239447005,
+        "power_heterogeneity_x1_5": 0.0791,
+        "power_heterogeneity_x1_5_realized_mean": 0.0002094827586206875,
+        "power_lower_95_mc": 0.09723728955913503,
+        "power_true_delta_zero": 0.1032,
+        "power_true_delta_zero_realized_mean": -0.00013706896551724307,
+        "tasks_per_family": 20,
+        "total_tasks": 580,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.0203,
+        "type_i_lower_95_mc": 0.017535919772220784,
+        "type_i_nominally_compatible": true,
+        "type_i_realized_mean_paired_difference": -0.04997931034482759,
+        "type_i_upper_95_mc": 0.023064080227779213
+      },
+      {
+        "family_count": 30,
+        "inflated_power_lower_95_mc": 0.06857887180695503,
+        "power_heterogeneity_x1_5": 0.0737,
+        "power_heterogeneity_x1_5_realized_mean": -0.0005463333333333349,
+        "power_lower_95_mc": 0.08769655356907773,
+        "power_true_delta_zero": 0.0934,
+        "power_true_delta_zero_realized_mean": 0.00027133333333333187,
+        "tasks_per_family": 10,
+        "total_tasks": 300,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.0195,
+        "type_i_lower_95_mc": 0.01678982599082642,
+        "type_i_nominally_compatible": true,
+        "type_i_realized_mean_paired_difference": -0.049924666666666666,
+        "type_i_upper_95_mc": 0.02221017400917358
+      },
+      {
+        "family_count": 30,
+        "inflated_power_lower_95_mc": 0.07138726807226767,
+        "power_heterogeneity_x1_5": 0.0766,
+        "power_heterogeneity_x1_5_realized_mean": 0.0008875000000000004,
+        "power_lower_95_mc": 0.08915569541211471,
+        "power_true_delta_zero": 0.0949,
+        "power_true_delta_zero_realized_mean": -0.0013199999999999993,
+        "tasks_per_family": 12,
+        "total_tasks": 360,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.0176,
+        "type_i_lower_95_mc": 0.015022749799029983,
+        "type_i_nominally_compatible": false,
+        "type_i_realized_mean_paired_difference": -0.050644999999999996,
+        "type_i_upper_95_mc": 0.02017725020097002
+      },
+      {
+        "family_count": 30,
+        "inflated_power_lower_95_mc": 0.07255001057281064,
+        "power_heterogeneity_x1_5": 0.0778,
+        "power_heterogeneity_x1_5_realized_mean": 0.0005424999999999998,
+        "power_lower_95_mc": 0.0957758336132752,
+        "power_true_delta_zero": 0.1017,
+        "power_true_delta_zero_realized_mean": -0.00040770833333333344,
+        "tasks_per_family": 16,
+        "total_tasks": 480,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.0181,
+        "type_i_lower_95_mc": 0.015487062698341197,
+        "type_i_nominally_compatible": false,
+        "type_i_realized_mean_paired_difference": -0.04940791666666666,
+        "type_i_upper_95_mc": 0.020712937301658806
+      },
+      {
+        "family_count": 30,
+        "inflated_power_lower_95_mc": 0.07187169898969083,
+        "power_heterogeneity_x1_5": 0.0771,
+        "power_heterogeneity_x1_5_realized_mean": 0.0001226666666666648,
+        "power_lower_95_mc": 0.0958732516738434,
+        "power_true_delta_zero": 0.1018,
+        "power_true_delta_zero_realized_mean": -0.000797833333333335,
+        "tasks_per_family": 20,
+        "total_tasks": 600,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.0195,
+        "type_i_lower_95_mc": 0.01678982599082642,
+        "type_i_nominally_compatible": true,
+        "type_i_realized_mean_paired_difference": -0.05025466666666667,
+        "type_i_upper_95_mc": 0.02221017400917358
+      },
+      {
+        "family_count": 31,
+        "inflated_power_lower_95_mc": 0.07798087681719634,
+        "power_heterogeneity_x1_5": 0.0834,
+        "power_heterogeneity_x1_5_realized_mean": 0.0003183870967741921,
+        "power_lower_95_mc": 0.09363308940241971,
+        "power_true_delta_zero": 0.0995,
+        "power_true_delta_zero_realized_mean": 0.0007564516129032238,
+        "tasks_per_family": 10,
+        "total_tasks": 310,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.0169,
+        "type_i_lower_95_mc": 0.014373622343670685,
+        "type_i_nominally_compatible": false,
+        "type_i_realized_mean_paired_difference": -0.050401612903225805,
+        "type_i_upper_95_mc": 0.019426377656329312
+      },
+      {
+        "family_count": 31,
+        "inflated_power_lower_95_mc": 0.07807792471096169,
+        "power_heterogeneity_x1_5": 0.0835,
+        "power_heterogeneity_x1_5_realized_mean": 0.0005967741935483875,
+        "power_lower_95_mc": 0.0952887699749037,
+        "power_true_delta_zero": 0.1012,
+        "power_true_delta_zero_realized_mean": 4.596774193548474e-05,
+        "tasks_per_family": 12,
+        "total_tasks": 372,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.0169,
+        "type_i_lower_95_mc": 0.014373622343670685,
+        "type_i_nominally_compatible": false,
+        "type_i_realized_mean_paired_difference": -0.04993548387096774,
+        "type_i_upper_95_mc": 0.019426377656329312
+      },
+      {
+        "family_count": 31,
+        "inflated_power_lower_95_mc": 0.07041860218643656,
+        "power_heterogeneity_x1_5": 0.0756,
+        "power_heterogeneity_x1_5_realized_mean": -0.0010491935483870967,
+        "power_lower_95_mc": 0.0987966073463749,
+        "power_true_delta_zero": 0.1048,
+        "power_true_delta_zero_realized_mean": -3.125e-05,
+        "tasks_per_family": 16,
+        "total_tasks": 496,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.019,
+        "type_i_lower_95_mc": 0.016324115428498456,
+        "type_i_nominally_compatible": false,
+        "type_i_realized_mean_paired_difference": -0.05010040322580646,
+        "type_i_upper_95_mc": 0.021675884571501543
+      },
+      {
+        "family_count": 32,
+        "inflated_power_lower_95_mc": 0.07739863827302781,
+        "power_heterogeneity_x1_5": 0.0828,
+        "power_heterogeneity_x1_5_realized_mean": -0.0002712500000000003,
+        "power_lower_95_mc": 0.095386179139541,
+        "power_true_delta_zero": 0.1013,
+        "power_true_delta_zero_realized_mean": 0.00010687499999999987,
+        "tasks_per_family": 10,
+        "total_tasks": 320,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.0201,
+        "type_i_lower_95_mc": 0.017349288906773376,
+        "type_i_nominally_compatible": true,
+        "type_i_realized_mean_paired_difference": -0.0488984375,
+        "type_i_upper_95_mc": 0.022850711093226624
+      },
+      {
+        "family_count": 32,
+        "inflated_power_lower_95_mc": 0.08235027150804655,
+        "power_heterogeneity_x1_5": 0.0879,
+        "power_heterogeneity_x1_5_realized_mean": 0.0002723958333333341,
+        "power_lower_95_mc": 0.10435516555471183,
+        "power_true_delta_zero": 0.1105,
+        "power_true_delta_zero_realized_mean": 0.0009119791666666678,
+        "tasks_per_family": 12,
+        "total_tasks": 384,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.0162,
+        "type_i_lower_95_mc": 0.013725616632451632,
+        "type_i_nominally_compatible": false,
+        "type_i_realized_mean_paired_difference": -0.05083359375,
+        "type_i_upper_95_mc": 0.018674383367548366
+      },
+      {
+        "family_count": 32,
+        "inflated_power_lower_95_mc": 0.07623441488834629,
+        "power_heterogeneity_x1_5": 0.0816,
+        "power_heterogeneity_x1_5_realized_mean": 5.0390625e-05,
+        "power_lower_95_mc": 0.10103888926892109,
+        "power_true_delta_zero": 0.1071,
+        "power_true_delta_zero_realized_mean": -6.66015625e-05,
+        "tasks_per_family": 16,
+        "total_tasks": 512,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.0179,
+        "type_i_lower_95_mc": 0.015301274294120289,
+        "type_i_nominally_compatible": false,
+        "type_i_realized_mean_paired_difference": -0.04979375,
+        "type_i_upper_95_mc": 0.02049872570587971
+      },
+      {
+        "family_count": 33,
+        "inflated_power_lower_95_mc": 0.07856319882283709,
+        "power_heterogeneity_x1_5": 0.084,
+        "power_heterogeneity_x1_5_realized_mean": -0.0002654545454545456,
+        "power_lower_95_mc": 0.09597067150662067,
+        "power_true_delta_zero": 0.1019,
+        "power_true_delta_zero_realized_mean": -0.00019242424242424315,
+        "tasks_per_family": 10,
+        "total_tasks": 330,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.0178,
+        "type_i_lower_95_mc": 0.015208411540078171,
+        "type_i_nominally_compatible": false,
+        "type_i_realized_mean_paired_difference": -0.05006272727272727,
+        "type_i_upper_95_mc": 0.02039158845992183
+      },
+      {
+        "family_count": 33,
+        "inflated_power_lower_95_mc": 0.07574942292772079,
+        "power_heterogeneity_x1_5": 0.0811,
+        "power_heterogeneity_x1_5_realized_mean": -0.0011381313131313125,
+        "power_lower_95_mc": 0.10396491853041868,
+        "power_true_delta_zero": 0.1101,
+        "power_true_delta_zero_realized_mean": 0.00031363636363636457,
+        "tasks_per_family": 12,
+        "total_tasks": 396,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.0189,
+        "type_i_lower_95_mc": 0.016231030497289262,
+        "type_i_nominally_compatible": false,
+        "type_i_realized_mean_paired_difference": -0.049547222222222215,
+        "type_i_upper_95_mc": 0.021568969502710738
+      },
+      {
+        "family_count": 33,
+        "inflated_power_lower_95_mc": 0.07642842841976391,
+        "power_heterogeneity_x1_5": 0.0818,
+        "power_heterogeneity_x1_5_realized_mean": -0.00022121212121212102,
+        "power_lower_95_mc": 0.10796614119685086,
+        "power_true_delta_zero": 0.1142,
+        "power_true_delta_zero_realized_mean": -0.0005085227272727275,
+        "tasks_per_family": 16,
+        "total_tasks": 528,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.0183,
+        "type_i_lower_95_mc": 0.0156729338307534,
+        "type_i_nominally_compatible": false,
+        "type_i_realized_mean_paired_difference": -0.05049943181818182,
+        "type_i_upper_95_mc": 0.0209270661692466
+      },
+      {
+        "family_count": 34,
+        "inflated_power_lower_95_mc": 0.08137890613171629,
+        "power_heterogeneity_x1_5": 0.0869,
+        "power_heterogeneity_x1_5_realized_mean": -0.0004979411764705886,
+        "power_lower_95_mc": 0.10133142598311597,
+        "power_true_delta_zero": 0.1074,
+        "power_true_delta_zero_realized_mean": -0.0003197058823529421,
+        "tasks_per_family": 10,
+        "total_tasks": 340,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.0165,
+        "type_i_lower_95_mc": 0.014003191549197255,
+        "type_i_nominally_compatible": false,
+        "type_i_realized_mean_paired_difference": -0.04974588235294118,
+        "type_i_upper_95_mc": 0.018996808450802746
+      },
+      {
+        "family_count": 34,
+        "inflated_power_lower_95_mc": 0.08118465925462443,
+        "power_heterogeneity_x1_5": 0.0867,
+        "power_heterogeneity_x1_5_realized_mean": 0.0005941176470588244,
+        "power_lower_95_mc": 0.10630677991671537,
+        "power_true_delta_zero": 0.1125,
+        "power_true_delta_zero_realized_mean": 0.0009615196078431385,
+        "tasks_per_family": 12,
+        "total_tasks": 408,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.017,
+        "type_i_lower_95_mc": 0.014466287751144578,
+        "type_i_nominally_compatible": false,
+        "type_i_realized_mean_paired_difference": -0.049990931372549015,
+        "type_i_upper_95_mc": 0.019533712248855424
+      },
+      {
+        "family_count": 34,
+        "inflated_power_lower_95_mc": 0.08322468499817275,
+        "power_heterogeneity_x1_5": 0.0888,
+        "power_heterogeneity_x1_5_realized_mean": -0.00029761029411764703,
+        "power_lower_95_mc": 0.1070876004364175,
+        "power_true_delta_zero": 0.1133,
+        "power_true_delta_zero_realized_mean": 0.00011580882352941172,
+        "tasks_per_family": 16,
+        "total_tasks": 544,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.0167,
+        "type_i_lower_95_mc": 0.0141883603726649,
+        "type_i_nominally_compatible": false,
+        "type_i_realized_mean_paired_difference": -0.05054319852941176,
+        "type_i_upper_95_mc": 0.0192116396273351
+      },
+      {
+        "family_count": 35,
+        "inflated_power_lower_95_mc": 0.08060197151276932,
+        "power_heterogeneity_x1_5": 0.0861,
+        "power_heterogeneity_x1_5_realized_mean": -0.001632285714285715,
+        "power_lower_95_mc": 0.10230665536257795,
+        "power_true_delta_zero": 0.1084,
+        "power_true_delta_zero_realized_mean": -0.0005477142857142867,
+        "tasks_per_family": 10,
+        "total_tasks": 350,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.0201,
+        "type_i_lower_95_mc": 0.017349288906773376,
+        "type_i_nominally_compatible": true,
+        "type_i_realized_mean_paired_difference": -0.049748,
+        "type_i_upper_95_mc": 0.022850711093226624
+      },
+      {
+        "family_count": 35,
+        "inflated_power_lower_95_mc": 0.0874047785870609,
+        "power_heterogeneity_x1_5": 0.0931,
+        "power_heterogeneity_x1_5_realized_mean": 0.0006845238095238103,
+        "power_lower_95_mc": 0.1048430100990825,
+        "power_true_delta_zero": 0.111,
+        "power_true_delta_zero_realized_mean": -0.0006678571428571418,
+        "tasks_per_family": 12,
+        "total_tasks": 420,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.019,
+        "type_i_lower_95_mc": 0.016324115428498456,
+        "type_i_nominally_compatible": false,
+        "type_i_realized_mean_paired_difference": -0.05069023809523809,
+        "type_i_upper_95_mc": 0.021675884571501543
+      },
+      {
+        "family_count": 35,
+        "inflated_power_lower_95_mc": 0.0871130215803469,
+        "power_heterogeneity_x1_5": 0.0928,
+        "power_heterogeneity_x1_5_realized_mean": 0.00016910714285714307,
+        "power_lower_95_mc": 0.1078685194415452,
+        "power_true_delta_zero": 0.1141,
+        "power_true_delta_zero_realized_mean": -0.0008544642857142858,
+        "tasks_per_family": 16,
+        "total_tasks": 560,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.0212,
+        "type_i_lower_95_mc": 0.018376609284990828,
+        "type_i_nominally_compatible": true,
+        "type_i_realized_mean_paired_difference": -0.04913303571428572,
+        "type_i_upper_95_mc": 0.024023390715009172
+      },
+      {
+        "family_count": 36,
+        "inflated_power_lower_95_mc": 0.08643232557618206,
+        "power_heterogeneity_x1_5": 0.0921,
+        "power_heterogeneity_x1_5_realized_mean": 0.0008094444444444438,
+        "power_lower_95_mc": 0.10855190365042279,
+        "power_true_delta_zero": 0.1148,
+        "power_true_delta_zero_realized_mean": 0.0005002777777777769,
+        "tasks_per_family": 10,
+        "total_tasks": 360,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.0173,
+        "type_i_lower_95_mc": 0.014744419292293823,
+        "type_i_nominally_compatible": false,
+        "type_i_realized_mean_paired_difference": -0.0498725,
+        "type_i_upper_95_mc": 0.019855580707706176
+      },
+      {
+        "family_count": 36,
+        "inflated_power_lower_95_mc": 0.08944757663644269,
+        "power_heterogeneity_x1_5": 0.0952,
+        "power_heterogeneity_x1_5_realized_mean": 0.0006638888888888895,
+        "power_lower_95_mc": 0.1095282952319485,
+        "power_true_delta_zero": 0.1158,
+        "power_true_delta_zero_realized_mean": -5.6249999999998955e-05,
+        "tasks_per_family": 12,
+        "total_tasks": 432,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.0183,
+        "type_i_lower_95_mc": 0.0156729338307534,
+        "type_i_nominally_compatible": false,
+        "type_i_realized_mean_paired_difference": -0.04996689814814815,
+        "type_i_upper_95_mc": 0.0209270661692466
+      },
+      {
+        "family_count": 36,
+        "inflated_power_lower_95_mc": 0.08896111765710431,
+        "power_heterogeneity_x1_5": 0.0947,
+        "power_heterogeneity_x1_5_realized_mean": 0.000289236111111111,
+        "power_lower_95_mc": 0.11021185842716627,
+        "power_true_delta_zero": 0.1165,
+        "power_true_delta_zero_realized_mean": -0.0006369791666666667,
+        "tasks_per_family": 16,
+        "total_tasks": 576,
+        "type_i_calibration_compatibility_interval": [
+          0.019439950980784784,
+          0.03056004901921522
+        ],
+        "type_i_controlled": true,
+        "type_i_error_at_margin_boundary": 0.0185,
+        "type_i_lower_95_mc": 0.015858886363671564,
+        "type_i_nominally_compatible": false,
+        "type_i_realized_mean_paired_difference": -0.050404340277777786,
+        "type_i_upper_95_mc": 0.021141113636328434
+      }
+    ],
+    "heterogeneity_sensitivity_multiplier": 1.5,
+    "paired_cell_model": "family empirical four-cell probabilities shrunk toward pooled profile, then exactly recentered by bounded root solve; whole families resampled",
+    "replicates": 10000,
+    "scenario_profile_diagnostics": {
+      "null_margin_boundary": {
+        "maximum_probability_sum_error": 2.220446049250313e-16,
+        "mean_discordance": 0.28611111111111115,
+        "minimum_cell_probability": 0.0,
+        "realized_profile_mean_paired_difference": -0.05,
+        "requested_mean_paired_difference": -0.05
+      },
+      "true_delta_zero": {
+        "maximum_probability_sum_error": 2.220446049250313e-16,
+        "mean_discordance": 0.28611111111111115,
+        "minimum_cell_probability": 0.0,
+        "realized_profile_mean_paired_difference": 2.7755575615628914e-17,
+        "requested_mean_paired_difference": 0.0
+      },
+      "true_delta_zero_heterogeneity_x1_5": {
+        "maximum_probability_sum_error": 2.220446049250313e-16,
+        "mean_discordance": 0.28611111111111115,
+        "minimum_cell_probability": 0.0,
+        "realized_profile_mean_paired_difference": -9.25185853854297e-18,
+        "requested_mean_paired_difference": 0.0
+      }
+    },
+    "seed": 20260925,
+    "selected_feasible_design": null,
+    "shrinkage_strength": 2.0
+  },
+  "status": "INSUFFICIENT_POWER",
+  "supersedes": "V2-E07-clustered-power / INVALID_CALIBRATION",
+  "task_discordance": 0.2861111111111111,
+  "task_level_required_n_at_true_delta_zero": 1131,
+  "task_manifest_sha256": "38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99",
+  "task_paired_difference": 0.13055555555555556,
+  "timestamp_utc": "2026-09-25T22:23:48+00:00"
+}

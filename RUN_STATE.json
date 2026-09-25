@@ -9,7 +9,7 @@
     "E05",
     "E06"
   ],
-  "current_stage": "V2-E07",
+  "current_stage": "V2-CLOSED",
   "dataset_identities": {
     "T1": "94ac7a465564349bc7ba008602211d5990a3c53cc133abc0aadef61ea2391a98",
     "T3": "d50277f36f4fc1b86ac196c327f3ccb450a18895325f78aea228f5f6d8d90ddf",
@@ -34,6 +34,18 @@
       "reason": "Required paired/cluster-sensitive N exceeds feasible 600 or NI planning effect is nonpositive",
       "stage": "E07",
       "status": "GATED"
+    },
+    {
+      "experiment_id": "V2-E07-clustered-power",
+      "reason": "Null generator shifted requested delta -0.05 to a positive mean; preserved for audit only.",
+      "stage": "V2-E07",
+      "status": "SUPERSEDED_INVALID_CALIBRATION"
+    },
+    {
+      "experiment_id": "V2-E07-calibrated-clustered-power",
+      "reason": "Calibrated analytic and 10,000-replicate clustered analyses found no design with target power 0.90 within the 600-task ceiling.",
+      "stage": "V2-E07",
+      "status": "GATED"
     }
   ],
   "freeze_identities": {},
@@ -47,13 +59,13 @@
       "validation": "evidence/pilot_v2/b2_reboot_validation_196.json"
     }
   ],
-  "last_valid_checkpoint": "V2-E06-c1-qwen-pilot",
+  "last_valid_checkpoint": "V2-E07-calibrated-clustered-power",
   "model_identities": {
     "BGE-M3": "5617a9f61b028005a4858fdac845db406aefb181",
     "BGE-reranker-v2-m3": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
     "Qwen3-4B": "1cfa9a7208912126459214e8b04321603b3df60c"
   },
-  "next_legal_action": "Calibrate the family-level non-inferiority test under a new E07 identity using fixed B2/C1 qualification outcomes only; do not freeze or access protected data.",
+  "next_legal_action": "Documentation/release closure only; no E08-E24 scientific action, protected task construction, DESIGN_FREEZE, or BENCHMARK_FREEZE under v2.",
   "protected_accesses": [],
   "protocol_history": [
     {
@@ -63,6 +75,15 @@
       "design_freeze": null,
       "protected_accesses": 0,
       "protocol_identity": "ContextWeave-v1",
+      "status": "CLOSED_INSUFFICIENT_POWER"
+    },
+    {
+      "benchmark_freeze": null,
+      "closure_identity": "V2_PRE_FREEZE_INSUFFICIENT_POWER_CALIBRATED",
+      "closure_receipt": "evidence/receipts/V2-pre-freeze-closure-calibrated.json",
+      "design_freeze": null,
+      "protected_accesses": 0,
+      "protocol_identity": "ContextWeave-v2-family-diverse-qualification",
       "status": "CLOSED_INSUFFICIENT_POWER"
     }
   ],
@@ -86,6 +107,7 @@
       "protocol_identity": "ContextWeave-v1"
     },
     "v2": {
+      "analytic_required_family_count": 799,
       "b2_completion_audit": "evidence/pilot_v2/b2_completion_audit.json",
       "b2_recovery_receipt": "evidence/receipts/V2-E06-b2-reboot-interruption-20260924.json",
       "b2_result_sha256": "e1dd2d277f14fa4136109c3df18e79d7241b450d6995c97f21a2d0a45a07ba3f",
@@ -93,13 +115,20 @@
       "c1_result_sha256": "a45de1cd48c8a8b9d6bc7607cf1c71328067d66dca3700ef95e8c0da2abfeb33",
       "c1_success_count": 247,
       "c1_task_count": 360,
+      "closure_identity": "V2_PRE_FREEZE_INSUFFICIENT_POWER_CALIBRATED",
+      "closure_receipt": "evidence/receipts/V2-pre-freeze-closure-calibrated.json",
       "completed_stages": [
         "E06"
       ],
-      "current_stage": "E07",
+      "current_stage": "CLOSED",
+      "e07_calibrated_design": "evidence/power_v2/clustered_design_calibrated.json",
+      "e07_calibrated_receipt": "evidence/receipts/V2-E07-calibrated-clustered-power.json",
+      "e07_calibration_audit": "evidence/power_v2/calibration_audit.json",
       "e07_invalid_calibration": "evidence/power_v2/superseded/INVALID_CALIBRATION.json",
+      "e07_statistical_identity": "ContextWeave-v2-E07-calibrated-family-t-v2",
       "family_count": 30,
       "freeze_identities": {},
+      "gated_stage": "E07",
       "gpu_telemetry_interruption_receipt": "evidence/receipts/V2-supervisor-gpu-telemetry-interruption-20260924.json",
       "independent_review_sha256": "9a1613390bcfd76f003731a8fef79642114c4716491b9ffc3580b59a5cdcf78c",
       "protected_accesses": [],
@@ -113,12 +142,13 @@
       ],
       "rankings_sha256": "505e6a0a1c5dfa1ba4a0d588f663a20b5a10b04cd4c83becab08ee55aed63ad2",
       "retrieval_receipt": "evidence/receipts/V2-E06-retrieval-qualification.json",
-      "status": "E07_CALIBRATION_AUDIT",
+      "selected_feasible_design": null,
+      "status": "CLOSED_INSUFFICIENT_POWER",
       "task_count": 360,
       "task_manifest_sha256": "38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99"
     }
   },
-  "protocol_status": "E07_CALIBRATION_AUDIT",
+  "protocol_status": "V2_PRE_FREEZE_INSUFFICIENT_POWER_CALIBRATED",
   "schema_version": 1,
-  "updated_at_utc": "2026-09-25T22:15:49+00:00"
+  "updated_at_utc": "2026-09-25T22:24:08+00:00"
 }
