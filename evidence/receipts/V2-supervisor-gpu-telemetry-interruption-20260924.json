@@ -1,0 +1,13 @@
+{
+  "classification": "GPU_STATE_UNKNOWN",
+  "evidence_class": "Q",
+  "experiment_id": "V2-supervisor-gpu-telemetry-interruption-20260924",
+  "failed_command": "nvidia-smi --query-compute-apps=pid --format=csv,noheader",
+  "observed_at_utc": "2026-09-25T06:23:50+00:00",
+  "process_exit_code": 255,
+  "protocol_identity": "ContextWeave-v2-family-diverse-qualification",
+  "scientific_outcome": null,
+  "status": "INFRASTRUCTURE_INTERRUPTION",
+  "task_manifest_sha256": "38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99",
+  "timing": "after canonical B2 completion and before C1 launch"
+}

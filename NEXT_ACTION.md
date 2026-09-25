@@ -1,3 +1,3 @@
 # Next action
 
-One durable v2 supervisor (PID 87469) is waiting while external project GPU PID 87028 is active. After that owner exits, require 120 continuous idle seconds and resume B2 from the validated 196/360 checkpoint on 38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99. Do not recompute completed IDs. Complete paired B2/C1 and clustered E07 before any freeze.
+B2 is complete and canonically validated at 360/360. Verify no existing ContextWeave supervisor or model child, relaunch exactly one durable supervisor, require a fresh 120-second verified-exclusive GPU window, then run C1 on the identical frozen 360-task identity. Do not rerun B2 and do not create a freeze before paired validation and v2 E07.

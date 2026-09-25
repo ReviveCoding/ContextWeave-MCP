@@ -1,0 +1,37 @@
+{
+  "audit_at_utc": "2026-09-25T06:23:50+00:00",
+  "decoding_configuration": {
+    "chat_template_thinking": false,
+    "do_sample": false,
+    "max_new_tokens": 160,
+    "system_prompt_sha256": "2fbf20d6130cc51ebbddef80106f6faccf1ceec0c208cdfa9dccf6afe536e9c8"
+  },
+  "duplicate_task_ids": [],
+  "evidence_class": "Q",
+  "final_record_complete": true,
+  "identity_checks": {
+    "backend": "transformers",
+    "batch_size": 4,
+    "context_budget_tokens": 1024,
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "method": "B2",
+    "model_revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+    "protocol_identity": "ContextWeave-v2-family-diverse-qualification",
+    "task_manifest_sha256": "38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99"
+  },
+  "missing_task_ids": [],
+  "ordered_manifest_match": true,
+  "protocol_identity": "ContextWeave-v2-family-diverse-qualification",
+  "receipt_sha256": "eceb0ec30626d19c52d6135d54ffddf1fba96ee0d9c0b1d02e75e50d1eff0edb",
+  "result_file_bytes": 303216,
+  "result_file_sha256": "e1dd2d277f14fa4136109c3df18e79d7241b450d6995c97f21a2d0a45a07ba3f",
+  "status": "PASS_COMPLETE",
+  "summary_sha256": "fbfd2f3a4cc76ea9e63cb31283b514a9639972c2c373bc2f7536cb3cdb6156eb",
+  "task_count": 360,
+  "task_manifest_sha256": "38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99",
+  "task_success_count": 200,
+  "task_success_rate": 0.5555555555555556,
+  "unique_task_count": 360,
+  "validation_sha256": "187303575b9683594732e27ed143b0f45aa914c669d3dd489a472107f6335936"
+}

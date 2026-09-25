@@ -1,0 +1,14 @@
+{
+  "evidence_class": "Q",
+  "experiment_id": "V2-b2_qwen-interruption",
+  "log": {
+    "path": "/home/bjw-0/.cache/contextweave-mcp/v2_b2_qwen.log",
+    "sha256": "5a4ff72cdc7c73d1a8c1f7b34d80b18d02478147ba39fadaec31853932c38ce8"
+  },
+  "observed_at_utc": "2026-09-24T07:45:05+00:00",
+  "process_exit_code": 1,
+  "protocol_identity": "ContextWeave-v2-family-diverse-qualification",
+  "scientific_outcome": null,
+  "status": "INTERRUPTED",
+  "task_manifest_sha256": "38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99"
+}

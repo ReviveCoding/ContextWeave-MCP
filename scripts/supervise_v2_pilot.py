@@ -9,15 +9,17 @@ import os
 import subprocess
 import sys
 import tempfile
-import time
+from collections.abc import Iterator
+from contextlib import contextmanager
 from pathlib import Path
 from typing import Any
 
-from contextweave.evidence import ROOT, atomic_json, load_state, save_state, utc_now
-from contextweave.v2_power import plan
 from validate_v2_outcomes import validate
 from validate_v2_tasks import validate as validate_tasks
-from wait_for_gpu_idle import gpu_pids
+from wait_for_gpu_idle import wait_for_verified_idle
+
+from contextweave.evidence import ROOT, atomic_json, load_state, save_state, utc_now
+from contextweave.v2_power import plan
 
 SCRATCH = Path("/home/bjw-0/.cache/contextweave-mcp")
 PROTOCOL = "ContextWeave-v2-family-diverse-qualification"
@@ -60,7 +62,14 @@ def _run(name: str, command: list[str], env: dict[str, str], method: str | None 
         attempt_start = output.tell()
         output.write(f"\nSTART {utc_now()} {' '.join(command)}\n".encode())
         output.flush()
-        result = subprocess.run(command, cwd=ROOT, env=env, stdout=output, stderr=subprocess.STDOUT)
+        result = subprocess.run(
+            command,
+            cwd=ROOT,
+            env=env,
+            stdout=output,
+            stderr=subprocess.STDOUT,
+            check=False,
+        )
         output.write(f"\nEND {utc_now()} exit={result.returncode}\n".encode())
     if result.returncode:
         receipt = {
@@ -94,20 +103,37 @@ def _run(name: str, command: list[str], env: dict[str, str], method: str | None 
 
 
 def _wait_idle(seconds: int = 120) -> None:
-    idle_since = None
-    previous: set[int] | None = None
-    while True:
-        owners = gpu_pids()
-        if owners != previous:
-            print(f"GPU compute PIDs: {sorted(owners)}", flush=True)
-            previous = owners
-        if owners:
-            idle_since = None
-        elif idle_since is None:
-            idle_since = time.monotonic()
-        elif time.monotonic() - idle_since >= seconds:
-            return
-        time.sleep(10)
+    wait_for_verified_idle(idle_seconds=seconds, poll_seconds=10, max_wait_seconds=None)
+
+
+@contextmanager
+def _supervisor_lock(path: Path) -> Iterator[None]:
+    with path.open("w") as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)  # type: ignore[attr-defined]
+        yield
+
+
+def _method_complete(out: Path, method: str) -> bool:
+    if not out.exists():
+        return False
+    try:
+        tasks = [json.loads(line) for line in TASK_PATH.read_text().splitlines() if line]
+        rows = [json.loads(line) for line in out.read_text().splitlines() if line]
+    except (OSError, json.JSONDecodeError):
+        return False
+    identity = hashlib.sha256(TASK_PATH.read_bytes()).hexdigest()
+    return (
+        len(tasks) == 360
+        and len(rows) == 360
+        and [row.get("task_id") for row in rows] == [task.get("task_id") for task in tasks]
+        and len({row.get("task_id") for row in rows}) == 360
+        and all(
+            row.get("method") == method
+            and row.get("protocol_identity") == PROTOCOL
+            and row.get("task_manifest_sha256") == identity
+            for row in rows
+        )
+    )
 
 
 def _receipt(method: str, validation: dict[str, Any]) -> None:
@@ -148,8 +174,7 @@ def _receipt(method: str, validation: dict[str, Any]) -> None:
 
 def main() -> None:
     SCRATCH.mkdir(parents=True, exist_ok=True)
-    with (SCRATCH / "v2_pilot_supervisor.lock").open("w") as lock:
-        fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)  # type: ignore[attr-defined]
+    with _supervisor_lock(SCRATCH / "v2_pilot_supervisor.lock"):
         validation_path = ROOT / "evidence/pilot_v2/task_validation.json"
         task_validation = (
             json.loads(validation_path.read_text())
@@ -174,9 +199,7 @@ def main() -> None:
             _run("retrieval", [sys.executable, "-u", "-m", "contextweave.v2_retrieval_eval"], env)
         for method in ("B2", "C1"):
             out = ROOT / f"evidence/pilot_v2/{method.lower()}_qwen3_4b.jsonl"
-            complete = (
-                out.exists() and sum(1 for line in out.read_text().splitlines() if line) == 360
-            )
+            complete = _method_complete(out, method)
             if not complete:
                 method_env = {
                     **env,

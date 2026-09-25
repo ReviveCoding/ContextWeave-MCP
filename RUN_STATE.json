@@ -1,16 +1,5 @@
 {
-  "active_long_running_process": {
-    "completed_rows": 196,
-    "kind": "v2_supervisor_gpu_wait",
-    "log": "/home/bjw-0/.cache/contextweave-mcp/v2_supervisor.log",
-    "method": "B2",
-    "observed_external_gpu_pid": 87028,
-    "pid": 87469,
-    "protocol_identity": "ContextWeave-v2-family-diverse-qualification",
-    "started_at_utc": "2026-09-24T06:54:28+00:00",
-    "task_manifest_sha256": "38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99",
-    "waiting_for": "120 continuous seconds with no GPU compute owner"
-  },
+  "active_long_running_process": null,
   "completed_stages": [
     "E00",
     "E01",
@@ -48,13 +37,23 @@
     }
   ],
   "freeze_identities": {},
-  "last_valid_checkpoint": "V2-E06-retrieval-qualification",
+  "historical_recovery_checkpoints": [
+    {
+      "method": "B2",
+      "path": "evidence/pilot_v2/b2_qwen3_4b.jsonl",
+      "rows": 196,
+      "sha256": "c8817993d3d8ca5d24b989f6a9f66083c393738930ff15a7e69d96400a7eac36",
+      "task_manifest_sha256": "38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99",
+      "validation": "evidence/pilot_v2/b2_reboot_validation_196.json"
+    }
+  ],
+  "last_valid_checkpoint": "V2-E06-b2-qwen-pilot",
   "model_identities": {
     "BGE-M3": "5617a9f61b028005a4858fdac845db406aefb181",
     "BGE-reranker-v2-m3": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
     "Qwen3-4B": "1cfa9a7208912126459214e8b04321603b3df60c"
   },
-  "next_legal_action": "Supervisor PID 87469 must wait for 120 continuous seconds after external GPU PID 87028 exits, then resume B2 from 196/360 without recomputing completed IDs.",
+  "next_legal_action": "Verify there is no existing ContextWeave supervisor or model child, relaunch exactly one durable supervisor, require a fresh 120-second verified exclusive GPU window, then run C1 on the frozen 360-task v2 identity. Do not rerun B2.",
   "protected_accesses": [],
   "protocol_history": [
     {
@@ -87,36 +86,32 @@
       "protocol_identity": "ContextWeave-v1"
     },
     "v2": {
-      "b2_recoverable_rows": 196,
+      "b2_completion_audit": "evidence/pilot_v2/b2_completion_audit.json",
       "b2_recovery_receipt": "evidence/receipts/V2-E06-b2-reboot-interruption-20260924.json",
+      "b2_result_sha256": "e1dd2d277f14fa4136109c3df18e79d7241b450d6995c97f21a2d0a45a07ba3f",
+      "b2_task_count": 360,
       "completed_stages": [],
       "current_stage": "E06",
       "family_count": 30,
       "freeze_identities": {},
+      "gpu_telemetry_interruption_receipt": "evidence/receipts/V2-supervisor-gpu-telemetry-interruption-20260924.json",
       "independent_review_sha256": "9a1613390bcfd76f003731a8fef79642114c4716491b9ffc3580b59a5cdcf78c",
       "protected_accesses": [],
       "protocol_artifact": "evidence/protocols/v2_pre_pilot.json",
       "protocol_identity": "ContextWeave-v2-family-diverse-qualification",
       "qualification_checkpoints": [
         "V2-E06-task-construction",
-        "V2-E06-retrieval-qualification"
+        "V2-E06-retrieval-qualification",
+        "V2-E06-b2-qwen-pilot"
       ],
       "rankings_sha256": "505e6a0a1c5dfa1ba4a0d588f663a20b5a10b04cd4c83becab08ee55aed63ad2",
       "retrieval_receipt": "evidence/receipts/V2-E06-retrieval-qualification.json",
-      "status": "B2_INTERRUPTED_RESUMABLE",
+      "status": "B2_COMPLETE_C1_PENDING",
       "task_count": 360,
       "task_manifest_sha256": "38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99"
     }
   },
-  "protocol_status": "B2_INTERRUPTED_RESUMABLE",
-  "recoverable_checkpoint": {
-    "method": "B2",
-    "path": "evidence/pilot_v2/b2_qwen3_4b.jsonl",
-    "rows": 196,
-    "sha256": "c8817993d3d8ca5d24b989f6a9f66083c393738930ff15a7e69d96400a7eac36",
-    "task_manifest_sha256": "38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99",
-    "validation": "evidence/pilot_v2/b2_reboot_validation_196.json"
-  },
+  "protocol_status": "B2_COMPLETE_C1_PENDING",
   "schema_version": 1,
-  "updated_at_utc": "2026-09-24T06:54:28+00:00"
+  "updated_at_utc": "2026-09-25T06:27:46+00:00"
 }
