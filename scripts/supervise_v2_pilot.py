@@ -24,6 +24,7 @@ from contextweave.v2_power import plan
 SCRATCH = Path("/home/bjw-0/.cache/contextweave-mcp")
 PROTOCOL = "ContextWeave-v2-family-diverse-qualification"
 TASK_PATH = ROOT / "benchmarks/v2_pilot_tasks.jsonl"
+QWEN_REVISION = "1cfa9a7208912126459214e8b04321603b3df60c"
 
 
 class RetryableGpuInterruption(RuntimeError):
@@ -72,11 +73,13 @@ def _run(name: str, command: list[str], env: dict[str, str], method: str | None 
         )
         output.write(f"\nEND {utc_now()} exit={result.returncode}\n".encode())
     if result.returncode:
+        observed_at = utc_now()
+        attempt_suffix = observed_at.replace(":", "").replace("-", "")
         receipt = {
-            "experiment_id": f"V2-{name}-interruption",
+            "experiment_id": f"V2-{name}-interruption-{attempt_suffix}",
             "protocol_identity": PROTOCOL,
             "status": "INTERRUPTED",
-            "observed_at_utc": utc_now(),
+            "observed_at_utc": observed_at,
             "process_exit_code": result.returncode,
             "task_manifest_sha256": hashlib.sha256(TASK_PATH.read_bytes()).hexdigest(),
             "log": {"path": str(log), "sha256": hashlib.sha256(log.read_bytes()).hexdigest()},
@@ -92,6 +95,7 @@ def _run(name: str, command: list[str], env: dict[str, str], method: str | None 
             marker in attempt_output
             for marker in (
                 "GPU is not exclusively idle before v2 Qwen load",
+                "GPU_STATE_UNKNOWN",
                 "expected one v2 GPU owner",
                 "v2 GPU ownership changed",
             )
@@ -134,6 +138,44 @@ def _method_complete(out: Path, method: str) -> bool:
             for row in rows
         )
     )
+
+
+def _load_completed_validation(out: Path, method: str) -> dict[str, Any]:
+    method_lower = method.lower()
+    validation_path = ROOT / f"evidence/pilot_v2/{method_lower}_validation.json"
+    receipt_path = ROOT / f"evidence/receipts/V2-E06-{method_lower}-qwen-pilot.json"
+    if not validation_path.exists() or not receipt_path.exists():
+        raise RuntimeError(f"completed {method} is missing canonical validation or receipt")
+    validation = json.loads(validation_path.read_text())
+    identity = hashlib.sha256(TASK_PATH.read_bytes()).hexdigest()
+    outcome_sha = hashlib.sha256(out.read_bytes()).hexdigest()
+    expected = {
+        "status": "PASS",
+        "errors": [],
+        "method": method,
+        "protocol_identity": PROTOCOL,
+        "task_manifest_sha256": identity,
+        "outcome_sha256": outcome_sha,
+        "model_revision": QWEN_REVISION,
+        "device": "cuda",
+        "dtype": "bfloat16",
+        "batch_size": 4,
+        "task_count": 360,
+        "unique_task_count": 360,
+    }
+    if any(validation.get(key) != value for key, value in expected.items()):
+        raise RuntimeError(f"completed {method} canonical validation mismatch")
+    receipt = json.loads(receipt_path.read_text())
+    outputs = {item["path"]: item for item in receipt.get("output_manifest", [])}
+    relative = out.relative_to(ROOT).as_posix()
+    if (
+        receipt.get("status") != "PASS"
+        or receipt.get("protocol_identity") != PROTOCOL
+        or receipt.get("task_manifest_sha256") != identity
+        or outputs.get(relative, {}).get("sha256") != outcome_sha
+    ):
+        raise RuntimeError(f"completed {method} canonical receipt mismatch")
+    return validation
 
 
 def _receipt(method: str, validation: dict[str, Any]) -> None:
@@ -200,7 +242,9 @@ def main() -> None:
         for method in ("B2", "C1"):
             out = ROOT / f"evidence/pilot_v2/{method.lower()}_qwen3_4b.jsonl"
             complete = _method_complete(out, method)
-            if not complete:
+            if complete:
+                validation = _load_completed_validation(out, method)
+            else:
                 method_env = {
                     **env,
                     "CONTEXTWEAVE_V2_METHOD": method,
@@ -222,8 +266,8 @@ def main() -> None:
                             "the same atomic checkpoint without recomputing completed task IDs."
                         )
                         print(str(exc), flush=True)
-            validation = validate(method)
-            _receipt(method, validation)
+                validation = validate(method)
+                _receipt(method, validation)
             print(json.dumps({f"{method}_validation": validation}, indent=2), flush=True)
         result = plan()
         power_path = ROOT / "evidence/power_v2/clustered_design.json"

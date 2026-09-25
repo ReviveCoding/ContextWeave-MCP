@@ -16,6 +16,8 @@ if str(SCRIPTS) not in sys.path:
 import supervise_v2_pilot as supervisor
 from wait_for_gpu_idle import GpuSnapshot, query_gpu_state, wait_for_verified_idle
 
+from contextweave.v2_model_pilot import _resume_partition
+
 
 def completed(
     returncode: int, stdout: str = "", stderr: str = ""
@@ -40,6 +42,12 @@ def test_unknown_process_name_with_numeric_pid_is_still_busy() -> None:
     snapshot = query_gpu_state(lambda *args, **kwargs: completed(0, stdout="87028, [Not Found]\n"))
     assert snapshot.status == "KNOWN"
     assert snapshot.owners == frozenset({87028})
+
+
+def test_known_external_owner_is_busy() -> None:
+    snapshot = query_gpu_state(lambda *args, **kwargs: completed(0, stdout="42, python\n"))
+    assert snapshot.status == "KNOWN"
+    assert snapshot.owners == frozenset({42})
 
 
 def test_unparseable_owner_is_unknown() -> None:
@@ -147,3 +155,70 @@ def test_completed_method_is_not_scheduled_for_duplicate_inference(
     rows[-1] = rows[-2]
     out_path.write_text("".join(json.dumps(row) + "\n" for row in rows), encoding="utf-8")
     assert not supervisor._method_complete(out_path, "B2")
+
+
+def test_completed_method_reuses_canonical_validation_without_rewriting(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    root = tmp_path
+    pilot = root / "evidence/pilot_v2"
+    receipts = root / "evidence/receipts"
+    pilot.mkdir(parents=True)
+    receipts.mkdir(parents=True)
+    task_path = root / "tasks.jsonl"
+    out_path = pilot / "b2_qwen3_4b.jsonl"
+    task_path.write_text('{"task_id":"one"}\n', encoding="utf-8")
+    out_path.write_text('{"task_id":"one"}\n', encoding="utf-8")
+    identity = __import__("hashlib").sha256(task_path.read_bytes()).hexdigest()
+    outcome_sha = __import__("hashlib").sha256(out_path.read_bytes()).hexdigest()
+    validation = {
+        "status": "PASS",
+        "errors": [],
+        "method": "B2",
+        "protocol_identity": supervisor.PROTOCOL,
+        "task_manifest_sha256": identity,
+        "outcome_sha256": outcome_sha,
+        "model_revision": supervisor.QWEN_REVISION,
+        "device": "cuda",
+        "dtype": "bfloat16",
+        "batch_size": 4,
+        "task_count": 360,
+        "unique_task_count": 360,
+        "timestamp_utc": "fixed",
+    }
+    validation_path = pilot / "b2_validation.json"
+    validation_path.write_text(json.dumps(validation), encoding="utf-8")
+    receipt_path = receipts / "V2-E06-b2-qwen-pilot.json"
+    receipt_path.write_text(
+        json.dumps(
+            {
+                "status": "PASS",
+                "protocol_identity": supervisor.PROTOCOL,
+                "task_manifest_sha256": identity,
+                "output_manifest": [
+                    {
+                        "path": "evidence/pilot_v2/b2_qwen3_4b.jsonl",
+                        "sha256": outcome_sha,
+                    }
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+    before = (validation_path.read_bytes(), receipt_path.read_bytes())
+    monkeypatch.setattr(supervisor, "ROOT", root)
+    monkeypatch.setattr(supervisor, "TASK_PATH", task_path)
+    assert supervisor._load_completed_validation(out_path, "B2") == validation
+    assert before == (validation_path.read_bytes(), receipt_path.read_bytes())
+
+
+def test_partial_c1_resume_excludes_completed_task_ids() -> None:
+    tasks = [{"task_id": f"task-{index}"} for index in range(8)]
+    existing = {task["task_id"]: {"task_id": task["task_id"], "method": "C1"} for task in tasks[:5]}
+    completed_rows, remaining_tasks = _resume_partition(tasks, existing)
+    assert [row["task_id"] for row in completed_rows] == [f"task-{index}" for index in range(5)]
+    assert [task["task_id"] for task in remaining_tasks] == [
+        "task-5",
+        "task-6",
+        "task-7",
+    ]

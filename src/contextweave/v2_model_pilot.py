@@ -42,9 +42,30 @@ def _gpu_compute_pids() -> set[int]:
         ["nvidia-smi", "--query-compute-apps=pid", "--format=csv,noheader"],
         text=True,
         capture_output=True,
-        check=True,
+        check=False,
     )
-    return {int(line.strip()) for line in result.stdout.splitlines() if line.strip().isdigit()}
+    if result.returncode != 0:
+        raise RuntimeError(
+            f"GPU_STATE_UNKNOWN returncode={result.returncode} stderr={result.stderr.strip()!r}"
+        )
+    owners: set[int] = set()
+    for raw_line in result.stdout.splitlines():
+        line = raw_line.strip()
+        if not line:
+            continue
+        if not line.isdigit():
+            raise RuntimeError(f"GPU_STATE_UNKNOWN malformed_pid={line!r}")
+        owners.add(int(line))
+    return owners
+
+
+def _resume_partition(
+    tasks: list[dict[str, Any]], existing: dict[str, dict[str, Any]]
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    task_ids = [task["task_id"] for task in tasks]
+    completed = [existing[task_id] for task_id in task_ids if task_id in existing]
+    remaining = [task for task in tasks if task["task_id"] not in existing]
+    return completed, remaining
 
 
 def _checkpoint(path: Path, rows: list[dict[str, Any]]) -> None:
@@ -151,8 +172,7 @@ def run() -> dict[str, Any]:
     batch_size = int(os.environ.get("CONTEXTWEAVE_V2_BATCH_SIZE", "4"))
     if batch_size != 4:
         raise RuntimeError("v2 frozen qualification batch size is 4")
-    completed = [existing[task_id] for task_id in task_ids if task_id in existing]
-    remaining = [task for task in tasks if task["task_id"] not in existing]
+    completed, remaining = _resume_partition(tasks, existing)
     for offset in range(0, len(remaining), batch_size):
         if _gpu_compute_pids() != owner_pids:
             raise RuntimeError("v2 GPU ownership changed")
@@ -220,7 +240,7 @@ def run() -> dict[str, Any]:
                         status = (
                             "CORRECT" if result_hash == task["gold_result_hash"] else "WRONG_RESULT"
                         )
-                    except Exception as exc:
+                    except Exception as exc:  # noqa: BLE001 - record governed execution failures
                         status = f"EXECUTION_ERROR:{type(exc).__name__}"
             else:
                 status = (
