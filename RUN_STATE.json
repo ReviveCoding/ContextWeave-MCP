@@ -9,7 +9,7 @@
     "E05",
     "E06"
   ],
-  "current_stage": "V2-E06",
+  "current_stage": "V2-E07",
   "dataset_identities": {
     "T1": "94ac7a465564349bc7ba008602211d5990a3c53cc133abc0aadef61ea2391a98",
     "T3": "d50277f36f4fc1b86ac196c327f3ccb450a18895325f78aea228f5f6d8d90ddf",
@@ -47,13 +47,13 @@
       "validation": "evidence/pilot_v2/b2_reboot_validation_196.json"
     }
   ],
-  "last_valid_checkpoint": "V2-E06-b2-qwen-pilot",
+  "last_valid_checkpoint": "V2-E06-c1-qwen-pilot",
   "model_identities": {
     "BGE-M3": "5617a9f61b028005a4858fdac845db406aefb181",
     "BGE-reranker-v2-m3": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
     "Qwen3-4B": "1cfa9a7208912126459214e8b04321603b3df60c"
   },
-  "next_legal_action": "Verify there is no existing ContextWeave supervisor or model child, relaunch exactly one durable supervisor, require a fresh 120-second verified exclusive GPU window, then run C1 on the frozen 360-task v2 identity. Do not rerun B2.",
+  "next_legal_action": "Calibrate the family-level non-inferiority test under a new E07 identity using fixed B2/C1 qualification outcomes only; do not freeze or access protected data.",
   "protected_accesses": [],
   "protocol_history": [
     {
@@ -90,8 +90,14 @@
       "b2_recovery_receipt": "evidence/receipts/V2-E06-b2-reboot-interruption-20260924.json",
       "b2_result_sha256": "e1dd2d277f14fa4136109c3df18e79d7241b450d6995c97f21a2d0a45a07ba3f",
       "b2_task_count": 360,
-      "completed_stages": [],
-      "current_stage": "E06",
+      "c1_result_sha256": "a45de1cd48c8a8b9d6bc7607cf1c71328067d66dca3700ef95e8c0da2abfeb33",
+      "c1_success_count": 247,
+      "c1_task_count": 360,
+      "completed_stages": [
+        "E06"
+      ],
+      "current_stage": "E07",
+      "e07_invalid_calibration": "evidence/power_v2/superseded/INVALID_CALIBRATION.json",
       "family_count": 30,
       "freeze_identities": {},
       "gpu_telemetry_interruption_receipt": "evidence/receipts/V2-supervisor-gpu-telemetry-interruption-20260924.json",
@@ -102,16 +108,17 @@
       "qualification_checkpoints": [
         "V2-E06-task-construction",
         "V2-E06-retrieval-qualification",
-        "V2-E06-b2-qwen-pilot"
+        "V2-E06-b2-qwen-pilot",
+        "V2-E06-c1-qwen-pilot"
       ],
       "rankings_sha256": "505e6a0a1c5dfa1ba4a0d588f663a20b5a10b04cd4c83becab08ee55aed63ad2",
       "retrieval_receipt": "evidence/receipts/V2-E06-retrieval-qualification.json",
-      "status": "B2_COMPLETE_C1_PENDING",
+      "status": "E07_CALIBRATION_AUDIT",
       "task_count": 360,
       "task_manifest_sha256": "38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99"
     }
   },
-  "protocol_status": "B2_COMPLETE_C1_PENDING",
+  "protocol_status": "E07_CALIBRATION_AUDIT",
   "schema_version": 1,
-  "updated_at_utc": "2026-09-25T06:27:46+00:00"
+  "updated_at_utc": "2026-09-25T22:15:49+00:00"
 }

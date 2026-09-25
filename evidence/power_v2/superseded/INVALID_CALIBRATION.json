@@ -1,0 +1,24 @@
+{
+  "artifacts": [
+    {
+      "path": "evidence/power_v2/superseded/clustered_design_invalid_calibration.json",
+      "sha256": "44acb4401f2cf0f992f2150cd5392064c06849d9d51513b6db97cf39d5814113"
+    },
+    {
+      "path": "evidence/receipts/superseded/V2-E07-clustered-power-invalid-calibration.json",
+      "sha256": "a7ba82b5a6051a103a6bed29f4055370fc3e64264ced7d67bfecb0b442e0e349"
+    },
+    {
+      "path": "src/contextweave/v2_power.py",
+      "sha256": "3e068c59ce2200230325497721db0cd1af515711e4f890cf13fd898f1c08a2de"
+    }
+  ],
+  "classification": "SUPERSEDED_INVALID_CALIBRATION",
+  "evidence_class": "Q",
+  "invalid_e07_identity": "V2-E07-clustered-power",
+  "observed_at_utc": "2026-09-25T22:15:34+00:00",
+  "protected_accesses": [],
+  "protocol_identity": "ContextWeave-v2-family-diverse-qualification",
+  "reason": "Requested null-boundary delta -0.05 was shifted to a positive mean by per-family clipping and Dirichlet pseudocount shrinkage, invalidating Type-I calibration and all power decisions from this artifact.",
+  "scientific_outcome": null
+}

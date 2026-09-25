@@ -1,0 +1,17 @@
+{
+  "ended_at_utc": "2026-09-25T17:10:52+00:00",
+  "evidence_class": "Q",
+  "experiment_id": "V2-E07-clustered-power",
+  "output_manifest": [
+    {
+      "bytes": 22577,
+      "path": "evidence/power_v2/clustered_design.json",
+      "sha256": "44acb4401f2cf0f992f2150cd5392064c06849d9d51513b6db97cf39d5814113"
+    }
+  ],
+  "protocol_identity": "ContextWeave-v2-family-diverse-qualification",
+  "reason": "No 24-36-family design achieved the prespecified analytic and simulation power gate within 600 tasks.",
+  "stage": "V2-E07",
+  "status": "GATED",
+  "task_manifest_sha256": "38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99"
+}

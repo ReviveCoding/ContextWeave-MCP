@@ -1,0 +1,16 @@
+{
+  "batch_size": 4,
+  "device": "cuda",
+  "dtype": "bfloat16",
+  "errors": [],
+  "evidence_class": "Q",
+  "method": "C1",
+  "model_revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+  "outcome_sha256": "a45de1cd48c8a8b9d6bc7607cf1c71328067d66dca3700ef95e8c0da2abfeb33",
+  "protocol_identity": "ContextWeave-v2-family-diverse-qualification",
+  "status": "PASS",
+  "task_count": 360,
+  "task_manifest_sha256": "38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99",
+  "timestamp_utc": "2026-09-25T17:10:16+00:00",
+  "unique_task_count": 360
+}
