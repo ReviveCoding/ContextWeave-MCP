@@ -1,0 +1,32 @@
+{
+  "c1_failures": {
+    "herfindahl": 0.08622444983945493,
+    "top_shares": {
+      "1": 0.10619469026548672,
+      "10": 0.8938053097345132,
+      "3": 0.3185840707964602,
+      "5": 0.5221238938053098
+    },
+    "total": 113
+  },
+  "classification": "POSTHOC_EXPLORATORY",
+  "global_net_wins": 47,
+  "identity": "ContextWeave-v2-posthoc-diagnostics-v1",
+  "positive_net_wins": {
+    "herfindahl": 0.13679864890223303,
+    "note": "Positive family contributions total 73; negative family contributions net this to 47.",
+    "top_shares": {
+      "1": 0.1643835616438356,
+      "10": 1.0,
+      "3": 0.4931506849315068,
+      "5": 0.7808219178082192
+    },
+    "top_shares_of_global_net_47": {
+      "1": 0.2553191489361702,
+      "10": 1.553191489361702,
+      "3": 0.7659574468085106,
+      "5": 1.2127659574468086
+    },
+    "total": 73
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "classification": "POSTHOC_EXPLORATORY",
+  "identity": "ContextWeave-v2-posthoc-diagnostics-v1",
+  "issues": [
+    {
+      "affected_slice_count": 13,
+      "affected_slices": [
+        "adgroup_campaign_rollup",
+        "alias_entity_lookup",
+        "ambiguous_metric_clarification",
+        "budget_policy_grounding",
+        "cache_version_validation",
+        "campaign_budget_join",
+        "cross_tenant_refusal",
+        "governed_schema_alias",
+        "keyword_campaign_multihop",
+        "missing_scope_refusal",
+        "policy_dependency_multihop",
+        "renamed_column_refresh",
+        "roas_nested_metric"
+      ],
+      "causal_claim": false,
+      "confidence": 0.5,
+      "evidence": "required IDs absent from stored top-20 on failed tasks",
+      "frequency": 100,
+      "impact": 150.0,
+      "issue": "RETRIEVAL_COVERAGE_ASSOCIATION",
+      "likely_subsystem": "retrieval",
+      "proposed_mitigation": "Add exact dependency injection, then test in a new protocol.",
+      "requires_new_scientific_protocol": true,
+      "severity": 3
+    },
+    {
+      "affected_slice_count": 2,
+      "affected_slices": [
+        "ambiguous_metric_clarification",
+        "missing_scope_refusal"
+      ],
+      "causal_claim": false,
+      "confidence": 1.0,
+      "evidence": "stored C1 status and behavior fields",
+      "frequency": 23,
+      "impact": 115.0,
+      "issue": "UNSAFE_ANSWER",
+      "likely_subsystem": "behavior_control",
+      "proposed_mitigation": "Gate executable output by expected behavior.",
+      "requires_new_scientific_protocol": true,
+      "severity": 5
+    },
+    {
+      "affected_slice_count": 7,
+      "affected_slices": [
+        "adgroup_campaign_rollup",
+        "alias_entity_lookup",
+        "budget_policy_grounding",
+        "governed_schema_alias",
+        "keyword_campaign_multihop",
+        "policy_dependency_multihop",
+        "rolling_window_peak"
+      ],
+      "causal_claim": false,
+      "confidence": 1.0,
+      "evidence": "stored C1 status and behavior fields",
+      "frequency": 24,
+      "impact": 96.0,
+      "issue": "SQL_EXECUTION_ERROR",
+      "likely_subsystem": "sql_execution",
+      "proposed_mitigation": "Audit identifiers and sandbox-compatible SQL.",
+      "requires_new_scientific_protocol": true,
+      "severity": 4
+    },
+    {
+      "affected_slice_count": 3,
+      "affected_slices": [
+        "cache_version_validation",
+        "cross_tenant_refusal",
+        "renamed_column_refresh"
+      ],
+      "causal_claim": false,
+      "confidence": 1.0,
+      "evidence": "stored C1 status and behavior fields",
+      "frequency": 25,
+      "impact": 75.0,
+      "issue": "WRONG_DEFERRAL",
+      "likely_subsystem": "behavior_control",
+      "proposed_mitigation": "Improve exact deferral routing.",
+      "requires_new_scientific_protocol": true,
+      "severity": 3
+    },
+    {
+      "affected_slice_count": 5,
+      "affected_slices": [
+        "adgroup_campaign_rollup",
+        "campaign_budget_join",
+        "policy_dependency_multihop",
+        "rolling_window_peak",
+        "temporal_period_aggregation"
+      ],
+      "causal_claim": false,
+      "confidence": 1.0,
+      "evidence": "stored C1 status and behavior fields",
+      "frequency": 18,
+      "impact": 72.0,
+      "issue": "WRONG_RESULT",
+      "likely_subsystem": "sql_generation",
+      "proposed_mitigation": "Add targeted join and aggregation qualification.",
+      "requires_new_scientific_protocol": true,
+      "severity": 4
+    },
+    {
+      "affected_slice_count": 4,
+      "affected_slices": [
+        "alias_entity_lookup",
+        "campaign_budget_join",
+        "governed_schema_alias",
+        "roas_nested_metric"
+      ],
+      "causal_claim": false,
+      "confidence": 1.0,
+      "evidence": "stored C1 status and behavior fields",
+      "frequency": 23,
+      "impact": 69.0,
+      "issue": "OVER_REFUSAL",
+      "likely_subsystem": "behavior_control",
+      "proposed_mitigation": "Improve answerability without weakening policy gates.",
+      "requires_new_scientific_protocol": true,
+      "severity": 3
+    }
+  ]
+}
