@@ -12,9 +12,6 @@ import time
 from pathlib import Path
 from typing import Any, cast
 
-import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
-
 from contextweave.benchmark import normalized_hash
 from contextweave.context_planner import plan_context
 from contextweave.evidence import ROOT, atomic_json, load_state, record, save_state, utc_now
@@ -122,6 +119,9 @@ def _assert_exclusive_gpu_owner(expected_pids: set[int]) -> None:
 
 
 def run_pilot() -> dict[str, Any]:
+    import torch
+    from transformers import AutoModelForCausalLM, AutoTokenizer
+
     _assert_exclusive_gpu_owner(set())
     if not torch.cuda.is_available():
         raise RuntimeError("GPU-designated pilot cannot run on CPU")

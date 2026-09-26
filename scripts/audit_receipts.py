@@ -1,5 +1,6 @@
 """Check receipt output hashes without rewriting historical experiment identities."""
 
+import argparse
 import hashlib
 import json
 
@@ -18,6 +19,13 @@ HISTORICALLY_MUTABLE = {
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--check-only",
+        action="store_true",
+        help="validate without rewriting the timestamped receipt-integrity artifact",
+    )
+    args = parser.parse_args()
     checked = 0
     archived = []
     historical = []
@@ -60,7 +68,8 @@ def main() -> None:
         "unexplained_mismatches": unexplained,
         "status": "PASS_WITH_HISTORICAL_CAVEATS" if not unexplained else "FAIL",
     }
-    atomic_json(ROOT / "evidence/quality/receipt_integrity.json", result)
+    if not args.check_only:
+        atomic_json(ROOT / "evidence/quality/receipt_integrity.json", result)
     print(json.dumps(result, indent=2))
     if unexplained:
         raise SystemExit(1)

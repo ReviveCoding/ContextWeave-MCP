@@ -12,9 +12,6 @@ import time
 from pathlib import Path
 from typing import Any, cast
 
-import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
-
 from contextweave.benchmark import normalized_hash
 from contextweave.context_planner import plan_context
 from contextweave.evidence import ROOT, atomic_json, load_state, save_state, utc_now
@@ -100,6 +97,9 @@ def _progress(method: str, count: int, total: int, identity: str) -> None:
 
 
 def run() -> dict[str, Any]:
+    import torch
+    from transformers import AutoModelForCausalLM, AutoTokenizer
+
     if _gpu_compute_pids():
         raise RuntimeError("GPU is not exclusively idle before v2 Qwen load")
     if not torch.cuda.is_available():

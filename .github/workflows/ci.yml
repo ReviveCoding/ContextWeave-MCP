@@ -1,0 +1,77 @@
+name: CI
+
+"on":
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    name: Python 3.12 quality and evidence
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out full history and tags
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Install uv and Python 3.12
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
+        with:
+          version: "0.12.19"
+          python-version: "3.12"
+          enable-cache: true
+
+      - name: Verify lockfile
+        run: uv lock --check
+
+      - name: Sync locked CPU development environment
+        run: uv sync --locked --no-extra gpu --group dev
+
+      - name: Ruff format
+        run: uv run --locked ruff format --check src tests scripts
+
+      - name: Ruff lint
+        run: uv run --locked ruff check src tests scripts
+
+      - name: Strict mypy
+        run: uv run --locked mypy --strict src/contextweave
+
+      - name: Test suite
+        run: uv run --locked python -m pytest -q
+
+      - name: Validate canonical release evidence
+        run: |
+          uv run --locked python scripts/audit_receipts.py --check-only
+          uv run --locked python scripts/validate_release.py
+          uv run --locked python scripts/validate_posthoc_v1.py
+
+      - name: Build wheel and source distribution
+        run: uv build --out-dir dist
+
+      - name: Clean wheel import smoke
+        run: |
+          uv venv --python 3.12 --clear .wheel-smoke
+          uv pip install --python .wheel-smoke/bin/python --no-deps dist/*.whl
+          .wheel-smoke/bin/python -c "import contextweave; print(contextweave.__file__)"
+
+      - name: Upload distributions
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: contextweave-mcp-distributions-${{ github.sha }}
+          path: dist/*
+          if-no-files-found: error
+          retention-days: 14

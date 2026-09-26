@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use this research repository, cite it using this metadata."
+title: "ContextWeave-MCP: Evidence-First Adaptive Context Optimization for Tool-Using Agents over Structured Enterprise Data"
+type: software
+version: 0.1.0
+date-released: 2026-09-26
+authors:
+  - family-names: Bae
+    given-names: Jinwoo
+repository-code: "https://github.com/ReviveCoding/ContextWeave-MCP"
+url: "https://github.com/ReviveCoding/ContextWeave-MCP"
+abstract: >-
+  A reproducible research system for governed context selection over structured
+  enterprise-style data, including MCP tools, qualification evidence, calibrated
+  insufficient-power closure, and post-release exploratory diagnostics.
