@@ -92,9 +92,10 @@ def verify_release() -> dict[str, str]:
     result: dict[str, str] = {}
     for relative in paths:
         current = (ROOT / relative).read_bytes()
-        result[relative] = sha(current)
+        release_bytes = subprocess.check_output(["git", "show", f"{TAG}:{relative}"], cwd=ROOT)
+        result[relative] = sha(release_bytes)
         expected = EXPECTED_SHA256.get(relative)
-        if expected is not None and result[relative] != expected:
+        if expected is not None and (sha(current) != expected or result[relative] != expected):
             raise RuntimeError(f"canonical SHA-256 differs: {relative}")
     return result
 

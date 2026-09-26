@@ -48,7 +48,7 @@
     "evidence/retrieval_v2/bge_m3_queries_receipt.json": "0e200c9c05f3795b93060abd99f69315aa00a451d6d0e8a4c06e0c096686d779",
     "evidence/retrieval_v2/rankings.jsonl": "505e6a0a1c5dfa1ba4a0d588f663a20b5a10b04cd4c83becab08ee55aed63ad2",
     "evidence/retrieval_v2/rankings_receipt.json": "53168fb4e35945f8d403f4839fd840fbbd968001f5928c09a9b90b9444a04a45",
-    "evidence/retrieval_v2/validation.json": "1cc3631f8fb1da9dbd75527cce7571debc23ff3e2b2c1ece4f808a8b676928be",
+    "evidence/retrieval_v2/validation.json": "b978d20554e4181c3cfb0bd7ab7d589b943647d7d6214e0e69cdb08b2b947758",
     "evidence/warehouse/manifest.json": "6155a9f45c8680295136085c301bb20104c9cf256b1dfdc6a13122fc4c85395f",
     "evidence/warehouse/manifest_v1.json": "f55043b3bfe193a66f689635c38f65e3bdee178cee7a397cb6f71a41da80ed99",
     "reports/CLAIM_LEDGER.md": "de92abaebcc31b556afaa5ae93f047333bfcd689b6dc9200319cec7e9e5700dd",
@@ -66,7 +66,7 @@
     "seed": 2026092601
   },
   "manifest_hash_scope": "canonical payload hash; self-file hash excluded to avoid recursion",
-  "manifest_payload_sha256": "bf29b93e3f05a5bdf8adf5c07f4760f4dd33c2e419b59f1fd07eb1b9c2de1294",
+  "manifest_payload_sha256": "a17447544143bf702f55cc0858334dd1d1f680c958e76d22552c4e5764599709",
   "parent_release_commit": "3d0d44081e3a5a6f67b58846bfcd307e448658d8",
   "parent_release_tag": "contextweave-v2-release-closed-2026-09-25",
   "validation": {
