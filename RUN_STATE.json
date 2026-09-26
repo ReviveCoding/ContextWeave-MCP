@@ -7,9 +7,10 @@
     "E03",
     "E04",
     "E05",
-    "E06"
+    "E06",
+    "E26"
   ],
-  "current_stage": "V2-CLOSED",
+  "current_stage": "E26-CLOSED",
   "dataset_identities": {
     "T1": "94ac7a465564349bc7ba008602211d5990a3c53cc133abc0aadef61ea2391a98",
     "T3": "d50277f36f4fc1b86ac196c327f3ccb450a18895325f78aea228f5f6d8d90ddf",
@@ -59,13 +60,13 @@
       "validation": "evidence/pilot_v2/b2_reboot_validation_196.json"
     }
   ],
-  "last_valid_checkpoint": "V2-E07-calibrated-clustered-power",
+  "last_valid_checkpoint": "E26-release-quality",
   "model_identities": {
     "BGE-M3": "5617a9f61b028005a4858fdac845db406aefb181",
     "BGE-reranker-v2-m3": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
     "Qwen3-4B": "1cfa9a7208912126459214e8b04321603b3df60c"
   },
-  "next_legal_action": "Documentation/release closure only; no E08-E24 scientific action, protected task construction, DESIGN_FREEZE, or BENCHMARK_FREEZE under v2.",
+  "next_legal_action": "No further v2 scientific action is legal. Preserve artifacts; a future scientific program requires a new protocol identity.",
   "protected_accesses": [],
   "protocol_history": [
     {
@@ -141,6 +142,9 @@
         "V2-E06-c1-qwen-pilot"
       ],
       "rankings_sha256": "505e6a0a1c5dfa1ba4a0d588f663a20b5a10b04cd4c83becab08ee55aed63ad2",
+      "release_closure_identity": "CONTEXTWEAVE_V2_RELEASE_CLOSED_2026-09-25",
+      "release_quality": "evidence/quality/release_closure.json",
+      "release_status": "RELEASE_CLOSED",
       "retrieval_receipt": "evidence/receipts/V2-E06-retrieval-qualification.json",
       "selected_feasible_design": null,
       "status": "CLOSED_INSUFFICIENT_POWER",
@@ -148,7 +152,8 @@
       "task_manifest_sha256": "38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99"
     }
   },
-  "protocol_status": "V2_PRE_FREEZE_INSUFFICIENT_POWER_CALIBRATED",
+  "protocol_status": "RELEASE_CLOSED_PRE_FREEZE_INSUFFICIENT_POWER",
+  "release_closure_identity": "CONTEXTWEAVE_V2_RELEASE_CLOSED_2026-09-25",
   "schema_version": 1,
-  "updated_at_utc": "2026-09-25T22:24:08+00:00"
+  "updated_at_utc": "2026-09-26T00:40:57+00:00"
 }

@@ -1,0 +1,17 @@
+{
+  "F01_system_architecture.svg": "23c8e2745f1500aa6af592553b8ef15b361c0728a9e5301ee40349f1a7abc7ad",
+  "F02_evidence_domains.svg": "455ede994549e94b72e59b21667e349d88362ee4f648616ba91292364e5766f0",
+  "F03_schema_dependency_graph.svg": "4b77a25cd7634295e32801100e5619acefa1bcdfff3c16615f576ec308ad32b5",
+  "F04_baseline_ladder.svg": "be570d0ad1e0fc4daecf4c76ab4127e9fe762dee4ce2007ecd585fc3938be661",
+  "F05_task_success_vs_tokens.svg": "4a4e819f1a6bee1ee64c322fc4c57cd16b8d6f5c121be63d4894e5a7f4ba18be",
+  "F06_task_success_vs_latency.svg": "8c9547a43eb6bb0621213e479d018c44d6a4c042bc536f402179aca25ac2243d",
+  "F07_token_budget_frontier.svg": "e0067f12f9cdbebaf1c92dc18dbcdf8d07c87bcf12e59d244a05fc3f25ac5a81",
+  "F08_task_complexity_slices.svg": "564a589722abf4c43c9f208777195d5547f1e75e59f3ac04d0a0fa7638ad1118",
+  "F09_error_taxonomy.svg": "cdd17856e4f00a02aa920fdccabdfa4a85687624e4a6139349d00d2476c3cca6",
+  "F10_stress_ood_heatmap.svg": "8e193ac089808c6c287a2282f7b13085888ccf6eb2da7c97e3f20f8d7dacdcec",
+  "F11_security_gate_matrix.svg": "8439e5691407d512f277ab68131ba74c7805317b43a0eea4f0eaebb11a48c86b",
+  "F12_cache_frontier.svg": "b1f6d7650575d3190e80590a0e558e68cd79661b26bd9593c05dbb53e20c5fa8",
+  "F13_ablation.svg": "cb8e3d4b0c62e091f79defbefa7928d61cb48a8c7e7568160639829dd1d20124",
+  "F14_external_validation.svg": "e5e6550ddf0c7620e6d9bc5460a0780cbf21897bffc59afcf5791b734843c32d",
+  "F15_final_decision.svg": "80adcd50a7f6018581b94d29c731313565a75dd71e5d7752fb49b7f2234730a2"
+}

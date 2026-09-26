@@ -8,7 +8,7 @@ import math
 import statistics
 from typing import Any
 
-from scipy.stats import norm  # type: ignore[import-untyped]
+from scipy.stats import norm
 
 from contextweave.evidence import ROOT, atomic_json, record, utc_now
 

@@ -24,7 +24,8 @@ def main() -> None:
     unexplained = []
     for path in sorted((ROOT / "evidence/receipts").glob("*.json")):
         receipt = json.loads(path.read_text(encoding="utf-8"))
-        experiment = receipt["experiment_id"]
+        # Closure/state receipts may use a closure identity instead of an experiment ID.
+        experiment = receipt.get("experiment_id", receipt.get("closure_identity", path.stem))
         for output in receipt.get("output_manifest", []):
             checked += 1
             rel = output["path"]

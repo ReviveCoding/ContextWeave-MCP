@@ -1,0 +1,19 @@
+{
+  "contextweave_import_path": "/mnt/c/Users/bjw-0/Downloads/ContextWeave-MCP/src/contextweave/__init__.py",
+  "cuda_available": true,
+  "cuda_device_name": "NVIDIA GeForce RTX 4090 Laptop GPU",
+  "evidence_class": "D",
+  "purpose": "release environment repair; does not replace E01 scientific evidence",
+  "pyproject_sha256": "32cbbdda700f0e8afc3dce3cf30620c5c16c3d319c65bd1d94bef47cb91cfa5d",
+  "python_executable": "/home/bjw-0/.local/share/uv/python/cpython-3.12.14-linux-x86_64-gnu/bin/python3.12",
+  "python_version": "3.12.14",
+  "status": "PASS",
+  "timestamp_utc": "2026-09-26T00:40:25+00:00",
+  "torch_cuda_version": "13.0",
+  "torch_has_long_tensor": true,
+  "torch_has_tensor": true,
+  "torch_import_path": "/home/bjw-0/.cache/contextweave-mcp/venv/lib/python3.12/site-packages/torch/__init__.py",
+  "torch_version": "2.14.0+cu130",
+  "transformers_version": "5.17.0",
+  "uv_lock_sha256": "4c8937506e67d3b8206e1ec26209dc8ebc5339e1d726b6a74390d305b8bd5862"
+}

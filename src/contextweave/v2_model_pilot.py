@@ -197,11 +197,15 @@ def run() -> dict[str, Any]:
                     "content": f"Schema and governed context:\n{context}{scenario}\n\nQuestion: {task['query']}",
                 },
             ]
-            prompts.append(
-                tokenizer.apply_chat_template(
-                    messages, tokenize=False, add_generation_prompt=True, enable_thinking=False
-                )
+            rendered_prompt = tokenizer.apply_chat_template(
+                messages,
+                tokenize=False,
+                add_generation_prompt=True,
+                enable_thinking=False,
             )
+            if not isinstance(rendered_prompt, str):
+                raise TypeError("apply_chat_template(tokenize=False) did not return str")
+            prompts.append(rendered_prompt)
         encoded: Any = tokenizer(
             prompts, padding=True, return_tensors="pt", add_special_tokens=False
         )

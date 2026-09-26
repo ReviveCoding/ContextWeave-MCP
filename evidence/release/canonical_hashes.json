@@ -1,0 +1,12 @@
+{
+  "artifacts": {
+    "evidence/pilot_v2/b2_qwen3_4b.jsonl": "e1dd2d277f14fa4136109c3df18e79d7241b450d6995c97f21a2d0a45a07ba3f",
+    "evidence/pilot_v2/c1_qwen3_4b.jsonl": "a45de1cd48c8a8b9d6bc7607cf1c71328067d66dca3700ef95e8c0da2abfeb33",
+    "evidence/power_v2/calibration_audit.json": "0f1925dba92669825a97fae53fe0e044db568f790877296ce95b8caabdabbf08",
+    "evidence/power_v2/clustered_design_calibrated.json": "ea5d24011cf4d6bc3caea7d536d9f252123c90c97053c44a68cd29b3854555e1",
+    "evidence/receipts/V2-E07-calibrated-clustered-power.json": "171637556422db4d4d6f1652d0537eff7fe55cf9eab96ff4895852728ec12f71",
+    "evidence/receipts/V2-pre-freeze-closure-calibrated.json": "d9cb86d34e1562e9c502316f616939b68348d7a2a1c1e746c9dbbb1ee3adf771"
+  },
+  "generated_at_utc": "2026-09-26T00:40:57+00:00",
+  "status": "PASS"
+}

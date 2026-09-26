@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="306" viewBox="0 0 1200 306">
+<style>.title{font:700 30px system-ui;fill:#0f172a}.sub{font:18px system-ui;fill:#475569}.body{font:19px ui-monospace,monospace;fill:#1e293b}.foot{font:14px system-ui;fill:#64748b}</style>
+<rect width="1200" height="306" fill="#f8fafc"/><rect width="16" height="306" fill="#ea580c"/>
+<text x="48" y="54" class="title">F4 — Executed qualification methods</text>
+<text x="48" y="88" class="sub">The wider baseline ladder was gated before protected evaluation</text><text x="48" y="145" class="body">B2 BM25 Top-k: 200/360 (55.56%)</text>
+<text x="48" y="179" class="body">C1 ContextWeave-R: 247/360 (68.61%)</text>
+<text x="48" y="213" class="body">paired difference: +13.06 pp — QUALIFICATION ONLY</text>
+<text x="48" y="247" class="body">B-2/B-1/B0/B1/B3-B7/C2 final comparisons: NOT RUN / GATED</text>
+<text x="48" y="282" class="foot">Generated from canonical repository evidence; qualification is not confirmatory efficacy.</text>
+</svg>

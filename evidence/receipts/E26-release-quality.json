@@ -1,0 +1,100 @@
+{
+  "evidence_class": "D",
+  "experiment_id": "E26-release-quality",
+  "freeze_identities": {},
+  "output_manifest": [
+    {
+      "bytes": 897,
+      "path": "evidence/quality/release_closure.json",
+      "sha256": "7c20bac07ac75fc72b671551b108ec511f551b85e8a3bc7596909ffe01ffc7d3"
+    },
+    {
+      "bytes": 6327,
+      "path": "RUN_STATE.json",
+      "sha256": "31db17eec0fe5d41bb0560bcaee480877e75ae65acb7b75a2d70de85282caa4f"
+    },
+    {
+      "bytes": 299,
+      "path": "NEXT_ACTION.md",
+      "sha256": "f84d0fcf2b6e09caa51f1d7584db58b2e2e27e16cb9a56ab6075468797cd92c0"
+    },
+    {
+      "bytes": 7980,
+      "path": "reports/FINAL_TECHNICAL_REPORT.md",
+      "sha256": "88025fff2e8d8db39d5e5ca360881450e184bdd8159beba00c18e97e66422938"
+    },
+    {
+      "bytes": 1833,
+      "path": "reports/EXECUTIVE_SUMMARY.md",
+      "sha256": "54ccdf49b49893499bbe867b657d78ee10dc38d3a71fe8d659731fc501c5409e"
+    },
+    {
+      "bytes": 2891,
+      "path": "reports/DESKTOP_STUDY.md",
+      "sha256": "46f22c829650b26c3959b8648e79b741d7526dc8bab1b68995fa2910ec5cd0af"
+    },
+    {
+      "bytes": 671,
+      "path": "reports/DATA_AUDIT.md",
+      "sha256": "62935727e0bf559a46a8191ba7d618b19cc2cfbbce34337bd443f4db65dc7312"
+    },
+    {
+      "bytes": 1909,
+      "path": "reports/METHOD_COMPARISON.md",
+      "sha256": "4c62cb8250d9e94797f6299d99d3f3c2702aeaae179fe60f096fa22ee1f2ea1e"
+    },
+    {
+      "bytes": 1741,
+      "path": "reports/SECURITY_ASSESSMENT.md",
+      "sha256": "73c8872207ce9376b645cc21bdd5b450ab8713d81c784c4b3a1ff8358ddb9847"
+    },
+    {
+      "bytes": 1780,
+      "path": "reports/SYSTEMS_ASSESSMENT.md",
+      "sha256": "da74095bc6f6882e419e73fe72e98c99801a5c39107855b7a2310c2cba29994e"
+    },
+    {
+      "bytes": 2389,
+      "path": "reports/FAILURE_ANALYSIS.md",
+      "sha256": "a23af338dd9a273497be5503f407b7a6010137abb73d5ebd48c982f152542e0b"
+    },
+    {
+      "bytes": 3166,
+      "path": "reports/CLAIM_LEDGER.md",
+      "sha256": "de92abaebcc31b556afaa5ae93f047333bfcd689b6dc9200319cec7e9e5700dd"
+    },
+    {
+      "bytes": 2447,
+      "path": "reports/REPRODUCTION_GUIDE.md",
+      "sha256": "17999fe789cace3241d5189421f038a63426dea93695e2b5d5f5147208d82be9"
+    },
+    {
+      "bytes": 1226,
+      "path": "reports/RESUME_EVIDENCE.md",
+      "sha256": "208e2d35a2b4e4e51ebb9db440286d81c3cd67df27ff45a4e3edb9a5862eb6b8"
+    },
+    {
+      "bytes": 2072,
+      "path": "evidence/release/stage_matrix.json",
+      "sha256": "b881792ce690bdd113838799061db3b44544424c0257b207f3351b3b81bd0699"
+    },
+    {
+      "bytes": 822,
+      "path": "evidence/release/canonical_hashes.json",
+      "sha256": "47180a973be17e42012597bbf9ec6e75aa6e9740a2bfaff258625aaff30d80bd"
+    },
+    {
+      "bytes": 1501,
+      "path": "evidence/release/figure_manifest.json",
+      "sha256": "760b51ff5e19af5643a06b25b43df3876a0b4e02483f00b3fdd8628ecc38eaae"
+    }
+  ],
+  "protected_accesses": [],
+  "protocol_identity": "ContextWeave-v2-family-diverse-qualification",
+  "release_closure_identity": "CONTEXTWEAVE_V2_RELEASE_CLOSED_2026-09-25",
+  "scientific_closure_identity": "V2_PRE_FREEZE_INSUFFICIENT_POWER_CALIBRATED",
+  "scientific_work_rerun": false,
+  "stage": "E26",
+  "status": "PASS",
+  "timestamp_utc": "2026-09-26T00:40:57+00:00"
+}

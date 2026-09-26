@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340">
+<style>.title{font:700 30px system-ui;fill:#0f172a}.sub{font:18px system-ui;fill:#475569}.body{font:19px ui-monospace,monospace;fill:#1e293b}.foot{font:14px system-ui;fill:#64748b}</style>
+<rect width="1200" height="340" fill="#f8fafc"/><rect width="16" height="340" fill="#0f766e"/>
+<text x="48" y="54" class="title">F2 — Evidence domains and boundaries</text>
+<text x="48" y="88" class="sub">Domains remain separate in the claim ledger</text><text x="48" y="145" class="body">T1: real public event structure</text>
+<text x="48" y="179" class="body">T3: controlled enterprise-style warehouse</text>
+<text x="48" y="213" class="body">Q: v1/v2 qualification outcomes</text>
+<text x="48" y="247" class="body">P / locked / protected: NOT CREATED</text>
+<text x="48" y="281" class="body">X external transfer: NOT RUN / GATED</text>
+<text x="48" y="316" class="foot">Generated from canonical repository evidence; qualification is not confirmatory efficacy.</text>
+</svg>

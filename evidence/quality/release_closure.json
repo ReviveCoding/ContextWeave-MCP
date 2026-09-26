@@ -1,0 +1,30 @@
+{
+  "checks": {
+    "claim_ledger_validation": "PASS",
+    "clean_wheel_import": "PASS",
+    "package_build": "PASS",
+    "pytest": {
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "status": "PASS",
+      "tests": 35
+    },
+    "receipt_integrity": "PASS_WITH_HISTORICAL_CAVEATS",
+    "ruff_check": "PASS",
+    "ruff_format": "PASS",
+    "strict_mypy": "PASS"
+  },
+  "environment_receipt": "evidence/quality/release_environment.json",
+  "evidence_class": "D",
+  "scientific_work_rerun": false,
+  "source_commit_before_release_commit": "a9d915e10d4bdc2b26912b63d71c9ba202a53793",
+  "status": "PASS",
+  "timestamp_utc": "2026-09-26T00:40:57+00:00",
+  "wheel": {
+    "bytes": 58871,
+    "filename": "contextweave_mcp-0.1.0-py3-none-any.whl",
+    "sha256": "05d5c442fa49fa51fa245ec3a6e5aefe8ad4526ec7749fd84e8daad68f57c145",
+    "storage": "native WSL scratch; not committed"
+  }
+}

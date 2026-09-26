@@ -1,0 +1,117 @@
+{
+  "closure_identity": "V2_PRE_FREEZE_INSUFFICIENT_POWER_CALIBRATED",
+  "freeze_identities": {},
+  "generated_at_utc": "2026-09-26T00:40:57+00:00",
+  "note": "E08-E25 were not run because E07 failed the prespecified power gate.",
+  "protected_accesses": [],
+  "stages": [
+    {
+      "stage": "E00",
+      "status": "COMPLETED"
+    },
+    {
+      "stage": "E01",
+      "status": "COMPLETED"
+    },
+    {
+      "stage": "E02",
+      "status": "COMPLETED"
+    },
+    {
+      "stage": "E03",
+      "status": "COMPLETED"
+    },
+    {
+      "stage": "E04",
+      "status": "COMPLETED"
+    },
+    {
+      "stage": "E05",
+      "status": "COMPLETED"
+    },
+    {
+      "stage": "E06",
+      "status": "COMPLETED"
+    },
+    {
+      "stage": "E07",
+      "status": "CLOSED_INSUFFICIENT_POWER"
+    },
+    {
+      "stage": "E08",
+      "status": "GATED_NOT_RUN"
+    },
+    {
+      "stage": "E09",
+      "status": "GATED_NOT_RUN"
+    },
+    {
+      "stage": "E10",
+      "status": "GATED_NOT_RUN"
+    },
+    {
+      "stage": "E11",
+      "status": "GATED_NOT_RUN"
+    },
+    {
+      "stage": "E12",
+      "status": "GATED_NOT_RUN"
+    },
+    {
+      "stage": "E13",
+      "status": "GATED_NOT_RUN"
+    },
+    {
+      "stage": "E14",
+      "status": "GATED_NOT_RUN"
+    },
+    {
+      "stage": "E15",
+      "status": "GATED_NOT_RUN"
+    },
+    {
+      "stage": "E16",
+      "status": "GATED_NOT_RUN"
+    },
+    {
+      "stage": "E17",
+      "status": "GATED_NOT_RUN"
+    },
+    {
+      "stage": "E18",
+      "status": "GATED_NOT_RUN"
+    },
+    {
+      "stage": "E19",
+      "status": "GATED_NOT_RUN"
+    },
+    {
+      "stage": "E20",
+      "status": "GATED_NOT_RUN"
+    },
+    {
+      "stage": "E21",
+      "status": "GATED_NOT_RUN"
+    },
+    {
+      "stage": "E22",
+      "status": "GATED_NOT_RUN"
+    },
+    {
+      "stage": "E23",
+      "status": "GATED_NOT_RUN"
+    },
+    {
+      "stage": "E24",
+      "status": "GATED_NOT_RUN"
+    },
+    {
+      "stage": "E25",
+      "status": "GATED_NOT_RUN"
+    },
+    {
+      "stage": "E26",
+      "status": "RELEASE_CLOSED"
+    }
+  ]
+}

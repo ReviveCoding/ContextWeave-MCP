@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340">
+<style>.title{font:700 30px system-ui;fill:#0f172a}.sub{font:18px system-ui;fill:#475569}.body{font:19px ui-monospace,monospace;fill:#1e293b}.foot{font:14px system-ui;fill:#64748b}</style>
+<rect width="1200" height="340" fill="#f8fafc"/><rect width="16" height="340" fill="#7c3aed"/>
+<text x="48" y="54" class="title">F3 — Schema and dependency graph audit</text>
+<text x="48" y="88" class="sub">Deterministic E04/E05 evidence</text><text x="48" y="145" class="body">warehouse tables: 36</text>
+<text x="48" y="179" class="body">warehouse columns: 425</text>
+<text x="48" y="213" class="body">catalog metrics: 7</text>
+<text x="48" y="247" class="body">graph nodes / edges: 14 / 24</text>
+<text x="48" y="281" class="body">critical closure audited: true</text>
+<text x="48" y="316" class="foot">Generated from canonical repository evidence; qualification is not confirmatory efficacy.</text>
+</svg>

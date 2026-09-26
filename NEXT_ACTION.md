@@ -1,3 +1,3 @@
 # Next action
 
-V2 is mechanically closed as `V2_PRE_FREEZE_INSUFFICIENT_POWER_CALIBRATED`. Preserve the corrected E07 calibration audit, the superseded invalid simulation, and all qualification evidence. Continue only with documentation and release work that makes no E08–E24, protected, frozen, efficacy, production, security, or external-transfer claim. Do not create protected tasks or any freeze under v2.
+Release closure is complete. No further v2 scientific action is legal. Preserve v1/v2 qualification, superseded calibration, corrected E07, quality, and release artifacts. Any future scientific work requires a new protocol identity; do not create protected tasks or freezes under v2.

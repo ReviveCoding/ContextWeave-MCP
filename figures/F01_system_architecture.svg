@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340">
+<style>.title{font:700 30px system-ui;fill:#0f172a}.sub{font:18px system-ui;fill:#475569}.body{font:19px ui-monospace,monospace;fill:#1e293b}.foot{font:14px system-ui;fill:#64748b}</style>
+<rect width="1200" height="340" fill="#f8fafc"/><rect width="16" height="340" fill="#2563eb"/>
+<text x="48" y="54" class="title">F1 — Implemented qualification architecture</text>
+<text x="48" y="88" class="sub">Local, single-GPU research system</text><text x="48" y="145" class="body">public T1 + controlled T3 → DuckDB warehouse</text>
+<text x="48" y="179" class="body">catalog + dependency graph → retrieval/context planning</text>
+<text x="48" y="213" class="body">BGE-M3 + reranker → frozen rankings</text>
+<text x="48" y="247" class="body">one CUDA Qwen3-4B owner → atomic qualification outcomes</text>
+<text x="48" y="281" class="body">receipts + hashes → governed evidence</text>
+<text x="48" y="316" class="foot">Generated from canonical repository evidence; qualification is not confirmatory efficacy.</text>
+</svg>

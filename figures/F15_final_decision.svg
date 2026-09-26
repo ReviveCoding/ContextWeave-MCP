@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="374" viewBox="0 0 1200 374">
+<style>.title{font:700 30px system-ui;fill:#0f172a}.sub{font:18px system-ui;fill:#475569}.body{font:19px ui-monospace,monospace;fill:#1e293b}.foot{font:14px system-ui;fill:#64748b}</style>
+<rect width="1200" height="374" fill="#f8fafc"/><rect width="16" height="374" fill="#b91c1c"/>
+<text x="48" y="54" class="title">F15 — Final scientific decision</text>
+<text x="48" y="88" class="sub">Pre-freeze qualification program</text><text x="48" y="145" class="body">v1: V1_PRE_FREEZE_INSUFFICIENT_POWER</text>
+<text x="48" y="179" class="body">v2 original E07: SUPERSEDED_INVALID_CALIBRATION</text>
+<text x="48" y="213" class="body">v2 corrected analytic families required: 799</text>
+<text x="48" y="247" class="body">best feasible simulated power: 0.1165 (target 0.90)</text>
+<text x="48" y="281" class="body">calibration: PASS_CONTROLLED_CONSERVATIVE_HETEROGENEITY</text>
+<text x="48" y="315" class="body">decision: V2_PRE_FREEZE_INSUFFICIENT_POWER_CALIBRATED</text>
+<text x="48" y="350" class="foot">Generated from canonical repository evidence; qualification is not confirmatory efficacy.</text>
+</svg>

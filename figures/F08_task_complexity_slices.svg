@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="272" viewBox="0 0 1200 272">
+<style>.title{font:700 30px system-ui;fill:#0f172a}.sub{font:18px system-ui;fill:#475569}.body{font:19px ui-monospace,monospace;fill:#1e293b}.foot{font:14px system-ui;fill:#64748b}</style>
+<rect width="1200" height="272" fill="#f8fafc"/><rect width="16" height="272" fill="#64748b"/>
+<text x="48" y="54" class="title">F8 — Task-complexity slices</text>
+<text x="48" y="88" class="sub">E25 NOT RUN / GATED</text><text x="48" y="145" class="body">No protected benchmark or final method freeze exists.</text>
+<text x="48" y="179" class="body">No numerical result is imputed or fabricated.</text>
+<text x="48" y="213" class="body">See evidence/release/stage_matrix.json.</text>
+<text x="48" y="248" class="foot">Generated from canonical repository evidence; qualification is not confirmatory efficacy.</text>
+</svg>
