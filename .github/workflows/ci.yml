@@ -59,7 +59,7 @@ jobs:
 
       - name: Validate canonical release evidence
         run: |
-          uv run --locked python scripts/audit_receipts.py --check-only
+          uv run --locked python scripts/audit_receipts.py --check-only --public-ci
           uv run --locked python scripts/validate_release.py
           uv run --locked python scripts/validate_posthoc_v1.py
 
