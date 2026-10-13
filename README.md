@@ -1,187 +1,91 @@
 # ContextWeave-MCP
 
-**Evidence-First Adaptive Context Optimization for Tool-Using Agents over Structured Enterprise Data**
-
 [![CI](https://github.com/ReviveCoding/ContextWeave-MCP/actions/workflows/ci.yml/badge.svg)](https://github.com/ReviveCoding/ContextWeave-MCP/actions/workflows/ci.yml)
 [![Python 3.12](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Release](https://img.shields.io/github/v/release/ReviveCoding/ContextWeave-MCP?label=release)](https://github.com/ReviveCoding/ContextWeave-MCP/releases)
 
-## Overview
+ContextWeave-MCP evaluates how a tool-using analytical agent selects enough context to answer a question without relying only on semantic similarity. The system retrieves candidate evidence, resolves metric and schema dependencies, enforces freshness and authorization rules, and packs context within a fixed token budget.
 
-ContextWeave-MCP is a research and portfolio system for selecting compact, governed context for analytical agents. It combines lexical and neural retrieval, reranking, schema and metric dependency closure, freshness and authorization controls, read-only SQL, and Model Context Protocol (MCP) tools over a controlled enterprise-style data environment.
+This is a local research implementation over public events and controlled synthetic enterprise metadata, not an integration with a production advertising system.
 
-The repository preserves the complete scientific record, including negative results. The v2 study stopped before a protected benchmark because the calibrated design could not reach its prespecified power target within the 600-task feasibility ceiling.
+## The problem
 
-## Research question
+A relevant document is not always sufficient context. Analytical questions may require a metric definition, its upstream dependencies, the applicable policy version, a join path, or confirmation that the source is fresh and permitted.
 
-Can dependency-aware, utility-aware, and freshness-aware context selection supply an analytical agent with enough evidence to answer correctly while controlling token use, latency, stale context, missing dependencies, and authorization risk?
+The retrieval pipeline combines:
 
-The planned confirmatory hypothesis required non-inferior task success and materially lower context use. That hypothesis was **not tested**: the project closed at the qualification and power-planning gate.
+- BM25 retrieval and BGE-M3 semantic retrieval with neural reranking;
+- deterministic metric-dependency closure and context packing;
+- freshness, authorization, and tenant-scope constraints;
+- eight read-only MCP tools for catalog, policy, freshness, and SQL workflows;
+- Qwen3-4B qualification with saved task identities and evaluation receipts.
 
-## Why ContextWeave
+The qualification configuration used a 1,024-token context budget. [Architecture](figures/F01_system_architecture.svg) and [technical report](reports/FINAL_TECHNICAL_REPORT.md) document the implemented system.
 
-Enterprise analytical questions depend on more than semantic similarity. Correct answers may require exact schema versions, join paths, governed metric definitions, policy documents, tenant scope, and data-freshness state. ContextWeave-R therefore combines retrieval with deterministic dependency closure and governance checks before constructing model context.
+## Data and evaluation
 
-## System architecture
+The controlled DuckDB warehouse contains 36 tables and 425 columns. It was built using 16,468,027 audited rows from the public Criteo Attribution Modeling for Bidding dataset, together with explicitly synthetic enterprise objects, metrics, policies, permissions, and freshness states. These records are not production advertiser data.
 
-```mermaid
-flowchart LR
-    A[Public Criteo events] --> W[Controlled DuckDB warehouse]
-    B[Synthetic enterprise metadata] --> W
-    W --> C[Semantic catalog and dependency graph]
-    C --> R[BM25 + BGE-M3 + reranker]
-    R --> G[Dependency, freshness, and authorization controls]
-    G --> Q[Qwen3-4B qualification]
-    G --> M[Read-only MCP tools]
-    Q --> E[Atomic evidence and receipts]
-    M --> E
-```
+The v2 benchmark consists of 360 paired tasks grouped into 30 semantic families. It includes 240 executable gold-SQL tasks and 120 governed-behavior tasks (answer, clarify, refresh, refuse, retry, or abstain). Both evaluated methods used the same task IDs and pinned Qwen revision.
 
-![Implemented qualification architecture](figures/F01_system_architecture.svg)
+| Method | Successful tasks | TaskSuccess |
+| --- | ---: | ---: |
+| B2: BM25 top-k context | 200/360 | 55.56% |
+| C1: governed context selection | 247/360 | 68.61% |
+| Observed paired difference | +47 net wins | +13.06 percentage points |
 
-## Data and warehouse scale
+**These are qualification results, not confirmatory evidence of improvement.** The observed difference was concentrated in governed-behavior tasks, with remaining regressions in some SQL, refusal, and nested-metric families.
 
-| Evidence domain | Audited scale |
-|---|---:|
-| Public event rows | 16,468,027 |
-| Public-data users | 6,142,256 |
-| Campaigns | 675 |
-| Controlled warehouse tables | 36 |
-| Controlled warehouse columns | 425 |
-| Governed metrics | 7 |
+[Baseline comparison](figures/posthoc/P03_family_success_comparison.svg) · [Failure analysis](reports/posthoc/ERROR_ANALYSIS.md) · [Retrieval analysis](reports/posthoc/RETRIEVAL_CONTEXT_ANALYSIS.md)
 
-The event source is the public Criteo Attribution Modeling for Bidding dataset. Raw row-level source data is excluded from Git. The enterprise warehouse combines public event structure with explicitly controlled synthetic entities, policies, versions, permissions, and freshness state; it does not represent production advertiser systems or policy truth.
+## Why the study stopped before final evaluation
 
-## MCP surface
+The initial clustered power simulation had a null-generation error. After correcting and independently calibrating the simulator, the planned confirmatory test required 799 independent semantic families to reach 90% analytic power. The strongest feasible design under the 600-task ceiling reached only 11.65% simulated power.
 
-Eight read-only MCP tools cover schema search and description, metric definitions, policy retrieval, freshness, analytical time series, query explanation, and sandboxed SQL. Qualification smoke tests passed through in-memory, stdio, and Streamable HTTP paths using MCP 2.2.0 and protocol `2026-07-28`.
+No protected final benchmark was created or accessed, and the planned context-efficiency superiority claim was not tested. The study closed as V2_PRE_FREEZE_INSUFFICIENT_POWER_CALIBRATED.
 
-These are local software checks. They are not production availability, performance, or security-certification evidence.
+The [claim ledger](reports/CLAIM_LEDGER.md), [power analysis](reports/E07_POWER_PLAN.md), and [final technical report](reports/FINAL_TECHNICAL_REPORT.md) retain the negative result and its limitations.
 
-## Qualification benchmark
+## MCP and software checks
 
-The v2 qualification set contains:
+Eight read-only MCP tools cover schema search, metric definitions, policy lookup, freshness, time-series queries, SQL explanation, and sandboxed queries. Smoke tests exercised in-memory, stdio, and Streamable HTTP paths. These checks do not establish production availability or security certification.
 
-- 360 paired tasks in 30 semantic families, with 12 tasks per family;
-- 240 checked executable gold-SQL tasks and 120 governed-behavior tasks;
-- `ANSWER`, `CLARIFY`, `REFRESH`, `REFUSE`, `RETRY`, and `ABSTAIN` behaviors;
-- lookup, joins, temporal aggregation, ratios, nested metrics, schema and metric changes, policy grounding, authorization, freshness, cache, and dependency stress;
-- eight independently reviewed adversarial constructs, integrated without access to candidate internals.
+The CPU quality suite uses Python 3.12 and locked dependencies:
 
-The canonical task manifest SHA-256 is `38cc188a25252a4d7eb981f8a1d24b838aecc83686c24091ccba4c1e1a76ce99`.
+    git clone https://github.com/ReviveCoding/ContextWeave-MCP.git
+    cd ContextWeave-MCP
+    uv sync --locked --no-extra gpu --group dev
+    uv run ruff format --check src tests scripts
+    uv run ruff check src tests scripts
+    uv run mypy --strict src/contextweave
+    uv run python -m pytest -q
+    uv run python scripts/audit_receipts.py --check-only
+    uv run python scripts/validate_release.py
+    uv run python scripts/validate_posthoc_v1.py
 
-## Headline qualification results
+CI validates software and stored evidence; it does not redownload models or rerun the scientific qualification. GPU setup and pinned model revisions are documented in the [reproduction guide](reports/REPRODUCTION_GUIDE.md).
 
-> **QUALIFICATION ONLY — these outcomes do not establish confirmatory efficacy.**
+## Source and report map
 
-| Method | TaskSuccess | Rate |
-|---|---:|---:|
-| B2 BM25 Top-k | 200 / 360 | 55.56% |
-| C1 ContextWeave-R | 247 / 360 | 68.61% |
+| Path | Contents |
+| --- | --- |
+| src/contextweave/ | Retrieval, context planning, MCP interface, governance, and evaluation |
+| tests/ | Software and recovery tests |
+| benchmarks/ | Qualification task definitions |
+| evidence/ | Results, receipts, and source hashes |
+| warehouse/ | Controlled schema, metric catalog, and dependency graph |
+| reports/ | Methods, statistical checks, failure analysis, and limitations |
+| scripts/ | Reproducibility and validation commands |
 
-- Observed paired qualification difference: **+13.06 percentage points**
-- C1-only successes: **75**
-- B2-only successes: **28**
-- Net paired wins: **+47**
+Start with the [executive summary](reports/EXECUTIVE_SUMMARY.md) or [final technical report](reports/FINAL_TECHNICAL_REPORT.md). Post-hoc diagnostics are documented separately in [the analysis report](reports/posthoc/POSTHOC_DIAGNOSTIC_REPORT.md).
 
-Both methods used the same 360 task identities and frozen Qwen3-4B revision. The positive qualification difference must not be presented as a statistically established improvement.
+## Limitations and attribution
 
-![Qualification methods](figures/F04_baseline_ladder.svg)
+- Designed semantic families are not a representative sample of enterprise analytical workloads.
+- Systems, cache, security, OOD, and external-transfer confirmation experiments were gated and not run.
+- Timing recorded during qualification is not production latency.
+- No confirmatory effect estimate, production benefit, or independent external transfer is established.
 
-## Post-release robustness diagnostics
+Author: Jinwoo Bae. Citation metadata is provided in [CITATION.cff](CITATION.cff).
 
-> **POST-HOC EXPLORATORY — these diagnostics do not reverse the E07 power-gate decision.**
-
-The post-release diagnostic program used only stored qualification outcomes. Leave-one-family-out deltas ranged from approximately **+10.06 pp to +15.52 pp**. A deterministic 100,000-replicate family bootstrap produced exploratory `P(delta > 0) ≈ 95.54%`. Its percentile interval included zero, and neither result supplies confirmatory evidence.
-
-![Family success comparison](figures/posthoc/P03_family_success_comparison.svg)
-
-## Error and slicing analysis
-
-The exploratory reports include all semantic families, expected behavior, difficulty, source, schema and metric versions, task complexity, retrieval coverage, context-size bins, and normalized stored-output error classes. Operationally critical unsafe-answer diagnostics are reported explicitly; they are not a security certification. The engineering backlog treats subsystem assignments as hypotheses that require a new protocol to test.
-
-- [Slice analysis](reports/posthoc/SLICE_ANALYSIS.md)
-- [Error analysis](reports/posthoc/ERROR_ANALYSIS.md)
-- [Retrieval and context analysis](reports/posthoc/RETRIEVAL_CONTEXT_ANALYSIS.md)
-- [Improvement backlog](reports/posthoc/IMPROVEMENT_BACKLOG.md)
-
-## Statistical governance and claim boundary
-
-The original v2 E07 simulation was anti-calibrated and is preserved as `SUPERSEDED_INVALID_CALIBRATION`. The corrected family-level test passed calibration checks, then required 799 independent families for 0.90 analytic power. The best feasible design at or below 600 tasks reached simulated power 0.1165.
-
-The scientific disposition is:
-
-```text
-V2_PRE_FREEZE_INSUFFICIENT_POWER_CALIBRATED
-```
-
-No protected benchmark was created or accessed. No design freeze or benchmark freeze exists. The repository supports no confirmatory efficacy, production deployment, production latency, production security certification, Amazon-internal, revenue/ROAS, distributed-performance, or external-generalization claim.
-
-## Reproducibility
-
-Python 3.12 and `uv.lock` define the software environment. CPU quality checks do not rerun neural inference or regenerate scientific outcomes.
-
-```bash
-uv sync --locked --no-extra gpu --group dev
-uv run ruff format --check src tests scripts
-uv run ruff check src tests scripts
-uv run mypy --strict src/contextweave
-uv run python -m pytest -q
-uv run python scripts/audit_receipts.py --check-only
-uv run python scripts/validate_release.py
-uv run python scripts/validate_posthoc_v1.py
-uv build
-```
-
-GPU reproduction is intentionally separate and documented in [the reproduction guide](reports/REPRODUCTION_GUIDE.md). Publication CI never downloads model weights or reruns retrieval or inference.
-
-## Repository layout
-
-```text
-src/contextweave/       Core algorithms, MCP adapter, governance, and evaluators
-tests/                  CPU software, evidence, and recovery regression tests
-benchmarks/             Versioned qualification task definitions
-evidence/               Compact receipts, hashes, outcomes, and derived diagnostics
-reports/                Scientific, release, and post-hoc reports
-figures/                Evidence-derived release and exploratory figures
-scripts/                Resumable workflows and read-only validators
-sources/                Source and license registry
-```
-
-## Quick start
-
-```bash
-git clone https://github.com/ReviveCoding/ContextWeave-MCP.git
-cd ContextWeave-MCP
-uv sync --locked --no-extra gpu --group dev
-uv run contextweave --help
-uv run python -m pytest -q
-```
-
-The default setup is CPU-only. Local neural qualification requires the optional `gpu` extra, pinned model revisions, the separately documented native WSL environment, and suitable NVIDIA hardware. It is not part of CI or the public release validation path.
-
-## Reports and evidence
-
-- [Final technical report](reports/FINAL_TECHNICAL_REPORT.md)
-- [Executive summary](reports/EXECUTIVE_SUMMARY.md)
-- [Claim ledger](reports/CLAIM_LEDGER.md)
-- [Reproduction guide](reports/REPRODUCTION_GUIDE.md)
-- [Post-hoc diagnostic report](reports/posthoc/POSTHOC_DIAGNOSTIC_REPORT.md)
-- [Post-hoc claim ledger](reports/posthoc/POSTHOC_CLAIM_LEDGER.md)
-- [Release quality receipt](evidence/quality/release_closure.json)
-- [Post-hoc artifact manifest](evidence/posthoc_v1/manifest.json)
-
-## Limitations
-
-- Semantic families are designed clusters rather than a probability sample of analytical work.
-- Only B2 and C1 qualification methods completed under v2.
-- Context-efficiency, systems, security, cache, OOD, ablation, and external-transfer experiments were gated and not run.
-- Recorded qualification timing is batch-level and is not production latency.
-- Controlled warehouse structures cannot support production-advertiser conclusions.
-- No confirmatory effect estimate exists.
-
-## Citation and author
-
-Author: **Jinwoo Bae** (`ReviveCoding`). Citation metadata is available in [`CITATION.cff`](CITATION.cff).
-
-This repository does not currently grant a software license. Public availability does not itself grant permission to copy, modify, or redistribute the code beyond rights provided by applicable law.
+This repository currently has no software license. Public access does not grant permission to copy, modify, or redistribute it beyond applicable law.
