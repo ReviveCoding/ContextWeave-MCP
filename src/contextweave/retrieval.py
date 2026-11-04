@@ -80,6 +80,10 @@ class BM25:
         self.n = len(texts)
         self.k1 = k1
         self.b = b
+        self._postings: dict[str, list[tuple[int, int]]] = {}
+        for index, counts in enumerate(self.term_counts):
+            for term, frequency in counts.items():
+                self._postings.setdefault(term, []).append((index, frequency))
 
     def scores(self, query: str) -> np.ndarray[Any, Any]:
         result = np.zeros(self.n, dtype=np.float32)
@@ -88,11 +92,9 @@ class BM25:
             if not df:
                 continue
             idf = math.log(1 + (self.n - df + 0.5) / (df + 0.5))
-            for index, counts in enumerate(self.term_counts):
-                freq = counts[term]
-                if freq:
-                    norm = self.k1 * (1 - self.b + self.b * self.lengths[index] / self.avg_length)
-                    result[index] += idf * freq * (self.k1 + 1) / (freq + norm)
+            for index, freq in self._postings[term]:
+                norm = self.k1 * (1 - self.b + self.b * self.lengths[index] / self.avg_length)
+                result[index] += idf * freq * (self.k1 + 1) / (freq + norm)
         return result
 
 
