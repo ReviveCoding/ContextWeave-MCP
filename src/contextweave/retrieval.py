@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import hashlib
 import json
 import math
 import re
@@ -14,7 +13,7 @@ from typing import Any
 import numpy as np
 
 from contextweave.catalog import METRICS
-from contextweave.evidence import ROOT, atomic_json, utc_now
+from contextweave.evidence import ROOT, atomic_json, file_sha256, utc_now
 from contextweave.warehouse import BASE, CUSTOM
 
 MODEL_REVISION = "5617a9f61b028005a4858fdac845db406aefb181"
@@ -60,7 +59,7 @@ def save_corpus() -> dict[str, Any]:
     manifest = {
         "created_at_utc": utc_now(),
         "document_count": len(docs),
-        "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+        "sha256": file_sha256(path),
         "provenance": "T3 controlled warehouse schema and governed metric catalog",
     }
     atomic_json(ROOT / "evidence/retrieval/catalog_corpus_manifest.json", manifest)
@@ -80,6 +79,10 @@ class BM25:
         self.n = len(texts)
         self.k1 = k1
         self.b = b
+        self._postings: dict[str, list[tuple[int, int]]] = {}
+        for index, counts in enumerate(self.term_counts):
+            for term, frequency in counts.items():
+                self._postings.setdefault(term, []).append((index, frequency))
 
     def scores(self, query: str) -> np.ndarray[Any, Any]:
         result = np.zeros(self.n, dtype=np.float32)
@@ -88,11 +91,9 @@ class BM25:
             if not df:
                 continue
             idf = math.log(1 + (self.n - df + 0.5) / (df + 0.5))
-            for index, counts in enumerate(self.term_counts):
-                freq = counts[term]
-                if freq:
-                    norm = self.k1 * (1 - self.b + self.b * self.lengths[index] / self.avg_length)
-                    result[index] += idf * freq * (self.k1 + 1) / (freq + norm)
+            for index, freq in self._postings[term]:
+                norm = self.k1 * (1 - self.b + self.b * self.lengths[index] / self.avg_length)
+                result[index] += idf * freq * (self.k1 + 1) / (freq + norm)
         return result
 
 
@@ -135,7 +136,7 @@ def embed_catalog(batch_size: int = 64) -> dict[str, Any]:
         "dimension": int(vectors.shape[1]),
         "elapsed_seconds": elapsed,
         "peak_vram_bytes": torch.cuda.max_memory_allocated(),
-        "embedding_sha256": hashlib.sha256(out.read_bytes()).hexdigest(),
+        "embedding_sha256": file_sha256(out),
         "evidence_class": "Q",
     }
     atomic_json(ROOT / "evidence/retrieval/bge_m3_catalog_receipt.json", receipt)
