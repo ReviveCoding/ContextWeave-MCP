@@ -30,6 +30,12 @@ def sha256(obj: Any) -> str:
     return hashlib.sha256(canonical_bytes(obj)).hexdigest()
 
 
+def file_sha256(path: Path) -> str:
+    """Hash an artifact with bounded memory, independent of its file size."""
+    with path.open("rb") as stream:
+        return hashlib.file_digest(stream, "sha256").hexdigest()
+
+
 def source_identity() -> str:
     result = subprocess.run(
         ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True, capture_output=True, check=False
@@ -45,7 +51,9 @@ def source_identity() -> str:
     h = hashlib.sha256()
     for path in paths:
         h.update(path.relative_to(ROOT).as_posix().encode())
-        h.update(path.read_bytes())
+        with path.open("rb") as stream:
+            for block in iter(lambda: stream.read(1024 * 1024), b""):
+                h.update(block)
     return "uncommitted-source-sha256:" + h.hexdigest()
 
 
@@ -96,7 +104,7 @@ def record(
             {
                 "path": rel,
                 "bytes": path.stat().st_size,
-                "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+                "sha256": file_sha256(path),
             }
         )
     receipt = {

@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import hashlib
 import json
 import math
 import re
@@ -14,7 +13,7 @@ from typing import Any
 import numpy as np
 
 from contextweave.catalog import METRICS
-from contextweave.evidence import ROOT, atomic_json, utc_now
+from contextweave.evidence import ROOT, atomic_json, file_sha256, utc_now
 from contextweave.warehouse import BASE, CUSTOM
 
 MODEL_REVISION = "5617a9f61b028005a4858fdac845db406aefb181"
@@ -60,7 +59,7 @@ def save_corpus() -> dict[str, Any]:
     manifest = {
         "created_at_utc": utc_now(),
         "document_count": len(docs),
-        "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+        "sha256": file_sha256(path),
         "provenance": "T3 controlled warehouse schema and governed metric catalog",
     }
     atomic_json(ROOT / "evidence/retrieval/catalog_corpus_manifest.json", manifest)
@@ -137,7 +136,7 @@ def embed_catalog(batch_size: int = 64) -> dict[str, Any]:
         "dimension": int(vectors.shape[1]),
         "elapsed_seconds": elapsed,
         "peak_vram_bytes": torch.cuda.max_memory_allocated(),
-        "embedding_sha256": hashlib.sha256(out.read_bytes()).hexdigest(),
+        "embedding_sha256": file_sha256(out),
         "evidence_class": "Q",
     }
     atomic_json(ROOT / "evidence/retrieval/bge_m3_catalog_receipt.json", receipt)
